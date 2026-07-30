@@ -19,24 +19,27 @@ class Offer(BaseModel):
 class ProductResult(BaseModel):
     name: str
     grouped: bool
+    group_id: Optional[int]
     offers: list[Offer]
 
 
-SEARCH_QUERY = """
+LATEST_PRICE_CTE = """
 WITH latest AS (
     SELECT DISTINCT ON (item_id)
         item_id, current_price, original_price
     FROM price_observations
     ORDER BY item_id, observed_at DESC
 )
+"""
+
+# Items that match the search text directly. LEFT JOINs to item_group_map/product_groups
+# so ungrouped items still come back (with group_id NULL) instead of being excluded.
+MATCHING_ITEMS_QUERY = (
+    LATEST_PRICE_CTE
+    + """
 SELECT
-    i.id,
-    i.name,
-    m.name AS merchant_name,
-    l.current_price,
-    l.original_price,
-    igm.group_id,
-    pg.canonical_name
+    i.id, i.name, m.name AS merchant_name,
+    l.current_price, l.original_price, igm.group_id, pg.canonical_name
 FROM items i
 JOIN merchants m ON m.merchant_id = i.merchant_id
 JOIN latest l ON l.item_id = i.id
@@ -44,15 +47,41 @@ LEFT JOIN item_group_map igm ON igm.item_id = i.id
 LEFT JOIN product_groups pg ON pg.id = igm.group_id
 WHERE i.name ILIKE %s
 """
+)
+
+# Every item belonging to a given set of groups, regardless of whether its own text
+# happened to match the search query -- so a matched group's offers are never partial.
+GROUP_MEMBERS_QUERY = (
+    LATEST_PRICE_CTE
+    + """
+SELECT
+    i.id, i.name, m.name AS merchant_name,
+    l.current_price, l.original_price, igm.group_id, pg.canonical_name
+FROM item_group_map igm
+JOIN items i ON i.id = igm.item_id
+JOIN merchants m ON m.merchant_id = i.merchant_id
+JOIN latest l ON l.item_id = i.id
+JOIN product_groups pg ON pg.id = igm.group_id
+WHERE igm.group_id = ANY(%s)
+"""
+)
 
 
 @app.get("/search", response_model=list[ProductResult])
 def search(q: str = Query(..., min_length=1)):
     conn = get_connection()
     with conn.cursor() as cur:
-        cur.execute(SEARCH_QUERY, (f"%{q}%",))
+        cur.execute(MATCHING_ITEMS_QUERY, (f"%{q}%",))
         rows = cur.fetchall()
+
+        matched_group_ids = {row[5] for row in rows if row[5] is not None}
+        if matched_group_ids:
+            cur.execute(GROUP_MEMBERS_QUERY, (list(matched_group_ids),))
+            rows += cur.fetchall()
     conn.close()
+
+    # dedupe: an item can appear both as a direct text match and as a group member
+    rows = list({row[0]: row for row in rows}.values())
 
     # bucket rows by group_id when present, otherwise each ungrouped item is its own bucket
     buckets = {}
@@ -62,6 +91,7 @@ def search(q: str = Query(..., min_length=1)):
             buckets[key] = {
                 "name": canonical_name if group_id is not None else name,
                 "grouped": group_id is not None,
+                "group_id": group_id,
                 "offers": [],
             }
 
