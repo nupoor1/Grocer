@@ -10,7 +10,7 @@ POSTAL_CODE = "M5V 3L9"
 
 BASKET = [
     "milk", "eggs", "bread", "chicken breast", "bananas", "rice",
-    "ground beef", "butter", "cheese", "apples", "potatoes", "onions",
+    "butter", "cheese", "apples", "potatoes", "onions",
     "pasta", "cereal", "orange juice", "yogurt", "tomatoes", "carrots",
     "lettuce", "ground coffee", "olive oil", "flour", "sugar",
     "canned beans", "frozen vegetables",

@@ -47,3 +47,19 @@ CREATE TABLE IF NOT EXISTS item_group_map (
 );
 
 CREATE INDEX IF NOT EXISTS idx_item_group_map_group_id ON item_group_map(group_id);
+
+CREATE TABLE IF NOT EXISTS statcan_prices (
+    id SERIAL PRIMARY KEY,
+    product_category TEXT NOT NULL,
+    geography TEXT NOT NULL,
+    ref_month DATE NOT NULL,
+    avg_price NUMERIC(10, 2) NOT NULL,
+    UNIQUE (product_category, geography, ref_month)
+);
+
+CREATE INDEX IF NOT EXISTS idx_statcan_prices_category_geo ON statcan_prices(product_category, geography);
+
+CREATE TABLE IF NOT EXISTS product_group_statcan_map (
+    group_id INT PRIMARY KEY REFERENCES product_groups(id),
+    statcan_category TEXT NOT NULL
+);
