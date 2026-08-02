@@ -1,65 +1,35 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { searchProducts, type ProductResult } from "../api";
 import ProductCard from "../components/ProductCard";
 import CategoryChips from "../components/CategoryChips";
 
 export default function SearchPage() {
-  const [params, setParams] = useSearchParams();
-  const [q, setQ] = useState(params.get("q") ?? "");
+  const [params] = useSearchParams();
+  const q = params.get("q") ?? "";
   const [results, setResults] = useState<ProductResult[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function runSearch(term: string) {
-    if (!term.trim()) return;
+  useEffect(() => {
+    if (!q.trim()) return;
     setLoading(true);
     setError(null);
-    try {
-      setResults(await searchProducts(term.trim()));
-    } catch {
-      setError("Search failed. Try again.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  // supports arriving here via a category chip link (?q=...), not just manual typing
-  useEffect(() => {
-    const urlQ = params.get("q");
-    if (urlQ) {
-      setQ(urlQ);
-      runSearch(urlQ);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params]);
-
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    setParams({ q });
-    runSearch(q);
-  }
+    searchProducts(q.trim())
+      .then(setResults)
+      .catch(() => setError("Search failed. Try again."))
+      .finally(() => setLoading(false));
+  }, [q]);
 
   return (
     <div className="page">
-      <h1>Search groceries</h1>
-      <form onSubmit={handleSubmit} className="search-form">
-        <input
-          type="search"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="Search e.g. milk, bread, coffee..."
-          autoFocus
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? "..." : "Search"}
-        </button>
-      </form>
+      <h1>{q ? `Results for "${q}"` : "Search groceries"}</h1>
 
       <CategoryChips />
 
+      {loading && <p className="muted">Searching...</p>}
       {error && <p className="error">{error}</p>}
-      {results !== null && results.length === 0 && <p className="muted">No results.</p>}
+      {!loading && results !== null && results.length === 0 && <p className="muted">No results.</p>}
 
       <div className="product-grid">
         {results?.map((product, idx) => {
