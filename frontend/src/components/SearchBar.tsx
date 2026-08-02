@@ -9,11 +9,10 @@ export default function SearchBar() {
   const [params] = useSearchParams();
   const [q, setQ] = useState(params.get("q") ?? "");
 
-  // keep the field in sync if the query changes via a category chip link
+  // keep the field in sync with the URL on /search (e.g. a category chip link),
+  // and clear it whenever navigating away to any other page
   useEffect(() => {
-    if (location.pathname === "/search") {
-      setQ(params.get("q") ?? "");
-    }
+    setQ(location.pathname === "/search" ? params.get("q") ?? "" : "");
   }, [location.pathname, params]);
 
   function handleSubmit(e: FormEvent) {
