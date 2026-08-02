@@ -1,0 +1,61 @@
+const API_BASE = import.meta.env.VITE_API_BASE ?? "http://127.0.0.1:8000";
+
+export interface Offer {
+  item_id: number;
+  merchant: string;
+  current_price: number;
+  original_price: number | null;
+  is_deal: boolean;
+  discount_pct: number | null;
+  vs_own_history_pct: number | null;
+  vs_statcan_pct: number | null;
+  composite_score: number | null;
+}
+
+export interface ProductResult {
+  name: string;
+  grouped: boolean;
+  group_id: number | null;
+  offers: Offer[];
+}
+
+export interface DealObservation {
+  item_id: number;
+  group_id: number | null;
+  item_name: string;
+  merchant: string;
+  current_price: number;
+  original_price: number | null;
+  is_deal: boolean;
+  discount_pct: number | null;
+  vs_own_history_pct: number | null;
+  vs_statcan_pct: number | null;
+  composite_score: number | null;
+}
+
+export interface HistoryPoint {
+  merchant: string;
+  observed_at: string;
+  current_price: number;
+}
+
+async function getJSON<T>(path: string): Promise<T> {
+  const res = await fetch(`${API_BASE}${path}`);
+  if (!res.ok) {
+    throw new Error(`${path} failed: ${res.status}`);
+  }
+  return res.json();
+}
+
+export function fetchBestDeals(limit = 20): Promise<DealObservation[]> {
+  return getJSON(`/deals?limit=${limit}`);
+}
+
+export function searchProducts(q: string): Promise<ProductResult[]> {
+  return getJSON(`/search?q=${encodeURIComponent(q)}`);
+}
+
+export function fetchHistory(params: { groupId?: number; itemId?: number }): Promise<HistoryPoint[]> {
+  const query = params.groupId != null ? `group_id=${params.groupId}` : `item_id=${params.itemId}`;
+  return getJSON(`/history?${query}`);
+}

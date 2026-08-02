@@ -1,14 +1,24 @@
+from datetime import datetime
 from typing import Optional
 
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from db import get_connection
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
+
 
 class Offer(BaseModel):
+    item_id: int
     merchant: str
     current_price: float
     original_price: Optional[float]
@@ -27,6 +37,8 @@ class ProductResult(BaseModel):
 
 
 class DealObservation(BaseModel):
+    item_id: int
+    group_id: Optional[int]
     item_name: str
     merchant: str
     current_price: float
@@ -36,6 +48,12 @@ class DealObservation(BaseModel):
     vs_own_history_pct: Optional[float]
     vs_statcan_pct: Optional[float]
     composite_score: Optional[float]
+
+
+class HistoryPoint(BaseModel):
+    merchant: str
+    observed_at: datetime
+    current_price: float
 
 
 # Shared building blocks for every query below:
@@ -183,6 +201,7 @@ def search(q: str = Query(..., min_length=1)):
         )
         buckets[key]["offers"].append(
             Offer(
+                item_id=item_id,
                 merchant=merchant_name,
                 current_price=current_price,
                 original_price=original_price,
@@ -218,6 +237,8 @@ def best_deals(limit: int = Query(20, ge=1, le=100)):
         )
         deals.append(
             DealObservation(
+                item_id=item_id,
+                group_id=group_id,
                 item_name=canonical_name if group_id is not None else name,
                 merchant=merchant_name,
                 current_price=current_price,
@@ -233,3 +254,42 @@ def best_deals(limit: int = Query(20, ge=1, le=100)):
     # items with no computable signal at all sort last, not first
     deals.sort(key=lambda d: d.composite_score if d.composite_score is not None else float("-inf"), reverse=True)
     return deals[:limit]
+
+
+HISTORY_BY_GROUP_QUERY = """
+SELECT m.name, po.observed_at, po.current_price
+FROM item_group_map igm
+JOIN items i ON i.id = igm.item_id
+JOIN merchants m ON m.merchant_id = i.merchant_id
+JOIN price_observations po ON po.item_id = i.id
+WHERE igm.group_id = %s AND po.current_price IS NOT NULL
+ORDER BY po.observed_at
+"""
+
+HISTORY_BY_ITEM_QUERY = """
+SELECT m.name, po.observed_at, po.current_price
+FROM items i
+JOIN merchants m ON m.merchant_id = i.merchant_id
+JOIN price_observations po ON po.item_id = i.id
+WHERE i.id = %s AND po.current_price IS NOT NULL
+ORDER BY po.observed_at
+"""
+
+
+@app.get("/history", response_model=list[HistoryPoint])
+def history(group_id: Optional[int] = None, item_id: Optional[int] = None):
+    if (group_id is None) == (item_id is None):
+        raise HTTPException(400, "Provide exactly one of group_id or item_id")
+
+    query, param = (HISTORY_BY_GROUP_QUERY, group_id) if group_id is not None else (HISTORY_BY_ITEM_QUERY, item_id)
+
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(query, (param,))
+        rows = cur.fetchall()
+    conn.close()
+
+    return [
+        HistoryPoint(merchant=merchant, observed_at=observed_at, current_price=current_price)
+        for merchant, observed_at, current_price in rows
+    ]
