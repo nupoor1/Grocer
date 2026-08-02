@@ -35,16 +35,17 @@ def upsert_merchant(cur, merchant_id, name):
     )
 
 
-def upsert_item(cur, sku, name, brand_id, search_term, merchant_id, postal_code):
+def upsert_item(cur, sku, name, brand_id, search_term, image_url, merchant_id, postal_code):
     cur.execute(
         """
-        INSERT INTO items (sku, name, brand_id, search_term, merchant_id, postal_code)
-        VALUES (%s, %s, %s, %s, %s, %s)
+        INSERT INTO items (sku, name, brand_id, search_term, image_url, merchant_id, postal_code)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
         ON CONFLICT (sku, merchant_id, postal_code)
-        DO UPDATE SET name = EXCLUDED.name, brand_id = EXCLUDED.brand_id, search_term = EXCLUDED.search_term
+        DO UPDATE SET name = EXCLUDED.name, brand_id = EXCLUDED.brand_id,
+            search_term = EXCLUDED.search_term, image_url = EXCLUDED.image_url
         RETURNING id
         """,
-        (sku, name, brand_id, search_term, merchant_id, postal_code),
+        (sku, name, brand_id, search_term, image_url, merchant_id, postal_code),
     )
     return cur.fetchone()[0]
 
@@ -84,9 +85,10 @@ def main():
 
                 brand_ids = entry.get("brand_ids") or []
                 brand_id = str(brand_ids[0]) if brand_ids else None
+                image_url = entry.get("image_url")
 
                 upsert_merchant(cur, merchant_id, merchant_name)
-                item_id = upsert_item(cur, sku, name, brand_id, term, merchant_id, POSTAL_CODE)
+                item_id = upsert_item(cur, sku, name, brand_id, term, image_url, merchant_id, POSTAL_CODE)
                 insert_price_observation(
                     cur,
                     item_id,

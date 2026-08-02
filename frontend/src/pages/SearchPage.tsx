@@ -1,26 +1,43 @@
-import { useState, type FormEvent } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, type FormEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 import { searchProducts, type ProductResult } from "../api";
-import DealSignals from "../components/DealSignals";
+import ProductCard from "../components/ProductCard";
+import CategoryChips from "../components/CategoryChips";
 
 export default function SearchPage() {
-  const [q, setQ] = useState("");
+  const [params, setParams] = useSearchParams();
+  const [q, setQ] = useState(params.get("q") ?? "");
   const [results, setResults] = useState<ProductResult[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (!q.trim()) return;
+  async function runSearch(term: string) {
+    if (!term.trim()) return;
     setLoading(true);
     setError(null);
     try {
-      setResults(await searchProducts(q.trim()));
+      setResults(await searchProducts(term.trim()));
     } catch {
       setError("Search failed. Try again.");
     } finally {
       setLoading(false);
     }
+  }
+
+  // supports arriving here via a category chip link (?q=...), not just manual typing
+  useEffect(() => {
+    const urlQ = params.get("q");
+    if (urlQ) {
+      setQ(urlQ);
+      runSearch(urlQ);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params]);
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setParams({ q });
+    runSearch(q);
   }
 
   return (
@@ -39,46 +56,41 @@ export default function SearchPage() {
         </button>
       </form>
 
+      <CategoryChips />
+
       {error && <p className="error">{error}</p>}
       {results !== null && results.length === 0 && <p className="muted">No results.</p>}
 
-      <ul className="product-list">
-        {results?.map((product, idx) => (
-          <li key={idx} className="product-card">
-            <div className="product-name">{product.name}</div>
-            <ul className="offer-list">
-              {product.offers.map((offer) => (
-                <li key={offer.item_id}>
-                  <Link
-                    className="offer-row"
-                    to={
-                      product.group_id != null
-                        ? `/item/group/${product.group_id}`
-                        : `/item/item/${offer.item_id}`
-                    }
-                    state={{ name: product.name }}
-                  >
-                    <div className="offer-top">
-                      <span className="offer-merchant">{offer.merchant}</span>
-                      <span className="offer-price">
-                        ${offer.current_price.toFixed(2)}
-                        {offer.original_price != null && offer.original_price > offer.current_price && (
-                          <span className="deal-was"> was ${offer.original_price.toFixed(2)}</span>
-                        )}
-                      </span>
-                    </div>
-                    <DealSignals
-                      discountPct={offer.discount_pct}
-                      vsOwnHistoryPct={offer.vs_own_history_pct}
-                      vsStatcanPct={offer.vs_statcan_pct}
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+      <div className="product-grid">
+        {results?.map((product, idx) => {
+          const cheapest = product.offers[0];
+          const moreCount = product.offers.length - 1;
+          return (
+            <div key={idx} className="product-tile-wrap">
+              <ProductCard
+                name={product.name}
+                merchant={cheapest.merchant}
+                currentPrice={cheapest.current_price}
+                originalPrice={cheapest.original_price}
+                imageUrl={cheapest.image_url}
+                discountPct={cheapest.discount_pct}
+                vsOwnHistoryPct={cheapest.vs_own_history_pct}
+                vsStatcanPct={cheapest.vs_statcan_pct}
+                linkTo={
+                  product.group_id != null
+                    ? `/item/group/${product.group_id}`
+                    : `/item/item/${cheapest.item_id}`
+                }
+              />
+              {moreCount > 0 && (
+                <div className="more-stores">
+                  +{moreCount} more store{moreCount > 1 ? "s" : ""}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { fetchBestDeals, type DealObservation } from "../api";
-import DealSignals from "../components/DealSignals";
+import ProductCard from "../components/ProductCard";
+import CategoryChips from "../components/CategoryChips";
 
 export default function HomePage() {
   const [deals, setDeals] = useState<DealObservation[] | null>(null);
@@ -15,39 +15,33 @@ export default function HomePage() {
 
   return (
     <div className="page">
-      <h1>Best deals right now</h1>
+      <div className="hero">
+        <h1>Best deals right now</h1>
+        <p className="hero-subtitle">Top price drops across every store we track</p>
+      </div>
+
+      <CategoryChips />
 
       {error && <p className="error">{error}</p>}
       {!error && deals === null && <p className="muted">Loading...</p>}
       {deals !== null && deals.length === 0 && <p className="muted">No deals found.</p>}
 
-      <ul className="deal-list">
+      <div className="product-grid">
         {deals?.map((d) => (
-          <li key={`${d.item_id}-${d.merchant}`}>
-            <Link
-              className="deal-card"
-              to={d.group_id != null ? `/item/group/${d.group_id}` : `/item/item/${d.item_id}`}
-              state={{ name: d.item_name }}
-            >
-              <div className="deal-card-top">
-                <span className="deal-name">{d.item_name}</span>
-                <span className="deal-price">
-                  ${d.current_price.toFixed(2)}
-                  {d.original_price != null && d.original_price > d.current_price && (
-                    <span className="deal-was"> was ${d.original_price.toFixed(2)}</span>
-                  )}
-                </span>
-              </div>
-              <div className="deal-merchant">{d.merchant}</div>
-              <DealSignals
-                discountPct={d.discount_pct}
-                vsOwnHistoryPct={d.vs_own_history_pct}
-                vsStatcanPct={d.vs_statcan_pct}
-              />
-            </Link>
-          </li>
+          <ProductCard
+            key={`${d.item_id}-${d.merchant}`}
+            name={d.item_name}
+            merchant={d.merchant}
+            currentPrice={d.current_price}
+            originalPrice={d.original_price}
+            imageUrl={d.image_url}
+            discountPct={d.discount_pct}
+            vsOwnHistoryPct={d.vs_own_history_pct}
+            vsStatcanPct={d.vs_statcan_pct}
+            linkTo={d.group_id != null ? `/item/group/${d.group_id}` : `/item/item/${d.item_id}`}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

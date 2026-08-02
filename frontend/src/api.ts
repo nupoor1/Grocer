@@ -10,6 +10,7 @@ export interface Offer {
   vs_own_history_pct: number | null;
   vs_statcan_pct: number | null;
   composite_score: number | null;
+  image_url: string | null;
 }
 
 export interface ProductResult {
@@ -31,12 +32,18 @@ export interface DealObservation {
   vs_own_history_pct: number | null;
   vs_statcan_pct: number | null;
   composite_score: number | null;
+  image_url: string | null;
 }
 
 export interface HistoryPoint {
   merchant: string;
   observed_at: string;
   current_price: number;
+}
+
+export interface Category {
+  search_term: string;
+  item_count: number;
 }
 
 async function getJSON<T>(path: string): Promise<T> {
@@ -58,4 +65,8 @@ export function searchProducts(q: string): Promise<ProductResult[]> {
 export function fetchHistory(params: { groupId?: number; itemId?: number }): Promise<HistoryPoint[]> {
   const query = params.groupId != null ? `group_id=${params.groupId}` : `item_id=${params.itemId}`;
   return getJSON(`/history?${query}`);
+}
+
+export function fetchCategories(): Promise<Category[]> {
+  return getJSON(`/categories`);
 }

@@ -6,6 +6,10 @@ import ItemDetailPage from "./pages/ItemDetailPage";
 function App() {
   return (
     <div className="app">
+      <header className="top-bar">
+        <span className="top-bar-logo">🛒 CartCompare</span>
+      </header>
+
       <main className="app-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -16,9 +20,11 @@ function App() {
 
       <nav className="bottom-nav">
         <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
+          <span className="nav-icon">🏠</span>
           Best Deals
         </NavLink>
         <NavLink to="/search" className={({ isActive }) => (isActive ? "active" : "")}>
+          <span className="nav-icon">🔍</span>
           Search
         </NavLink>
       </nav>

@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS items (
     name TEXT NOT NULL,
     brand_id TEXT,
     search_term TEXT,
+    image_url TEXT,
     merchant_id INT NOT NULL REFERENCES merchants(merchant_id),
     postal_code TEXT NOT NULL,
     UNIQUE (sku, merchant_id, postal_code)

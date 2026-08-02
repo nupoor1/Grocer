@@ -27,6 +27,7 @@ class Offer(BaseModel):
     vs_own_history_pct: Optional[float]
     vs_statcan_pct: Optional[float]
     composite_score: Optional[float]
+    image_url: Optional[str]
 
 
 class ProductResult(BaseModel):
@@ -48,6 +49,12 @@ class DealObservation(BaseModel):
     vs_own_history_pct: Optional[float]
     vs_statcan_pct: Optional[float]
     composite_score: Optional[float]
+    image_url: Optional[str]
+
+
+class Category(BaseModel):
+    search_term: str
+    item_count: int
 
 
 class HistoryPoint(BaseModel):
@@ -100,7 +107,7 @@ SIGNAL_COLUMNS = """
     i.id, i.name, m.name AS merchant_name,
     l.current_price, l.original_price,
     md.median_price, sb.avg_price AS statcan_avg,
-    igm.group_id, pg.canonical_name
+    igm.group_id, pg.canonical_name, i.image_url
 """
 
 SIGNAL_JOINS = """
@@ -186,7 +193,7 @@ def search(q: str = Query(..., min_length=1)):
 
     # bucket rows by group_id when present, otherwise each ungrouped item is its own bucket
     buckets = {}
-    for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name in rows:
+    for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name, image_url in rows:
         key = ("group", group_id) if group_id is not None else ("item", item_id)
         if key not in buckets:
             buckets[key] = {
@@ -210,6 +217,7 @@ def search(q: str = Query(..., min_length=1)):
                 vs_own_history_pct=vs_own_history_pct,
                 vs_statcan_pct=vs_statcan_pct,
                 composite_score=composite_score,
+                image_url=image_url,
             )
         )
 
@@ -231,7 +239,7 @@ def best_deals(limit: int = Query(20, ge=1, le=100)):
     conn.close()
 
     deals = []
-    for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name in rows:
+    for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name, image_url in rows:
         is_deal, discount_pct, vs_own_history_pct, vs_statcan_pct, composite_score = compute_signals(
             current_price, original_price, median_30d, statcan_avg
         )
@@ -248,6 +256,7 @@ def best_deals(limit: int = Query(20, ge=1, le=100)):
                 vs_own_history_pct=vs_own_history_pct,
                 vs_statcan_pct=vs_statcan_pct,
                 composite_score=composite_score,
+                image_url=image_url,
             )
         )
 
@@ -293,3 +302,22 @@ def history(group_id: Optional[int] = None, item_id: Optional[int] = None):
         HistoryPoint(merchant=merchant, observed_at=observed_at, current_price=current_price)
         for merchant, observed_at, current_price in rows
     ]
+
+
+CATEGORIES_QUERY = """
+SELECT search_term, COUNT(*)
+FROM items
+WHERE search_term IS NOT NULL
+GROUP BY search_term
+ORDER BY search_term
+"""
+
+
+@app.get("/categories", response_model=list[Category])
+def categories():
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(CATEGORIES_QUERY)
+        rows = cur.fetchall()
+    conn.close()
+    return [Category(search_term=term, item_count=count) for term, count in rows]
