@@ -67,6 +67,11 @@ export function fetchHistory(params: { groupId?: number; itemId?: number }): Pro
   return getJSON(`/history?${query}`);
 }
 
+export function fetchProduct(params: { groupId?: number; itemId?: number }): Promise<ProductResult> {
+  const query = params.groupId != null ? `group_id=${params.groupId}` : `item_id=${params.itemId}`;
+  return getJSON(`/product?${query}`);
+}
+
 export function fetchCategories(): Promise<Category[]> {
   return getJSON(`/categories`);
 }

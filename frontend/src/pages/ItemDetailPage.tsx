@@ -10,8 +10,9 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { fetchHistory, type HistoryPoint } from "../api";
+import { fetchHistory, fetchProduct, type HistoryPoint, type ProductResult } from "../api";
 import ProductImage from "../components/ProductImage";
+import DealSignals from "../components/DealSignals";
 
 const LINE_COLORS = ["#2563eb", "#dc2626", "#16a34a", "#d97706", "#7c3aed", "#0891b2"];
 
@@ -29,27 +30,14 @@ function toChartRows(points: HistoryPoint[]) {
     .map(([date, merchantPrices]) => ({ date, ...merchantPrices }));
 }
 
-// The most recent observation per merchant IS the current cross-merchant price
-// comparison -- no need for a separate API call, /history already has it.
-function currentPricesByMerchant(points: HistoryPoint[]) {
-  const latest = new Map<string, HistoryPoint>();
-  for (const p of points) {
-    const existing = latest.get(p.merchant);
-    if (!existing || p.observed_at > existing.observed_at) {
-      latest.set(p.merchant, p);
-    }
-  }
-  return [...latest.values()].sort((a, b) => a.current_price - b.current_price);
-}
-
 export default function ItemDetailPage() {
   const { type, id } = useParams<{ type: "group" | "item"; id: string }>();
   const location = useLocation();
   const state = location.state as { name?: string; imageUrl?: string } | null;
-  const name = state?.name ?? "Price history";
   const imageUrl = state?.imageUrl ?? null;
 
   const [points, setPoints] = useState<HistoryPoint[] | null>(null);
+  const [product, setProduct] = useState<ProductResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -58,11 +46,14 @@ export default function ItemDetailPage() {
     fetchHistory(params)
       .then(setPoints)
       .catch(() => setError("Couldn't load price history."));
+    fetchProduct(params)
+      .then(setProduct)
+      .catch(() => setError("Couldn't load current prices."));
   }, [type, id]);
 
+  const name = product?.name ?? state?.name ?? "Price history";
   const merchants = points ? [...new Set(points.map((p) => p.merchant))] : [];
   const rows = points ? toChartRows(points) : [];
-  const currentPrices = points ? currentPricesByMerchant(points) : [];
 
   return (
     <div className="page">
@@ -72,22 +63,36 @@ export default function ItemDetailPage() {
       </div>
 
       {error && <p className="error">{error}</p>}
-      {!error && points === null && <p className="muted">Loading...</p>}
-      {points !== null && rows.length === 0 && <p className="muted">No price history yet.</p>}
 
-      {currentPrices.length > 0 && (
+      {product === null && !error && <p className="muted">Loading...</p>}
+
+      {product !== null && (
         <div className="compare-card">
           <h2>Compare stores</h2>
           <ul className="compare-list">
-            {currentPrices.map((p, i) => (
-              <li key={p.merchant} className={i === 0 ? "compare-cheapest" : ""}>
-                <span>{p.merchant}</span>
-                <span className="compare-price">${p.current_price.toFixed(2)}</span>
+            {product.offers.map((offer, i) => (
+              <li key={offer.item_id} className={i === 0 ? "compare-cheapest" : ""}>
+                <div className="compare-row-top">
+                  <span>{offer.merchant}</span>
+                  <span className="compare-price">
+                    ${offer.current_price.toFixed(2)}
+                    {offer.original_price != null && offer.original_price > offer.current_price && (
+                      <span className="deal-was"> ${offer.original_price.toFixed(2)}</span>
+                    )}
+                  </span>
+                </div>
+                <DealSignals
+                  discountPct={offer.discount_pct}
+                  vsOwnHistoryPct={offer.vs_own_history_pct}
+                  vsStatcanPct={offer.vs_statcan_pct}
+                />
               </li>
             ))}
           </ul>
         </div>
       )}
+
+      {points !== null && rows.length === 0 && <p className="muted">No price history yet.</p>}
 
       {rows.length > 0 && (
         <div className="chart-wrap">

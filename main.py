@@ -175,23 +175,10 @@ def compute_signals(current_price, original_price, median_30d, statcan_avg):
     return is_deal, discount_pct, vs_own_history_pct, vs_statcan_pct, composite_score
 
 
-@app.get("/search", response_model=list[ProductResult])
-def search(q: str = Query(..., min_length=1)):
-    conn = get_connection()
-    with conn.cursor() as cur:
-        cur.execute(MATCHING_ITEMS_QUERY, (f"%{q}%",))
-        rows = cur.fetchall()
-
-        matched_group_ids = {row[7] for row in rows if row[7] is not None}
-        if matched_group_ids:
-            cur.execute(GROUP_MEMBERS_QUERY, (list(matched_group_ids),))
-            rows += cur.fetchall()
-    conn.close()
-
-    # dedupe: an item can appear both as a direct text match and as a group member
-    rows = list({row[0]: row for row in rows}.values())
-
-    # bucket rows by group_id when present, otherwise each ungrouped item is its own bucket
+def rows_to_products(rows):
+    """Bucket raw signal rows by group_id when present, otherwise each ungrouped
+    item is its own single-offer bucket. Shared by every endpoint that returns
+    ProductResult shapes, so a product's signals are computed identically everywhere."""
     buckets = {}
     for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name, image_url in rows:
         key = ("group", group_id) if group_id is not None else ("item", item_id)
@@ -225,9 +212,53 @@ def search(q: str = Query(..., min_length=1)):
     for bucket in buckets.values():
         bucket["offers"].sort(key=lambda o: o.current_price)
         results.append(ProductResult(**bucket))
+    return results
 
+
+@app.get("/search", response_model=list[ProductResult])
+def search(q: str = Query(..., min_length=1)):
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute(MATCHING_ITEMS_QUERY, (f"%{q}%",))
+        rows = cur.fetchall()
+
+        matched_group_ids = {row[7] for row in rows if row[7] is not None}
+        if matched_group_ids:
+            cur.execute(GROUP_MEMBERS_QUERY, (list(matched_group_ids),))
+            rows += cur.fetchall()
+    conn.close()
+
+    # dedupe: an item can appear both as a direct text match and as a group member
+    rows = list({row[0]: row for row in rows}.values())
+
+    results = rows_to_products(rows)
     results.sort(key=lambda r: r.offers[0].current_price)
     return results
+
+
+PRODUCT_BY_ITEM_QUERY = SIGNALS_CTE + f"SELECT {SIGNAL_COLUMNS} FROM items i {SIGNAL_JOINS} WHERE i.id = %s"
+
+
+@app.get("/product", response_model=ProductResult)
+def product(group_id: Optional[int] = None, item_id: Optional[int] = None):
+    """Full signal data (not just price history) for one product -- backs the item
+    detail page's per-store comparison, since /history only has raw prices."""
+    if (group_id is None) == (item_id is None):
+        raise HTTPException(400, "Provide exactly one of group_id or item_id")
+
+    conn = get_connection()
+    with conn.cursor() as cur:
+        if group_id is not None:
+            cur.execute(GROUP_MEMBERS_QUERY, ([group_id],))
+        else:
+            cur.execute(PRODUCT_BY_ITEM_QUERY, (item_id,))
+        rows = cur.fetchall()
+    conn.close()
+
+    products = rows_to_products(rows)
+    if not products:
+        raise HTTPException(404, "Product not found")
+    return products[0]
 
 
 @app.get("/deals", response_model=list[DealObservation])

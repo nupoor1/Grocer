@@ -2,25 +2,28 @@ interface Props {
   discountPct: number | null;
   vsOwnHistoryPct: number | null;
   vsStatcanPct: number | null;
-  /** Compact mode drops empty signals entirely instead of showing a "—" placeholder,
-   * for tight spaces like grid cards -- the full row is for detail-style layouts. */
+  /** Compact mode drops empty signals and shortens labels, for tight spaces like
+   * grid cards -- but every visible pill still says what it's measuring. */
   compact?: boolean;
 }
 
 interface SignalProps {
   label: string;
+  compactLabel: string;
   value: number | null;
   compact?: boolean;
 }
 
 // Every signal uses the same convention: positive = currently cheaper (good for the
 // buyer), so a single indicator function covers discount/history/regional signals alike.
-function Signal({ label, value, compact }: SignalProps) {
+function Signal({ label, compactLabel, value, compact }: SignalProps) {
+  const text = compact ? compactLabel : label;
+
   if (value === null) {
     if (compact) return null;
     return (
       <span className="signal signal-empty">
-        {label}: <span className="signal-value">—</span>
+        {text}: <span className="signal-value">—</span>
       </span>
     );
   }
@@ -30,7 +33,7 @@ function Signal({ label, value, compact }: SignalProps) {
     if (compact) return null;
     return (
       <span className="signal signal-empty">
-        {label}: <span className="signal-value">— 0.0%</span>
+        {text}: <span className="signal-value">— 0.0%</span>
       </span>
     );
   }
@@ -38,8 +41,7 @@ function Signal({ label, value, compact }: SignalProps) {
   const isGood = value > 0;
   return (
     <span className={`signal ${isGood ? "signal-good" : "signal-bad"}`}>
-      {!compact && `${label}: `}
-      <span className="signal-value">{isGood ? "▼" : "▲"} {Math.abs(value).toFixed(1)}%</span>
+      {text}: <span className="signal-value">{isGood ? "▼" : "▲"} {Math.abs(value).toFixed(1)}%</span>
     </span>
   );
 }
@@ -47,9 +49,9 @@ function Signal({ label, value, compact }: SignalProps) {
 export default function DealSignals({ discountPct, vsOwnHistoryPct, vsStatcanPct, compact }: Props) {
   return (
     <div className={`signals-row ${compact ? "signals-row-compact" : ""}`}>
-      <Signal label="Sale" value={discountPct} compact={compact} />
-      <Signal label="vs history" value={vsOwnHistoryPct} compact={compact} />
-      <Signal label="vs region" value={vsStatcanPct} compact={compact} />
+      <Signal label="Sale" compactLabel="Sale" value={discountPct} compact={compact} />
+      <Signal label="vs history" compactLabel="Hist" value={vsOwnHistoryPct} compact={compact} />
+      <Signal label="vs region" compactLabel="Region" value={vsStatcanPct} compact={compact} />
     </div>
   );
 }

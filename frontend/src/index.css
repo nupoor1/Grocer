@@ -373,15 +373,21 @@ h2 {
 }
 
 .compare-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0.6rem;
+  padding: 0.55rem 0.6rem;
   border-radius: 0.5rem;
   font-size: 0.92rem;
 }
 
+.compare-row-top {
+  display: flex;
+  justify-content: space-between;
+}
+
 .compare-cheapest {
   background: var(--primary-bg);
+}
+
+.compare-cheapest .compare-row-top {
   font-weight: 700;
   color: var(--primary-dark);
 }
