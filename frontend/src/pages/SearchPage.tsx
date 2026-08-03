@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { searchProducts, type ProductResult } from "../api";
 import ProductCard from "../components/ProductCard";
 import CategoryChips from "../components/CategoryChips";
+import BestValueBanner from "../components/BestValueBanner";
 
 export default function SearchPage() {
   const [params] = useSearchParams();
@@ -31,33 +32,29 @@ export default function SearchPage() {
       {error && <p className="error">{error}</p>}
       {!loading && results !== null && results.length === 0 && <p className="muted">No results.</p>}
 
+      {results !== null && results.length > 0 && <BestValueBanner results={results} query={q} />}
+
       <div className="product-grid">
         {results?.map((product, idx) => {
           const cheapest = product.offers[0];
-          const moreCount = product.offers.length - 1;
           return (
-            <div key={idx} className="product-tile-wrap">
-              <ProductCard
-                name={product.name}
-                merchant={cheapest.merchant}
-                currentPrice={cheapest.current_price}
-                originalPrice={cheapest.original_price}
-                imageUrl={cheapest.image_url}
-                discountPct={cheapest.discount_pct}
-                vsOwnHistoryPct={cheapest.vs_own_history_pct}
-                vsStatcanPct={cheapest.vs_statcan_pct}
-                linkTo={
-                  product.group_id != null
-                    ? `/item/group/${product.group_id}`
-                    : `/item/item/${cheapest.item_id}`
-                }
-              />
-              {moreCount > 0 && (
-                <div className="more-stores">
-                  +{moreCount} more store{moreCount > 1 ? "s" : ""}
-                </div>
-              )}
-            </div>
+            <ProductCard
+              key={idx}
+              name={product.name}
+              merchant={cheapest.merchant}
+              currentPrice={cheapest.current_price}
+              originalPrice={cheapest.original_price}
+              imageUrl={cheapest.image_url}
+              discountPct={cheapest.discount_pct}
+              vsOwnHistoryPct={cheapest.vs_own_history_pct}
+              vsStatcanPct={cheapest.vs_statcan_pct}
+              storeCount={product.offers.length}
+              linkTo={
+                product.group_id != null
+                  ? `/item/group/${product.group_id}`
+                  : `/item/item/${cheapest.item_id}`
+              }
+            />
           );
         })}
       </div>

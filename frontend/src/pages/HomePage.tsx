@@ -38,6 +38,7 @@ export default function HomePage() {
             discountPct={d.discount_pct}
             vsOwnHistoryPct={d.vs_own_history_pct}
             vsStatcanPct={d.vs_statcan_pct}
+            storeCount={d.store_count}
             linkTo={d.group_id != null ? `/item/group/${d.group_id}` : `/item/item/${d.item_id}`}
           />
         ))}

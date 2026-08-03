@@ -181,16 +181,65 @@ h2 {
   color: var(--primary-dark);
 }
 
+/* best-value-per-unit banner -- spans different products/sizes, so it's visually
+   distinct (dark card) from the per-product store comparisons below it */
+.best-value-section {
+  margin-bottom: 1.25rem;
+}
+
+.best-value-cards {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.best-value-card {
+  display: block;
+  flex: 1 1 200px;
+  background: var(--text);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+}
+
+.best-value-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.best-value-price {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0.15rem 0;
+}
+
+.best-value-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.best-value-merchant {
+  font-size: 0.78rem;
+  color: #d1d5db;
+}
+
+.best-value-caveat {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0 0;
+}
+
 /* product grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-}
-
-.product-tile-wrap {
-  display: flex;
-  flex-direction: column;
 }
 
 .product-tile {
@@ -280,10 +329,14 @@ h2 {
   margin-top: 0.1rem;
 }
 
-.more-stores {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  padding: 0.3rem 0.2rem 0;
+.compare-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--primary-bg);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.5rem;
+  margin-top: 0.5rem;
   text-align: center;
 }
 

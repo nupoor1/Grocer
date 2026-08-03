@@ -11,6 +11,8 @@ export interface Offer {
   vs_statcan_pct: number | null;
   composite_score: number | null;
   image_url: string | null;
+  price_per_unit: number | null;
+  unit_label: string | null;
 }
 
 export interface ProductResult {
@@ -33,6 +35,9 @@ export interface DealObservation {
   vs_statcan_pct: number | null;
   composite_score: number | null;
   image_url: string | null;
+  store_count: number;
+  price_per_unit: number | null;
+  unit_label: string | null;
 }
 
 export interface HistoryPoint {

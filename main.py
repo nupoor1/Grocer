@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from db import get_connection
+from quantity import extract_quantity
 
 app = FastAPI()
 
@@ -28,6 +29,8 @@ class Offer(BaseModel):
     vs_statcan_pct: Optional[float]
     composite_score: Optional[float]
     image_url: Optional[str]
+    price_per_unit: Optional[float]
+    unit_label: Optional[str]
 
 
 class ProductResult(BaseModel):
@@ -50,6 +53,9 @@ class DealObservation(BaseModel):
     vs_statcan_pct: Optional[float]
     composite_score: Optional[float]
     image_url: Optional[str]
+    store_count: int
+    price_per_unit: Optional[float]
+    unit_label: Optional[str]
 
 
 class Category(BaseModel):
@@ -100,6 +106,11 @@ statcan_baseline AS (
     FROM statcan_prices
     WHERE geography = 'Ontario'
     ORDER BY product_category, ref_month DESC
+),
+group_counts AS (
+    SELECT group_id, COUNT(*) AS cnt
+    FROM item_group_map
+    GROUP BY group_id
 )
 """
 
@@ -107,7 +118,8 @@ SIGNAL_COLUMNS = """
     i.id, i.name, m.name AS merchant_name,
     l.current_price, l.original_price,
     md.median_price, sb.avg_price AS statcan_avg,
-    igm.group_id, pg.canonical_name, i.image_url
+    igm.group_id, pg.canonical_name, i.image_url,
+    COALESCE(gc.cnt, 1) AS store_count
 """
 
 SIGNAL_JOINS = """
@@ -118,6 +130,7 @@ LEFT JOIN item_group_map igm ON igm.item_id = i.id
 LEFT JOIN product_groups pg ON pg.id = igm.group_id
 LEFT JOIN product_group_statcan_map pgsm ON pgsm.group_id = igm.group_id
 LEFT JOIN statcan_baseline sb ON sb.product_category = pgsm.statcan_category
+LEFT JOIN group_counts gc ON gc.group_id = igm.group_id
 """
 
 # Items whose own text matches the search query.
@@ -175,12 +188,29 @@ def compute_signals(current_price, original_price, median_30d, statcan_avg):
     return is_deal, discount_pct, vs_own_history_pct, vs_statcan_pct, composite_score
 
 
+def compute_price_per_unit(name, current_price):
+    """Normalized $/100g or $/100mL, for comparing value across different products and
+    package sizes (e.g. is a 4L jug or a 2L carton the better deal). Reuses the same
+    quantity parser the matching pipeline uses. None when the name has no parseable size
+    -- not every listing's title includes one."""
+    if current_price is None:
+        return None, None
+    quantity = extract_quantity(name)
+    if quantity is None:
+        return None, None
+    value, dimension = quantity
+    if value <= 0:
+        return None, None
+    per_100 = round(float(current_price) / value * 100, 3)
+    return per_100, ("100g" if dimension == "mass" else "100mL")
+
+
 def rows_to_products(rows):
     """Bucket raw signal rows by group_id when present, otherwise each ungrouped
     item is its own single-offer bucket. Shared by every endpoint that returns
     ProductResult shapes, so a product's signals are computed identically everywhere."""
     buckets = {}
-    for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name, image_url in rows:
+    for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name, image_url, store_count in rows:
         key = ("group", group_id) if group_id is not None else ("item", item_id)
         if key not in buckets:
             buckets[key] = {
@@ -193,6 +223,7 @@ def rows_to_products(rows):
         is_deal, discount_pct, vs_own_history_pct, vs_statcan_pct, composite_score = compute_signals(
             current_price, original_price, median_30d, statcan_avg
         )
+        price_per_unit, unit_label = compute_price_per_unit(name, current_price)
         buckets[key]["offers"].append(
             Offer(
                 item_id=item_id,
@@ -205,6 +236,8 @@ def rows_to_products(rows):
                 vs_statcan_pct=vs_statcan_pct,
                 composite_score=composite_score,
                 image_url=image_url,
+                price_per_unit=price_per_unit,
+                unit_label=unit_label,
             )
         )
 
@@ -270,10 +303,11 @@ def best_deals(limit: int = Query(20, ge=1, le=100)):
     conn.close()
 
     deals = []
-    for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name, image_url in rows:
+    for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name, image_url, store_count in rows:
         is_deal, discount_pct, vs_own_history_pct, vs_statcan_pct, composite_score = compute_signals(
             current_price, original_price, median_30d, statcan_avg
         )
+        price_per_unit, unit_label = compute_price_per_unit(name, current_price)
         deals.append(
             DealObservation(
                 item_id=item_id,
@@ -288,6 +322,9 @@ def best_deals(limit: int = Query(20, ge=1, le=100)):
                 vs_statcan_pct=vs_statcan_pct,
                 composite_score=composite_score,
                 image_url=image_url,
+                store_count=store_count,
+                price_per_unit=price_per_unit,
+                unit_label=unit_label,
             )
         )
 

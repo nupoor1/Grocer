@@ -11,6 +11,7 @@ interface Props {
   discountPct: number | null;
   vsOwnHistoryPct: number | null;
   vsStatcanPct: number | null;
+  storeCount: number;
   linkTo: string;
 }
 
@@ -23,6 +24,7 @@ export default function ProductCard({
   discountPct,
   vsOwnHistoryPct,
   vsStatcanPct,
+  storeCount,
   linkTo,
 }: Props) {
   return (
@@ -46,6 +48,7 @@ export default function ProductCard({
           vsStatcanPct={vsStatcanPct}
           compact
         />
+        {storeCount > 1 && <div className="compare-badge">Compare {storeCount} stores →</div>}
       </div>
     </Link>
   );
