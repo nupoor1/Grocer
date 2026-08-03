@@ -13,7 +13,17 @@ export default function ProductImage({ src, alt }: Props) {
   if (!src || failed) {
     return (
       <div className="product-image product-image-placeholder" aria-hidden="true">
-        🛒
+        <svg viewBox="0 0 24 24" fill="none" width="40%" height="40%">
+          <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="8" cy="10" r="1.75" stroke="currentColor" strokeWidth="1.5" />
+          <path
+            d="M4 17l5-5 3.5 3.5L16.5 11 20 15"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </div>
     );
   }

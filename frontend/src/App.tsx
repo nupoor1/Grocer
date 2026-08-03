@@ -9,10 +9,12 @@ function App() {
     <div className="app">
       <header className="top-bar">
         <div className="top-bar-inner">
-          <span className="top-bar-logo">🛒 Grocer</span>
-          <NavLink to="/" end className={({ isActive }) => `top-bar-link ${isActive ? "active" : ""}`}>
-            Best Deals
-          </NavLink>
+          <div className="top-bar-nav">
+            <span className="top-bar-logo">Grocer</span>
+            <NavLink to="/" end className={({ isActive }) => `top-bar-link ${isActive ? "active" : ""}`}>
+              Best Deals
+            </NavLink>
+          </div>
           <SearchBar />
         </div>
       </header>

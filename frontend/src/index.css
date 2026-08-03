@@ -43,13 +43,20 @@ body {
 }
 
 .top-bar-inner {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.5rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1.25rem;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.top-bar-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .top-bar-logo {
@@ -73,7 +80,8 @@ body {
 }
 
 /* header search field wraps to its own full-width row on narrow screens,
-   sits inline (capped width) once there's room next to the logo/nav */
+   grows to fill the remaining bar width (up to a cap) once there's room
+   next to the logo/nav, instead of leaving the bar looking empty */
 .top-search-form {
   flex: 1 1 100%;
   display: flex;
@@ -99,8 +107,10 @@ body {
 }
 
 .top-search-icon {
-  font-size: 0.9rem;
-  opacity: 0.6;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--text-muted);
 }
 
 .app-content {
@@ -459,8 +469,8 @@ h2 {
 
 @media (min-width: 600px) {
   .top-search-form {
-    flex: 1 1 auto;
-    max-width: 360px;
+    flex: 1 1 420px;
+    max-width: 520px;
   }
 }
 
