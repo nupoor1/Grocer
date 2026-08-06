@@ -43,12 +43,18 @@ def cluster_block(items, model):
     n = len(items)
     names = [it["name"] for it in items]
     quantities = [extract_quantity(name) for name in names]
+    # rapidfuzz.fuzz.token_sort_ratio is case-sensitive (identical strings differing
+    # only in case score ~42, not 100) -- flyer names are often ALL CAPS while ecom
+    # names are mixed case, so this stage needs a case-folded view to compare fairly.
+    # The embedding stage doesn't need this: all-MiniLM-L6-v2 is an uncased model
+    # (cosine similarity 1.0 for the same text in different cases).
+    names_for_fuzzy = [name.lower() for name in names]
 
     # Stage 1: rapidfuzz text pre-filter + quantity gate -> boolean candidate mask
     candidate = np.zeros((n, n), dtype=bool)
     for i in range(n):
         for j in range(i + 1, n):
-            score = fuzz.token_sort_ratio(names[i], names[j])
+            score = fuzz.token_sort_ratio(names_for_fuzzy[i], names_for_fuzzy[j])
             if score >= FUZZY_PREFILTER_THRESHOLD and quantity_compatible(quantities[i], quantities[j], QUANTITY_TOLERANCE):
                 candidate[i, j] = candidate[j, i] = True
 

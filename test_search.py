@@ -17,6 +17,8 @@ def independent_min_price(group_id):
             WITH latest AS (
                 SELECT DISTINCT ON (item_id) item_id, current_price
                 FROM price_observations
+                WHERE source = 'ecom'
+                   OR (source = 'flyer' AND CURRENT_DATE BETWEEN valid_from AND valid_to)
                 ORDER BY item_id, observed_at DESC
             )
             SELECT MIN(l.current_price)

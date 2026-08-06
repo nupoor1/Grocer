@@ -1,205 +1,955 @@
 group_id,item_id,merchant_name,name,search_term,approved
 1,870,Well.ca,Black River Apple + Mango,apples,y
 1,899,Walmart,Black River Apple Mango 1l 1 L,apples,y
-2,871,Healthy Planet,Bach Crab Apple 20mL,apples,y
 2,876,Well.ca,Bach Crab Apple Flower Essence,apples,y
-3,878,Well.ca,True Co. True Dates Flavoured Sour Apple,apples,y
-3,949,Healthy Planet,True Dates Flavoured Dates Sour Apple 100g - Vegan and Non-GMO,apples,y
-4,880,Well.ca,Bob Snail Fruit Jelly Apple Sour Cherry,apples,n
-4,883,Well.ca,Bob Snail Fruit Sticks Apple Pear Blueberry,apples,n
-4,888,Well.ca,Bob Snail Fruit Jelly Apple Mango Pumpkin Chia,apples,n
-4,936,Healthy Planet,Bob Snail Fruit Strips Apple Pear Blueberry 84g,apples,n
-5,904,Shoppers Drug Mart,Little Bellies Organic Apple & Berry Softcorn 8 g,apples,y
-5,972,Walmart,"Little Bellies Organic Apple Berry Soft Corn 10+ Months, 8gr 8gr",apples,y
-6,932,Walmart,Prana Org Protein Overnight Chia- Maple And Apple 260g 260g,apples,y
-6,953,Healthy Planet,Prana Chialove Protein Overnight Chia Oats Maple and Apple 260g - Canadian Owned and Organic,apples,y
-7,183,London Drugs,Dempsters Dempster's 100% Whole Wheat Bread Size 675g,bread,y
-7,207,Walmart,Dempster's Dempster’s® Half Loaf 100% Whole Wheat Bread,bread,y
-7,213,Walmart,Dempster's Dempster’s® 100% Whole Wheat Thin Sandwich Sliced Bread,bread,y
-7,215,Walmart,Dempster's Dempster’s® 100% Whole Wheat Sliced Bread,bread,y
-8,185,London Drugs,Villaggio Bread - Italian Style in White Size 510g,bread,y
-8,211,Walmart,Villaggio® Artesano White Sliced Bread,bread,y
-8,217,Walmart,Villaggio® Italian Style 100% Whole Wheat Thick Sliced Bread,bread,y
-8,218,Walmart,Villaggio® Classico Italian Style White Thick Sliced Bread,bread,y
-9,236,Walmart,"Food For Life: Organic Ezekiel 4:9 Sprouted Whole Grain Bread, High Fiber, Vegan, Sprouted Grains, Non-Gms, Diabetic Friendly, Complete Plant Protein,",bread,y
-9,278,Healthy Planet,Food For Life Bread Ezekiel 4:9 Cinnamon Raisin 680g - Organic and Vegan,bread,y
-9,290,Healthy Planet,Food For Life Bread Ezekiel 4:9 Flax 680g - Organic and Vegan,bread,y
-9,291,Healthy Planet,Food For Life Bread Ezekiel 4:9 Sesame 680g - Organic and Vegan,bread,y
-9,300,Healthy Planet,Food For Life Bread Ezekiel 4:9 Whole Grain 680g - Organic and Vegan,bread,y
-10,279,Walmart,Schar Schär Gluten-Free Deli Style Sourdough Bread,bread,y
-10,304,Healthy Planet,Schar Gluten Free Deli Style Bread Sourdough 240g - Preservatives Free and Non-GMO,bread,y
-10,305,Healthy Planet,Schar Gluten Free Deli Style Bread Seeded 250g - Preservatives Free and Non-GMO,bread,y
-11,280,Walmart,Schar Schär Gluten-Free Artisan Baker Multigrain Bread,bread,y
-11,284,Walmart,Schar Schär Gluten-Free Artisan Baker 10 Grains & Seeds Bread,bread,y
-11,308,Healthy Planet,Schar Gluten Free Artisan Baker Multigrain Bread 400g - Non-GMO and Gluten Free,bread,y
-11,322,Healthy Planet,Schar Gluten Free Artisan Baker White Bread 400g - Non-GMO and Gluten Free,bread,y
-12,390,Well.ca,FreeYumm Banana Maple Cookies,bananas,y
-12,451,London Drugs,Freeyumm Banana Maple Cookies Size 154g,bananas,y
-13,392,London Drugs,Baby Gourmet Baby Food - Cherry Banana & Spinach Size 128ml,bananas,y
-13,407,Shoppers Drug Mart,Baby Gourmet Cherry Banana & Spinach 128 mL,bananas,y
-14,393,London Drugs,Baby Gourmet Baby Food - Vanilla Banana Berry Risotto Size 128mlst 3,bananas,y
-14,405,Shoppers Drug Mart,Baby Gourmet Vanilla Banana Berry Risotto 128 mL,bananas,y
-14,428,Walmart,Baby Gourmet Organic Puree Vanilla Banana Berry Risotto 128 Ml,bananas,y
-15,398,Walmart,Baby Gourmet Organic Puree Banana Fig Oatmeal 4 Oz,bananas,y
-15,401,London Drugs,Baby Gourmet Plus Baby Food - Banana Fig Oatmeal,bananas,y
-15,404,Well.ca,Baby Gourmet Organic Banana Fig Oatmeal,bananas,y
-15,411,Well.ca,Baby Gourmet Organic Banana Fig Oatmeal Bundle,bananas,n
-16,400,Well.ca,Baby Gourmet Vanilla Banana Berry Risotto Organic Baby Food,bananas,y
-16,447,Healthy Planet,Baby Gourmet Vanilla Banana Berry Risotto Organic 128mL - Kosher and Nut Free,bananas,y
-17,408,London Drugs,Made Good Cookies - Chocolate Banana Mini Size 120g5pk,bananas,y
-17,415,Healthy Planet,Made Good Mini Cookies Chocolate Banana 120g - Organic and Vegan,bananas,y
-18,409,London Drugs,"Love Child Organics Puree - Banana, Pumpkin, Pear and Coconut Size 128ml",bananas,y
-18,425,Walmart,"Love Child Organics Superblends Bananas, Pumpkin, Pears + Coconut Puree 128ml Pouch 128 Ml",bananas,y
-18,445,Healthy Planet,Love Child Organic Puree Banana Pumpkin Pear & Coconut 128mL - Organic and Vegan,bananas,y
-19,410,Shoppers Drug Mart,"Love Child Power Yo'rridge Pears, Bananas, Blackberries + Raspberries Puree 128 mL",bananas,y
-19,432,Walmart,"Love Child Organics Power Yo'rridge Pears, Bananas, Blackberries + Raspberries Puree 128ml Pouch 128 Ml",bananas,y
-20,427,Walmart,"Gerber Organic Purée, Pear Banana Blueberry, Baby Food 128 Ml",bananas,n
-20,429,Walmart,"Gerber Organic Purée, Banana Mango, Baby Food 128 Ml",bananas,y
-20,434,Shoppers Drug Mart,Gerber Organic PurÃ©e Banana Mango Baby Food 128 mL,bananas,y
-21,431,Walmart,Gerber Puffs Banana Baby Snacks 42 G,bananas,y
-21,438,Shoppers Drug Mart,"Gerber Puffs, Banana, Baby Snacks 42 g",bananas,y
-21,439,London Drugs,Gerber Toddler Snacks Puffs - Banana,bananas,y
-22,454,Shoppers Drug Mart,Love Child Oaty Bites Chocolate + Banana Snack Bites 100 g,bananas,y
-22,463,Walmart,Love Child Organics Oaty Bites Chocolate + Banana Snack Bites 100g Pouch 100 G,bananas,y
-23,490,London Drugs,Kokuho Rice Kokuho Original California Supreme Rose White Rice Size 1kg,rice,y
-23,585,Walmart,Kokuho Rose Extra Fancy Premium Sushi Rice 1kg (2.2 Lbs),rice,y
-24,542,Walmart,Dainty Foods Dainty Basmati Rice 900 G,rice,y
-24,563,Healthy Planet,Inari Organic White Basmati Rice 900g,rice,y
-24,571,Healthy Planet,Dainty Basmati Rice 900g - Non-GMO,rice,y
-25,607,Shoppers Drug Mart,I'm From Rice Toner 150 mL,rice,y
-25,612,Healthy Planet,Im from Rice Toner 150mL,rice,y
-26,1140,Healthy Planet,Bulk Onion Powder 114g,onions,n
-26,1157,Walmart,Club House Onion Powder 116 G,onions,n
-27,1488,Bureau en gros,Dole Orange Juice - 450ml - 12 Pack,orange juice,y
-27,1489,Staples,Dole Orange Juice - 450ml - 12 Pack,orange juice,y
-28,1490,Well.ca,Kiju Organic Mango Orange Juice Boxes,orange juice,y
-28,1492,Walmart,Kiju Organic Mango Orange Fruit Juice Boxes 4 X 200 Ml 4x200ml,orange juice,y
-28,1495,Healthy Planet,Kiju Organic Juice Mango Orange 4x200mL - Organic,orange juice,y
-29,1491,Walmart,Kiju Organic Mango Orange Fruit Juice Blend 1 L 1l,orange juice,y
-29,1494,Healthy Planet,Kiju Organic Juice Mango Orange 1L - Organic and Non-GMO,orange juice,y
-30,1497,Well.ca,Baby Gourmet Melties Banana Berry with Greek Yogurt,yogurt,y
-30,1498,London Drugs,Baby Gourmet Mushies Snacks - Banana Berry with Greek Yogurt,yogurt,y
-30,1499,Well.ca,Baby Gourmet Melties Banana Berry with Greek Yogurt Bundle,yogurt,y
-31,1501,Walmart,"Gerber Apple Banana Blueberry Yogurt Purée, Real Fruit & Yogurt, For Babies, 94ml 94 Ml",yogurt,y
-31,1502,Walmart,"Gerber Banana Apple Mango Yogurt Purée, Real Fruit & Yogurt, For Babies, 94ml 94 Ml",yogurt,n
-31,1515,Shoppers Drug Mart,Gerber Apple Banana Blueberry Yogurt PurÃ©e 94 mL,yogurt,y
-31,1516,Shoppers Drug Mart,Gerber Pear Banana Yogurt PurÃ©e Pouch 92 mL,yogurt,n
-31,1519,Shoppers Drug Mart,"Gerber Apple Yogurt PurÃ©e, For Babies Pouch 92 mL",yogurt,n
-32,1611,Walmart,Gerber Organic Yogurt Melts Strawberry Banana Toddler Snack 28 G,yogurt,y
-32,1618,London Drugs,Gerber Organic Yogurt Melts - Strawberry Banana Size 28g,yogurt,y
-33,1674,Well.ca,Ojas Vegan Tomato Basil Quinoa Pops,tomatoes,y
-33,1759,Healthy Planet,"Ojas Vegan Quinoa Pops Tomato Basil 45g - Vegan, Plant Based, Helps with Energy Support",tomatoes,y
-34,1679,London Drugs,Love Child Organics Love Ducks Corn Snacks - Tomato + Carrot,tomatoes,y
-34,1724,Healthy Planet,Love Child Organic Corn Snacks Love Ducks Tomato & Carrot 25g - Organic and Non-GMO,tomatoes,y
-35,1689,London Drugs,Mutti Parma Pelati Peeled Tomatoes 100% Italian Size 796ml,tomatoes,y
-35,1690,London Drugs,Mutti Parma Polpa Finely Chopped Tomatoes 100% Italian Size 796ml,tomatoes,n
-35,1743,Walmart,Mutti Whole Peeled Tomatoes 796ml 796 Ml,tomatoes,n
-36,1722,Bureau en gros,"Cricut Premium Vinyl Glossy Finish Permanent Adhesive - 12"" x 48"" - Tomato Red - 2 Pack",tomatoes,y
-36,1723,Staples,"Cricut Premium Vinyl Glossy Finish Permanent Adhesive - 12"" x 48"" - Tomato Red - 2 Pack",tomatoes,y
-37,1729,Walmart,Great Value No Salt Added Diced Tomatoes 796 Ml,tomatoes,n
-37,1769,Healthy Planet,Vita Bio Organic Diced Tomatoes No Added Salt 796mL,tomatoes,n
-38,1751,Walmart,Jamieson Lycopene Tomato Concentrate Caplets 60 Count (Pack Of 1),tomatoes,y
-38,1777,Healthy Planet,Jamieson Lycopene Tomato Concentrate 60 Caplets - Gluten Free and Preservatives Free,tomatoes,y
-39,1754,London Drugs,Quaker Rice Cakes - Savoury Tomato & Basil Size 173g,tomatoes,y
-39,1764,Walmart,Quaker Crispy Minis Savoury Tomato & Basil Flavour Large Brown Rice Cakes 173g,tomatoes,y
-40,1756,Shoppers Drug Mart,Love Child Love Ducks Tomato + Carrot Corn Snacks 30 g,tomatoes,y
-40,1762,Walmart,Love Child Organics Love Ducks Tomato + Carrot Corn Snacks 30g Bag 30 G,tomatoes,y
-41,2269,Bureau en gros,"Lantic Fine Granulated Sugar, 2 kg",sugar,y
-41,2270,Staples,"Lantic Fine Granulated Sugar, 2 kg",sugar,y
-42,2271,Bureau en gros,"Lantic Granulated Real Sugar Packets, 2000 Pack",sugar,y
-42,2272,Staples,"Lantic Granulated Real Sugar Packets, 2000 Pack",sugar,y
-43,2289,Staples,"Mother Parkers Sugar, 20 oz.",sugar,y
-43,2290,Bureau en gros,"Mother Parkers Sugar, 20 oz.",sugar,y
-44,2309,Bureau en gros,Rogers Sugar Cubes - 500 g - 12 Pack,sugar,y
-44,2310,Staples,Rogers Sugar Cubes - 500 g - 12 Pack,sugar,y
-45,1796,Well.ca,Baby Gourmet Organic Jar Carrots & Ancient Grains,carrots,y
-45,1807,Walmart,Baby Gourmet Organic Jar Carrots & Ancient Grains 113 Ml,carrots,y
-45,1808,Shoppers Drug Mart,Baby Gourmet Carrots & Ancient Grains 113 mL,carrots,y
-46,1822,Shoppers Drug Mart,Belov Organic Puffed Snack Carrot Sweet Potato Kale 42 g,carrots,y
-46,1846,Healthy Planet,Belov Organic Puffed Cereal Snack Carrot Sweet Potato and Kale 42g - Canadian Owned and Non-GMO,carrots,y
-47,1825,Shoppers Drug Mart,Baby Gourmet Simply Gourmet Carrot Cake Mini Oat Bites toddler snack 36 g,carrots,y
-47,1832,Walmart,Simply Gourmet™ Carrot Cake Mini Oat Bites Toddler Snack | Soft-Baked Gluten-Free Snack For Toddlers 12+ Months | No Added Sugar | From The Makers Of ,carrots,y
-48,1838,Shoppers Drug Mart,Amara Foods Mango Carrot Smoothie Melts 23 g,carrots,y
-48,1840,Walmart,"Amara Plant Based Yogurt Smoothie Melts, Carrots Raspberry Various Sizes",carrots,n
-48,1841,Walmart,"Amara Plant Based Yogurt Smoothie Melts, Mango Carrots Various Sizes",carrots,y
-49,1875,London Drugs,Starbucks Coffee - Pike Place Medium Roast - Ground Coffee Size 340g,ground coffee,y
-49,1930,Walmart,"Starbucks Pike Place Roast Ground Coffee, Medium Roast, Smooth, Well-Rounded Blend 340 G",ground coffee,y
-50,1879,London Drugs,Starbucks Ground Coffee - Caramel Size 311g,ground coffee,y
-50,1910,Walmart,Starbucks Caramel Flavoured Ground Coffee Bag 311 G,ground coffee,y
-51,1884,Well.ca,Level Ground Andes Medium Roast Ground Coffee,ground coffee,y
-51,1936,London Drugs,Level Ground Peru Ground Coffee - Medium Roast Size 300g,ground coffee,n
-51,1974,London Drugs,Level Ground Andes Mountains Ground Coffee - Medium Roast Size 300g,ground coffee,n
-51,1985,London Drugs,Level Ground Peru Whole Bean Coffee - Medium Roast Size 300g,ground coffee,n
-51,1998,London Drugs,Level Ground Andes Mountains Whole Bean Coffee - Medium Roast Size 300g,ground coffee,n
-52,1889,Shoppers Drug Mart,Nescafe GOLD Instant and Roast & Ground Medium Coffee 100 g,ground coffee,y
-52,1901,Walmart,"Nescafé Nescafe Gold Premium Instant Medium Roast & Ground Coffee, Just Add Hot Water 100 G",ground coffee,y
-53,1892,Bureau en gros,Tim Hortons Original Blend Ground Coffee - 300g,ground coffee,y
-77,1893,Bureau en gros,Tim Hortons Decaf Blend Ground Coffee - 300g,ground coffee,y
-53,1894,Staples,Tim Hortons Original Blend Ground Coffee - 300g,ground coffee,y
-77,1895,Staples,Tim Hortons Decaf Blend Ground Coffee - 300g,ground coffee,y
-53,1943,London Drugs,Tim Hortons Coffee - Dark Roast - Ground Coffee Size 300g,ground coffee,n
-53,1949,London Drugs,Tim Hortons Coffee - Original Blend - Ground Coffee Size 300g,ground coffee,y
-77,1954,London Drugs,Tim Hortons Coffee - Decaf - Ground Coffee Size 300g,ground coffee,y
-53,1970,London Drugs,Tim Hortons Coffee - French Vanilla Light Medium Roast - Ground Coffee Size 300g,ground coffee,n
-54,1909,Walmart,"Illy Ground Coffee Drip Classico Medium Roast, 8.8 Oz 8.8 Oz",ground coffee,n
-54,1961,London Drugs,Illy Intenso Bold Roast - Ground Coffee Size 250g,ground coffee,y
-54,1965,London Drugs,Illy Classico Classic Roast - Ground Coffee Size 250g,ground coffee,n
-54,1989,London Drugs,Illy Intenso Bold Roast - Espresso Ground Coffee Size 250g,ground coffee,y
-55,1941,Walmart,Melitta Traditional Medium Roast & Ground Coffee,ground coffee,y
-55,1980,London Drugs,Melitta Traditional Ground Coffee Size 930g tin,ground coffee,y
-78,1944,Bureau en gros,Folgers Mountain Roast Ground Coffee - 865g,ground coffee,y
-78,1952,Staples,Folgers Mountain Roast Ground Coffee - 865g,ground coffee,y
-56,1963,Bureau en gros,McCafé Premium Medium Dark Roast Ground Coffee - 875g,ground coffee,y
-56,1964,Staples,McCafé Premium Medium Dark Roast Ground Coffee - 875g,ground coffee,y
-56,2011,Bureau en gros,McCafé Premium Medium Dark Roast - Ground Coffee - 875g,ground coffee,y
-56,2012,Staples,McCafé Premium Medium Dark Roast - Ground Coffee - 875g,ground coffee,y
-57,1945,Walmart,Muskoka Roastery Coffee Co. Howling Wolf Medium Dark Ground Coffee,ground coffee,y
-57,1946,Well.ca,Muskoka Roastery Coffee Co. Ground Coffee Howling Wolf Medium Dark,ground coffee,y
-57,1957,Walmart,Muskoka Roastery Coffee Co. Loon Call Breakfast Blend Medium Ground Coffee,ground coffee,n
-58,1947,Staples,Folgers Black Silk Ground Coffee - 750g,ground coffee,y
-58,1948,Bureau en gros,Folgers Black Silk Ground Coffee - 750g,ground coffee,y
-59,1975,Walmart,"Maxwell House Decaf Ground Coffee, Medium 631 G",ground coffee,n
-59,2006,Staples,Tim Hortons Decaf Ground Coffee - 640g,ground coffee,y
-59,2007,Bureau en gros,Tim Hortons Decaf Ground Coffee - 640g,ground coffee,y
-59,2008,London Drugs,Tim Hortons Coffee - Decaf - Ground Coffee Size 652g,ground coffee,n
-60,1981,Staples,Mother Parkers Original Ground Coffee Tin - 925g,ground coffee,y
-60,1982,Bureau en gros,Mother Parkers Original Ground Coffee Tin - 925g,ground coffee,y
-61,2001,Walmart,"Tim Hortons Original Blend Ground Coffee, Medium Roast, Ground Coffee Can, Made With 100% Arabica Beans, Smooth & Balanced, Rich Taste, 875g 875 G",ground coffee,y
-61,2009,Staples,Tim Hortons Original Blend Ground Coffee - 875g,ground coffee,y
-61,2010,Bureau en gros,Tim Hortons Original Blend Ground Coffee - 875g,ground coffee,y
-62,2004,London Drugs,Four Sigmatic Adaptogen Medium Roast Ground Coffee with Ashwagandha - Balance Size 340g,ground coffee,y
-62,2014,Healthy Planet,Four Sigmatic Organic Adaptogen Ground Coffee With Ashwagandha Balance 340g - Organic and Fair Trade,ground coffee,y
-63,2015,Staples,Folgers Classic Roast Pre-Measured Ground Coffee - 39.7g - 42 Pack,ground coffee,y
-63,2016,Bureau en gros,Folgers Classic Roast Pre-Measured Ground Coffee - 39.7g - 42 Pack,ground coffee,y
-64,2018,Walmart,Gallo Salame Gallo Extra Virgin Olive Oil 1l 1 L,olive oil,n
-64,2108,Healthy Planet,Graza Extra Virgin Olive Oil Super Sizzle 1L,olive oil,n
-65,2020,London Drugs,Bertolli Extra Virgin Olive Oil - Rich Taste Size 1l,olive oil,y
-65,2117,Walmart,"Bertolli Olive Oil, Extra Light Taste - Cold Extracted, 100% Recycled Bottle, Canada’s Most Trusted Olive Oil Brand 1l",olive oil,n
-65,2118,Walmart,"Bertolli Extra Virgin Olive Oil, Rich Taste – Cold Extracted, 100% Recycled Bottle, Canada’s Most Trusted Olive Oil Brand 1l",olive oil,y
-66,2023,London Drugs,Berio Olive Oil Organic Olive Oil - Extra Virgin Size 500ml,olive oil,n
-66,2037,Walmart,Great Value Extra Virgin Olive Oil 500 Ml,olive oil,n
-67,2028,Well.ca,Seggiano Organic Extra Virgin Basil Olive Oil,olive oil,n
-67,2053,Healthy Planet,Bioitalia Organic Extra Virgin Olive Oil with Basilic 250mL - Organic and Cold Pressed,olive oil,n
-68,2050,Walmart,Bella Del Sol Organic Extra Virgin Olive Oil 750ml 750 Ml,olive oil,n
-68,2069,Healthy Planet,Silver Leaf Organic Extra Virgin Olive Oil 750mL - Organic,olive oil,n
-68,2111,Healthy Planet,La Tourangelle Organic Extra Virgin Olive Oil 750mL - Organic and Non-GMO,olive oil,n
-69,2063,Walmart,Terra Delyssa Premium Extra Virgin Olive Oil 1l 1 L,olive oil,y
-69,2074,Healthy Planet,Terra Delyssa Extra Virgin Olive Oil 1L - Non-GMO and Kosher,olive oil,y
-70,2115,Walmart,Gabriel Sardines In Olive Oil 120,olive oil,n
-70,2116,Healthy Planet,Sea Tales Wild Sardines In Extra Virgin Olive Oil 120g - Kosher,olive oil,n
-71,2119,Walmart,Great Value Unbleached All Purpose Flour 2.5 Kg,flour,y
-71,2144,London Drugs,Rogers All-Purpose Flour - Unbleached Size 2.5kg,flour,y
-72,2125,Healthy Planet,Bobs Red Mill All Purpose Baking Flour Gluten Free 623g - Kosher and Non-GMO,flour,y
-72,2127,Walmart,Bob's Red Mill Bob’s Red Mill Gluten Free All Purpose Baking Flour 624 G,flour,y
-72,2180,Walmart,Bob's Red Mill Gluten Free 1 To 1 Baking Flour 624 G,flour,y
-72,2197,Healthy Planet,Bobs Red Mill Gluten Free Whole Grain Oat Flour 623g - Kosher and Vegan,flour,n
-72,2198,Healthy Planet,Bobs Red Mill Baking Flour 1 to 1 Gluten Free 624g - Gluten Free and Kosher,flour,y
-73,2135,Healthy Planet,Bobs Red Mill All Purpose Baking Flour Gluten Free 1.24kg - Kosher and Non-GMO,flour,y
-73,2217,Walmart,Bob's Red Mill Gf 1-1 Baking Flour 1.24kg,flour,y
-73,2246,Healthy Planet,Bobs Red Mill Baking Flour 1 To 1 Gluten Free 1.24kg - Gluten Free and Kosher,flour,y
-74,2147,Well.ca,Bob's Red Mill Organic Coconut Flour,flour,y
-74,2193,Healthy Planet,Bobs Red Mill Organic Coconut Flour 453g - Kosher and Fair Trade,flour,y
-75,2178,Walmart,Bob's Red Mill Org Buckwheat Flour 22 Oz,flour,y
-75,2194,Healthy Planet,Bobs Red Mill Organic Buckwheat Flour 624g - Organic and Non-GMO,flour,y
-76,2212,Walmart,Bob's Red Mill Cassava Flour 567 G,flour,y
-76,2230,Healthy Planet,Bobs Red Mill Cassava Flour 567g - Vegan and Plant Based,flour,y
+2,871,Healthy Planet,Bach Crab Apple 20mL,apples,y
+3,880,Well.ca,Bob Snail Fruit Jelly Apple Sour Cherry,apples,y
+3,883,Well.ca,Bob Snail Fruit Sticks Apple Pear Blueberry,apples,y
+3,888,Well.ca,Bob Snail Fruit Jelly Apple Mango Pumpkin Chia,apples,y
+3,936,Healthy Planet,Bob Snail Fruit Strips Apple Pear Blueberry 84g,apples,y
+4,932,Walmart,Prana Org Protein Overnight Chia- Maple And Apple 260g 260g,apples,y
+4,953,Healthy Planet,Prana Chialove Protein Overnight Chia Oats Maple and Apple 260g - Canadian Owned and Organic,apples,y
+5,849,Walmart,"Apple, Granny Smith",apples,y
+5,850,Walmart,"Apple, Granny Smith",apples,y
+5,6101,Nature's Emporium,Organic Granny Smith Apples,apples,y
+6,6112,Longos,Fresh Pink Lady or Granny Smith Apples,apples,y
+6,848,Walmart,"Apple, Pink Lady",apples,y
+6,6109,Longos,Fresh Pink Lady or Granny Smith Apples,apples,y
+7,6113,Healthy Planet,Organic Pink Lady Apples,apples,y
+7,860,Walmart,"Fruitilicious Apples, Pink Lady Organic",apples,y
+7,6110,Longos,Fresh Organic Pink Lady or Fuji Apples,apples,y
+8,3203,Well.ca,Rviita Energy Tea Clean Energy Drink Prospearity Apple + Pear,apples,y
+8,944,Healthy Planet,Rviita Energy Tea Apple Pear Green Tea 355mL - Canadian Owned and Organic,apples,y
+9,847,Walmart,"Apple, Fuji",apples,y
+9,6103,Bestco Foodmart,Fuji Apple,apples,y
+9,6104,Bestco Foodmart,Fuji Apple,apples,y
+9,6106,Blue Sky Supermarket,Chinese Fuji Apple,apples,y
+10,863,Walmart,Your Fresh Market Organic Gala Apples,apples,y
+10,6111,Healthy Planet,Organic Gala Apples,apples,y
+11,878,Well.ca,True Co. True Dates Flavoured Sour Apple,apples,y
+11,949,Healthy Planet,True Dates Flavoured Dates Sour Apple 100g - Vegan and Non-GMO,apples,y
+12,5999,Well.ca,Stash Cinnamon Apple Chamomile Tea,apples,y
+12,914,London Drugs,Stash Tea - Cinnamon Apple Chamomile Size 20s,apples,y
+13,885,London Drugs,Hydralyte Effervescent Electrolyte Granules Sparkling Apple - 12's Size 12s,apples,y
+13,6065,Healthy Planet,"Hydralyte Electrolyte Granules Sparkling Apple 12x6g - Vegan, Non-GMO, Helps with Hydration, Energy and Endurance",apples,y
+14,891,Healthy Planet,The Ginger People Gin Gins Chewy Ginger Candy Spicy Apple 84g - Vegan and Non-GMO,apples,y
+14,6015,Well.ca,The Ginger People Gin Gins Spicy Apple Chewy Ginger Candy,apples,y
+15,904,Shoppers Drug Mart,Little Bellies Organic Apple & Berry Softcorn 8 g,apples,y
+15,972,Walmart,"Little Bellies Organic Apple Berry Soft Corn 10+ Months, 8gr 8gr",apples,y
+16,6102,Real Canadian Superstore,ROYAL GALA APPLES,apples,y
+16,6105,Adonis,royal Gala or granny smith apples,apples,y
+17,6107,Foody World,Fresh Max Apple,apples,y
+17,6108,Foody Mart,Fresh Max Apple,apples,y
+18,989,Walmart,The Little Potato Company Fresh Little Potatoes - 3lb Little Yellows,potatoes,y
+18,991,Walmart,The Little Potato Company Fresh Little Potatoes - 3lb Little Reds,potatoes,y
+18,992,Walmart,The Little Potato Company Fresh Little Potatoes - 3lb Little Trios,potatoes,y
+18,6300,Longos,"The Little Potato Company Little Reds, Yellows, Trios or Fingerlings Mini Potatoes",potatoes,y
+19,6170,Walmart,Bob's Red Mill Potato Starch 624 G,potatoes,y
+19,1039,Healthy Planet,Bobs Red Mill Potato Starch 623g - Gluten Free And Non-GMO,potatoes,y
+20,6271,H Mart ,ONTARIO NEW CROP YELLOW POTATOES,potatoes,y
+20,6272,Highland Farms,Ontario Homegrown White or Yellow Flesh Potatoes,potatoes,y
+21,6273,No Frills,WHITE POTATOES,potatoes,y
+21,6277,Sobeys,Potatoes,potatoes,y
+22,6283,No Frills,"WHITE POTATOES, 10 LB BAG",potatoes,y
+22,6287,Real Canadian Superstore,"FARMER'S MARKET™ WHITE POTATOES, 10 LB",potatoes,y
+23,6304,Fortinos,"MARZETTI DIPS, 340 G OR FOIL BAKING POTATOE, 4'S",potatoes,y
+23,6305,Loblaws,"MARZETTI DIPS, 340 g OR FOIL BAKING POTATO, 4's",potatoes,y
+24,6314,Longos,Cavendish Premium Fries or Onion Rings,potatoes,y
+24,6315,Longos,Cavendish Premium Fries or Onion Rings,potatoes,y
+24,6318,Longos,Cavendish Premium Fries or Onion Rings,potatoes,y
+24,6327,Fortinos,"CAVENDISH FARMS FRIES, SPECIALTY POTATO OR ONION RINGS, 400-750 G",potatoes,y
+25,6316,Adonis,McCain french fries,potatoes,y
+25,6320,Food Basics,McCAIN FRENCH FRIES OR TASTY POTATOES,potatoes,y
+25,6321,Highland Farms,McCain Regular Fries or Hash browns,potatoes,y
+26,6317,Oceans Fresh Food Market,French Fries,potatoes,y
+26,6322,Sobeys,Fries,potatoes,y
+27,4946,Foody Mart,Gray Ridge Medium Brown Egg 180pcs,eggs,y
+27,155,Walmart,Gray Ridge Medium White 60 Eggs Medium Eggs,eggs,y
+27,158,Walmart,Gray Ridge Large Brown 18 Eggs L,eggs,y
+27,157,Walmart,Gray Ridge Premium Large White 18 Eggs L,eggs,y
+27,4933,Longos,Gray Ridge Large White Eggs,eggs,y
+27,4936,Longos,Gray Ridge Large White Eggs,eggs,y
+27,4942,Longos,Gray Ridge Large White Eggs,eggs,y
+28,4950,Food Basics,SCHNEIDERS BREAKFAST OR EGG BITES,eggs,y
+28,4951,Food Basics,SCHNEIDERS BREAKFAST OR EGG BITES,eggs,y
+28,171,Walmart,"Schneider's Schneiders Egg With Spinach, Red Pepper & Parmesan Breakfast Bites, 4 Per Pack 224g",eggs,y
+28,172,Walmart,"Schneider's Schneiders Ham & Swiss Egg Breakfast Bites, 4 Per Pack 224 G",eggs,y
+29,4926,Nature's Emporium,YORKSHIRE VALLEY FARMS Organic Medium Eggs,eggs,y
+29,4938,Highland Farms,YORKSHIRE VALLEY FARMS Pasture-raised Organic Large Eggs,eggs,y
+30,4927,Metro,SELECTION LARGE EGGS,eggs,y
+30,4930,Adonis,Selection white egg x-large,eggs,y
+30,4941,Food Basics,SELECTION LARGE EGGS,eggs,y
+31,4928,Farm Boy,Burnbrae Farms Omega-3 Eggs,eggs,y
+31,4937,T&T Supermarket,"BURNBRAE FARMS OMEGA 3 BROWN EGGS, 12PCS",eggs,y
+32,4932,Oceans Fresh Food Market,Burnbrae Large White Eggs,eggs,y
+32,4940,Sobeys,Large White Eggs,eggs,y
+33,7318,Farm Boy,Tomatoes,tomatoes,y
+33,7329,Food Basics,FIELD TOMATOES,tomatoes,y
+33,7312,Bestco Foodmart,Tomatoes,tomatoes,y
+33,7313,Bestco Foodmart,Tomatoes,tomatoes,y
+34,7319,Walmart,Tomatoes on the vine,tomatoes,y
+34,7335,Sobeys,Tomatoes on the Vine,tomatoes,y
+34,7336,Metro,TOMATOES ON THE VINE,tomatoes,y
+34,7338,Metro,TOMATOES ON THE VINE,tomatoes,y
+34,7353,Sobeys,Cherry Tomatoes on the Vine,tomatoes,y
+34,7316,Real Canadian Superstore,TOMATOES ON THE VINE,tomatoes,y
+35,7320,Fortinos,ROMA TOMATOES,tomatoes,y
+35,7330,Loblaws,ROMA TOMATOES,tomatoes,y
+35,7331,Sobeys,Roma Tomatoes,tomatoes,y
+35,7343,Walmart,Roma or cluster tomatoes,tomatoes,y
+35,1648,Walmart,"Tomato, Roma",tomatoes,y
+35,7315,Blue Sky Supermarket,Roma Tomato,tomatoes,y
+35,7314,Btrust Supermarket,Roma Tomato,tomatoes,y
+36,7321,Walmart,Bulk beefsteak tomatoes,tomatoes,y
+36,3957,Walmart,"Tomato, Beefsteak",tomatoes,y
+36,7311,Real Canadian Superstore,BEEFSTEAK TOMATOES,tomatoes,y
+37,7323,Starsky,Ontario Grown Field Tomatoes,tomatoes,y
+37,7327,Highland Farms,Ontario Homegrown Field Tomatoes,tomatoes,y
+38,7326,Adonis,red vine tomatoes,tomatoes,y
+38,7344,Adonis,Red vine tomatoes,tomatoes,y
+38,7355,Healthy Planet,Organic Tomato Red Vine,tomatoes,y
+39,7328,Metro,WILD WONDERS OR SWEET CHERRY TOMATOES,tomatoes,y
+39,7359,Metro,WILD WONDERS OR SWEET CHERRY TOMATOES,tomatoes,y
+39,1655,Walmart,Sunset Wild Wonders Tomatoes,tomatoes,y
+39,1656,Walmart,Sunset Wild Wonders Gourmet Medley Tomatoes,tomatoes,y
+40,7339,Fortinos,LARGE VINE RIPE TOMATOES,tomatoes,y
+40,7340,Loblaws,LARGE VINE RIPE TOMATOES,tomatoes,y
+40,7342,Your Independent Grocer,VINE RIPE FIELD TOMATOES,tomatoes,y
+41,7341,Highland Farms,Ontario Homegrown Roma Tomatoes,tomatoes,y
+41,7345,FreshCo,"Roma Tomatoes Product of Ontario, Canada No. 1, 3.73/Kg",tomatoes,y
+42,7346,No Frills,"FARMER'S MARKET™ GRAPE TOMATOES, 283 G",tomatoes,y
+42,7351,Loblaws,"GRAPE TOMATOES, 283 G",tomatoes,y
+42,7356,Fortinos,"GRAPE TOMATOES, 283 G OR RADICCHIO",tomatoes,y
+43,7347,Loblaws,PC® ORGANICS TOMATOES ON THE VINE,tomatoes,y
+43,7348,Fortinos,PC® ORGANICS TOMATOES ON THE VINE,tomatoes,y
+44,7349,No Frills,NO NAME® NATURALLY IMPERFECT™ TOMATOES,tomatoes,y
+44,7352,Real Canadian Superstore,"NO NAME® NATURALLY IMPERFECT™ TOMATOES, 2.5 LB",tomatoes,y
+45,6284,Loblaws,"LOCAL POTATOES OR TOMATOES, 3 L BASKET",tomatoes,y
+45,6290,Metro,"LOCAL BASKETS PEACHES, WHITE POTATOES OR DILL CUCUMBERS OR NECTARINES FIELD TOMATOES",tomatoes,y
+45,6289,Metro,"LOCAL BASKETS PEACHES, WHITE POTATOES OR DILL CUCUMBERS 3 L, NECTARINES 2 L OR FIELD TOMATOES 3 L",tomatoes,y
+45,6291,Metro,"LOCAL BASKETS PEACHES, WHITE POTATOES OR DILL CUCUMBERS, NECTARINES OR FIELD TOMATOES",tomatoes,y
+45,6292,Metro,"LOCAL BASKETS PEACHES, WHITE POTATOES OR DILL CUCUMBERS, NECTARINES, FIELD TOMATOES",tomatoes,y
+45,6298,Fortinos,"LOCAL POTATOES OR TOMATOES, 3 L BASKET",tomatoes,y
+46,7362,Adonis,Unico tomato paste,tomatoes,y
+46,7363,Btrust Supermarket,UNICO Tomato Paste,tomatoes,y
+46,1708,Walmart,Unico Tomato Paste 156ml 156,tomatoes,y
+47,7369,Your Independent Grocer,ENGLISH CUCUMBERS OR GREENHOUSE BEEFSTEAK TOMATOES,tomatoes,y
+47,7376,Independent City Market,"ENGLISH CUCUMBERS,2 EACH OR GREENHOUSE BEEFSTEAK TOMATOES, $2 LB",tomatoes,y
+48,7377,Fortinos,"PRIMO DICED NO SALT ADDED TOMATOES, (796 ML)",tomatoes,y
+48,1729,Walmart,Great Value No Salt Added Diced Tomatoes 796 Ml,tomatoes,y
+48,1769,Healthy Planet,Vita Bio Organic Diced Tomatoes No Added Salt 796mL,tomatoes,y
+49,1674,Well.ca,Ojas Vegan Tomato Basil Quinoa Pops,tomatoes,y
+49,1759,Healthy Planet,"Ojas Vegan Quinoa Pops Tomato Basil 45g - Vegan, Plant Based, Helps with Energy Support",tomatoes,y
+50,1649,Walmart,"Tomatoes, Organic Grape",tomatoes,y
+50,7310,Nature's Emporium,Organic Grape Tomatoes Pint,tomatoes,y
+51,1695,London Drugs,LAYS TOMATO TANGO 200G,tomatoes,y
+51,1673,Walmart,Lay´s Lays Tomato Tango 165gm,tomatoes,y
+52,1675,Walmart,"Heinz Original Beans In Tomato Sauce, 398 Ml Can 398 Ml",tomatoes,y
+52,1687,Walmart,"Heinz Original Beans With Pork & Tomato Sauce, 398 Ml Can 398 Ml",tomatoes,y
+52,1736,London Drugs,HEINZ D/B BEANS N TOMATO SCE 398ML,tomatoes,y
+52,1730,London Drugs,HEINZ BEANS IN TOMATO SAUCE 398ML,tomatoes,y
+53,7192,Well.ca,Nice Cans Sardines in Tomato & Peppers,tomatoes,y
+53,1771,Healthy Planet,Nice Cans Sardines In Tomato And Peppers 120g - MSC Certified,tomatoes,y
+54,1679,London Drugs,Love Child Organics Love Ducks Corn Snacks - Tomato + Carrot,tomatoes,y
+54,1724,Healthy Planet,Love Child Organic Corn Snacks Love Ducks Tomato & Carrot 25g - Organic and Non-GMO,tomatoes,y
+55,1777,Healthy Planet,Jamieson Lycopene Tomato Concentrate 60 Caplets - Gluten Free and Preservatives Free,tomatoes,y
+55,1751,Walmart,Jamieson Lycopene Tomato Concentrate Caplets 60 Count (Pack Of 1),tomatoes,y
+56,1723,Staples,"Cricut Premium Vinyl Glossy Finish Permanent Adhesive - 12"" x 48"" - Tomato Red - 2 Pack",tomatoes,y
+56,1722,Bureau en gros,"Cricut Premium Vinyl Glossy Finish Permanent Adhesive - 12"" x 48"" - Tomato Red - 2 Pack",tomatoes,y
+57,1743,Walmart,Mutti Whole Peeled Tomatoes 796ml 796 Ml,tomatoes,y
+57,1689,London Drugs,Mutti Parma Pelati Peeled Tomatoes 100% Italian Size 796ml,tomatoes,y
+57,1690,London Drugs,Mutti Parma Polpa Finely Chopped Tomatoes 100% Italian Size 796ml,tomatoes,y
+58,1754,London Drugs,Quaker Rice Cakes - Savoury Tomato & Basil Size 173g,tomatoes,y
+58,1764,Walmart,Quaker Crispy Minis Savoury Tomato & Basil Flavour Large Brown Rice Cakes 173g,tomatoes,y
+59,1756,Shoppers Drug Mart,Love Child Love Ducks Tomato + Carrot Corn Snacks 30 g,tomatoes,y
+59,1762,Walmart,Love Child Organics Love Ducks Tomato + Carrot Corn Snacks 30g Bag 30 G,tomatoes,y
+60,2434,London Drugs,Cha's Organic Coconut Milk Size 400ml,milk,y
+60,73,Walmart,Thai Kitchen Pure Coconut Milk 400ml,milk,y
+60,72,Walmart,Delicious Kitchen Premium Light Coconut Milk 400ml 400 Ml,milk,y
+61,22,Walmart,A2 Milk®3.25% Mf 2 L,milk,y
+61,21,Walmart,A2 Milk®2% Mf 2 L,milk,y
+61,4808,Metro,A2 MILK,milk,y
+62,4812,Sobeys,Soft & Chewy Dog Treats or Brushing Chews,milk,y
+62,4813,Foodland,Soft & Chewy Dog Treats or Brushing Chews,milk,y
+62,4814,Sobeys,Comfort Chews Dog Treats,milk,y
+63,4823,Food Basics,NATREL LACTOSE FREE OR ORGANIC MILK OR SIMPLY LEMONADE,milk,y
+63,4824,Food Basics,NATREL LACTOSE FREE OR ORGANIC MILK SIMPLY LEMONADE,milk,y
+63,4825,Food Basics,NATREL LACTOSE FREE OR ORGANIC MILK 2 L SIMPLY LEMONADE 2.25 L,milk,y
+63,4835,Walmart,Natrel lactose free milk,milk,y
+63,4837,Walmart,Natrel lactose free milk,milk,y
+63,4839,Metro,NATREL PLUS MILK | OR ALLEGRO LACTOSE FREE CHEESE,milk,y
+63,4840,Metro,NATREL PLUS MILK OR ALLEGRO LACTOSE FREE CHEESE,milk,y
+64,4826,Food Basics,LACTANTIA LACTOSE FREE MILK,milk,y
+64,4843,Food Basics,LACTANTIA LACTOSE FREE MILK,milk,y
+64,4847,Metro,LACTANTIA LACTOSE FREE MILK,milk,y
+64,4848,Metro,LACTANTIA LACTOSE FREE MILK,milk,y
+64,4795,Metro,LACTANTIA MILK,milk,y
+64,4796,Metro,LACTANTIA MILK,milk,y
+65,4827,Adonis,Milk 2go chocolate 1% milk,milk,y
+65,2419,London Drugs,Dairyland Chocolate Milk - 1% Size 1l,milk,y
+66,4828,Walmart,Grace coconut milk,milk,y
+66,4851,Sobeys,Coconut Milk,milk,y
+67,4831,Real Canadian Superstore,"GRACE COCONUT MILK, 400 ML",milk,y
+67,4861,T&T Supermarket,"AROY-D COCONUT MILK, 400ML",milk,y
+68,4834,Highland Farms,"Natrel Fine-Filtered Milk 3.25%, 2%, 1% or Skim or Sealtest Chocolate Milk",milk,y
+68,64,Walmart,Natrel 1% Partly Skimmed Chocolate Milk 6x200ml 200 Ml,milk,y
+69,4836,Your Independent Grocer,"NEILSON CHOCOLATE MILK, 1 L",milk,y
+69,61,Walmart,"Neilson Nielson Jersey Milk, Milk Chocolate, 4 Count 4 Ct",milk,y
+70,4850,Food Basics,CASABLANCA COCONUT MILK OR WATER,milk,y
+70,4854,Metro,"GRACE, CASABLANCA, CHAOKOH OR COOL RUNNINGS COCONUT WATER, CASABLANCA, GRACE COCONUT MILK OR GRACE OR COOL RUNNINGS SOFT DRINKS",milk,y
+70,4856,Metro,"GRACE, CASABLANCA, CHAOKOH OR COOL RUNNINGS COCONUT WATER, CASABLANCA, GRACE COCONUT MILK OR GRACE OR COOL RUNNINGS SOFT DRINKS",milk,y
+70,4857,Metro,"GRACE, CASABLANCA, CHAOKOH OR COOL RUNNINGS COCONUT WATER, CASABLANCA, GRACE COCONUT MILK OR GRACE OR COOL RUNNINGS SOFT DRINKS",milk,y
+70,4859,Food Basics,CASABLANCA COCONUT MILK OR WATER,milk,y
+71,4867,Food Basics,CARNATION EVAPORATED MILK,milk,y
+71,4868,Oceans Fresh Food Market,Carnation Evaporated Milk,milk,y
+71,4878,Food Basics,CARNATION EVAPORATED MILK,milk,y
+71,4809,Metro,CARNATION MILK,milk,y
+72,4880,Metro,EAGLE BRAND CONDENSED MILK,milk,y
+72,4881,Sobeys,Sweetened Condensed Milk,milk,y
+72,123,Walmart,Cedar Sweetened Condensed Milk,milk,y
+73,4886,Highland Farms,Sealtest Chocolate Milk Regular or Reduced Sugar,milk,y
+73,138,Walmart,Sealtest Sugar Reduced Chocolate 1% Milk 750ml,milk,y
+74,4791,Adonis,NEILSON OR MILK 2GO MILK,milk,y
+74,4803,Shoppers Drug Mart,NEILSON MILK,milk,y
+75,748,Walmart,Balderson Marble Cheddar Cheese,cheese,y
+75,5856,Longos,Balderson Canadian Cheddar Cheese,cheese,y
+75,797,Walmart,Balderson Extra Old Cheddar Cheese,cheese,y
+75,800,Walmart,Balderson Old White Cheddar Cheese,cheese,y
+76,786,Walmart,Cracker Barrel Cheese Cracker Barrel Old White Cheddar Cheese Slices,cheese,y
+76,734,Walmart,Cracker Barrel Cheese Cracker Barrel Swiss Cheese Slices,cheese,y
+76,738,Walmart,Cracker Barrel Cheese Cracker Barrel Havarti Cheese Slices,cheese,y
+76,735,Walmart,Cracker Barrel Cheese Cracker Barrel Mozzarella Cheese Slices,cheese,y
+76,752,Walmart,Cracker Barrel Cheese Cracker Barrel Medium Cheddar Cheese Slices,cheese,y
+76,753,Walmart,Cracker Barrel Cheese Cracker Barrel Marble Cheddar Cheese Slices,cheese,y
+76,779,Walmart,Cracker Barrel Cheese Cracker Barrel Habanero Monterey Jack Cheese Slices,cheese,y
+76,780,Walmart,Cracker Barrel Cheese Cracker Barrel Light Medium Cheddar Cheese Slices,cheese,y
+76,771,Walmart,Cracker Barrel Cheese Cracker Barrel Monterey Jack Jalapeno Pepper Cheese Slices,cheese,y
+76,5839,Longos,Cracker Barrel Natural Cheese Slices,cheese,y
+77,5848,FreshCo,Boursin Cheese 150 g,cheese,y
+77,5890,Adonis,Saputo ricotta 475 g or Boursin cheese 150 g,cheese,y
+78,5849,Food Basics,THE LAUGHING COW CHEESE PRODUCT,cheese,y
+78,5885,Adonis,The Laughing Cow cheese or Irresistible Camembert,cheese,y
+79,5850,Real Canadian Superstore,CRACKER BARREL CHEESE BARS 400 G OR SHREDDED CHEESE 250-320 G,cheese,y
+79,5908,Rexall,BLACK DIAMOND Cheese Bars 400G or Shredded Cheese 320G,cheese,y
+79,5943,Your Independent Grocer,"PC® SHREDDED CHEESE, 250-320 G OR BLACK DIAMOND CHEESE BARS, 400 G OR SHREDDED CHEESE, 320 G",cheese,y
+79,5949,Independent City Market,PC® SHREDDED CHEESE OR CRUMBLED FETA CHEESE 250-320 G OR BLACK DIAMOND CHEESE BARS 400 G OR SHREDDED CHEESE 320G,cheese,y
+80,5852,Sobeys,Cheese,cheese,y
+80,5904,Sobeys,Cheese,cheese,y
+80,5905,Foodland,Cheese,cheese,y
+80,5906,Sobeys,Cheese,cheese,y
+80,5907,Sobeys,Cheese,cheese,y
+80,5915,Foodland,Shredded Cheese,cheese,y
+81,5854,Metro,IRRESISTIBLE GOAT CHEESE,cheese,y
+81,5874,Metro,IRRESISTIBLE GOAT CHEESE,cheese,y
+81,790,Walmart,Your Fresh Market Original Goat Cheese,cheese,y
+81,809,Walmart,Your Fresh Market Original Goat Cheese,cheese,y
+82,5855,Adonis,Saputo edam or provolone cheese,cheese,y
+82,5860,Oceans Fresh Food Market,Saputo Edam Cheese,cheese,y
+83,5867,Sobeys,COMPLIMENTS Cheese Slices,cheese,y
+83,5909,Foodland,COMPLIMENTS Cheese,cheese,y
+84,5869,Adonis,Irrésistible parmesan reggiano 24 months cheese,cheese,y
+84,740,Walmart,Saputo Petals Parmesan Cheese,cheese,y
+85,5872,Nations Fresh Foods,Saputo Mini Friulano Cheese 500g,cheese,y
+85,820,Walmart,Saputo Friulano Cheese,cheese,y
+86,5879,Metro,SELECTION PARMESAN GRATED CHEESE,cheese,y
+86,793,Walmart,"Kraft Grated Parmesan Cheese , 250g 0.250kg",cheese,y
+86,5840,Food Basics,KRAFT GRATED PARMESAN CHEESE,cheese,y
+87,5886,Real Canadian Superstore,"KRAFT SINGLES PROCESS CHEESE PRODUCT, 410 G",cheese,y
+87,5903,Wholesale Club and Club Entrepôt,"SLICES PROCESSED CHEESE PRODUCT, 410 G",cheese,y
+88,5891,Shoppers Drug Mart,ARMSTRONG CHEESE BLOCK,cheese,y
+88,5912,Sobeys,ARMSTRONG Cheese,cheese,y
+88,5834,Farm Boy,Armstrong Cheese Bars,cheese,y
+89,5897,Metro,SELECTION SLICED CHEESE,cheese,y
+89,5910,Sobeys,Cheese Slices,cheese,y
+89,5911,Sobeys,Cheese Slices,cheese,y
+89,5916,Sobeys,Cheese Slices,cheese,y
+89,5944,Metro,SELECTION SLICED CHEESE,cheese,y
+90,5900,Metro,"BLACK DIAMOND BARS OR SLICED CHEESE, CRACKER BARREL OR BLACK DIAMOND SLICED CHEESE",cheese,y
+90,5951,Metro,"BLACK DIAMOND BARS OR SLICED CHEESE, CRACKER BARREL OR BLACK DIAMOND SLICED CHEESE",cheese,y
+90,772,Walmart,Black Diamond Mozzarella Cheese Bar,cheese,y
+90,768,Walmart,Black Diamond Medium Cheddar Cheese Bar,cheese,y
+90,5837,Adonis,Black Diamond cheese block,cheese,y
+91,5902,Food Basics,KRAFT SHREDDED PARMESAN CHEESE,cheese,y
+91,5955,Wholesale Club and Club Entrepôt,"PARMESAN CHEESE SHREDS, 2.26 KG",cheese,y
+92,5937,Longos,"Castello Havarti, Cheddar or Gouda Cheese",cheese,y
+92,5938,Longos,"Castello Havarti, Cheddar or Gouda Cheese",cheese,y
+92,5941,Longos,"Castello Havarti, Cheddar or Gouda Cheese",cheese,y
+92,732,Walmart,Castello Gorgonzola Cheese,cheese,y
+92,744,Walmart,Castello Aged Gouda Cheese,cheese,y
+93,183,London Drugs,Dempsters Dempster's 100% Whole Wheat Bread Size 675g,bread,y
+93,207,Walmart,Dempster's Dempster’s® Half Loaf 100% Whole Wheat Bread,bread,y
+93,215,Walmart,Dempster's Dempster’s® 100% Whole Wheat Sliced Bread,bread,y
+93,213,Walmart,Dempster's Dempster’s® 100% Whole Wheat Thin Sandwich Sliced Bread,bread,y
+93,5183,Metro,DEMPSTER'S WHITE OR 100% WHOLE WHEAT BREADS,bread,y
+93,5188,Metro,DEMPSTER'S WHITE OR 100% WHOLE WHEAT BREADS,bread,y
+94,185,London Drugs,Villaggio Bread - Italian Style in White Size 510g,bread,y
+94,217,Walmart,Villaggio® Italian Style 100% Whole Wheat Thick Sliced Bread,bread,y
+94,218,Walmart,Villaggio® Classico Italian Style White Thick Sliced Bread,bread,y
+95,208,Walmart,Dempster's Dempster’s® Half Loaf White Bread,bread,y
+95,210,Walmart,Dempster's Dempster’s® White Sliced Bread,bread,y
+95,212,Walmart,Dempster's Dempster’s® White Thin Sandwich Sliced Bread,bread,y
+95,5143,Adonis,DEMPSTER'S SLICED BREADS,bread,y
+96,236,Walmart,"Food For Life: Organic Ezekiel 4:9 Sprouted Whole Grain Bread, High Fiber, Vegan, Sprouted Grains, Non-Gms, Diabetic Friendly, Complete Plant Protein,",bread,y
+96,278,Healthy Planet,Food For Life Bread Ezekiel 4:9 Cinnamon Raisin 680g - Organic and Vegan,bread,y
+96,290,Healthy Planet,Food For Life Bread Ezekiel 4:9 Flax 680g - Organic and Vegan,bread,y
+96,291,Healthy Planet,Food For Life Bread Ezekiel 4:9 Sesame 680g - Organic and Vegan,bread,y
+96,300,Healthy Planet,Food For Life Bread Ezekiel 4:9 Whole Grain 680g - Organic and Vegan,bread,y
+97,270,Walmart,Dempster's® Cinnamon Raisin Sliced Bread,bread,y
+97,5177,Metro,"SUN-MAID RAISIN BREAD, DEMPSTER'S CINNAMON RAISIN BREAD OR MALT BREAD",bread,y
+98,280,Walmart,Schar Schär Gluten-Free Artisan Baker Multigrain Bread,bread,y
+98,284,Walmart,Schar Schär Gluten-Free Artisan Baker 10 Grains & Seeds Bread,bread,y
+98,322,Healthy Planet,Schar Gluten Free Artisan Baker White Bread 400g - Non-GMO and Gluten Free,bread,y
+98,308,Healthy Planet,Schar Gluten Free Artisan Baker Multigrain Bread 400g - Non-GMO and Gluten Free,bread,y
+99,279,Walmart,Schar Schär Gluten-Free Deli Style Sourdough Bread,bread,y
+99,305,Healthy Planet,Schar Gluten Free Deli Style Bread Seeded 250g - Preservatives Free and Non-GMO,bread,y
+99,304,Healthy Planet,Schar Gluten Free Deli Style Bread Sourdough 240g - Preservatives Free and Non-GMO,bread,y
+100,5102,Walmart,Country Harvest grain bread,bread,y
+100,5103,Walmart,Country Harvest grain bread,bread,y
+100,5113,Giant Tiger,Country Harvest Bread,bread,y
+100,5126,Your Independent Grocer,"COUNTRY HARVEST BREAD OR BAGELS, 450/600 G",bread,y
+100,5170,Real Canadian Superstore,COUNTRY HARVEST BREAD AND BAGELS,bread,y
+101,5104,FreshCo,Dempster's Tortillas 426-640 g or Raisin Bread 600 g,bread,y
+101,5203,Food Basics,"DEMPSTER'S WHOLE GRAIN BREAD OR DEMPSTER'S 7"" TORTILLAS OR TIA ROSA TORTILLAS",bread,y
+101,5204,Food Basics,DEMPSTER'S WHOLE GRAIN BREAD OR DEMPSTER'S TORTILLAS OR TIA ROSA TORTILLAS,bread,y
+102,5115,Longos,"Dempster's Grains or Protein Bread 600 G, Bagels 5-6ct, Dempster's Signature Buns 6-9ct or Vachon Snack Cakes 6ct",bread,y
+102,5173,Loblaws,"DEMPSTER'S PROTEIN BREAD, 600 G",bread,y
+102,5174,Fortinos,"DEMPSTER'S PROTEIN BREAD, 600 G",bread,y
+103,5116,Walmart,Villaggio sliced bread,bread,y
+103,5117,Walmart,Villaggio sliced bread,bread,y
+103,5148,Sobeys,VILLAGGIO Bread,bread,y
+103,5166,Adonis,Villaggio sliced breads,bread,y
+103,5169,Highland Farms,Villaggio Sliced Bread,bread,y
+103,211,Walmart,Villaggio® Artesano White Sliced Bread,bread,y
+104,5118,Farm Boy,Villaggio Bread or Buns,bread,y
+104,5125,Metro,"VILLAGGIO ITALIAN STYLE BREADS, BUNS, DEMPSTER'S WHOLE GRAIN BREADS OR BEAGLES",bread,y
+104,5180,Metro,"VILLAGGIO ITALIAN STYLE BREADS, BUNS, DEMPSTER'S WHOLE GRAIN BREADS OR BEAGLES",bread,y
+104,5182,Metro,"VILLAGGIO ITALIAN STYLE BREADS, BUNS, DEMPSTER'S WHOLE GRAIN BREADS OR BAGELS",bread,y
+104,5184,Metro,"VILLAGGIO ITALIAN STYLE BREADS, BUNS, DEMPSTER'S WHOLE GRAIN BREADS OR BEAGLES",bread,y
+104,5185,Metro,"VILLAGGIO ITALIAN STYLE BREADS, BUNS, DEMPSTER'S WHOLE GRAIN BREADS OR BEAGLES",bread,y
+104,5186,Metro,"VILLAGGIO ITALIAN STYLE BREADS, BUNS, DEMPSTER'S WHOLE GRAIN BREADS OR BAGELS",bread,y
+104,5187,Metro,"VILLAGGIO ITALIAN STYLE BREADS, BUNS, DEMPSTER'S WHOLE GRAIN BREADS OR BAGELS",bread,y
+104,5189,Metro,"VILLAGGIO ITALIAN STYLE BREADS, BUNS, DEMPSTER'S WHOLE GRAIN BREADS OR BAGELS",bread,y
+104,5190,Metro,"VILLAGGIO ITALIAN STYLE BREADS, BUNS, DEMPSTER'S WHOLE GRAIN BREADS OR BAGELS",bread,y
+105,5131,Sobeys,"Whole Grain, Protein or Signature Bread",bread,y
+105,5134,Sobeys,"Whole Grain, Protein or Signature Bread",bread,y
+105,5171,Foodland,"Whole Grain, Protein or Signature Bread",bread,y
+106,5139,Fortinos,"D'ITALIANO BREAD, 675 G, BUNS, 6/8'S OR JUMBO BUNS, 8'S",bread,y
+106,5191,Loblaws,"D'ITALIANO BREAD 675 G, BUNS 6/8'S OR JUMBO BUNS 8'S",bread,y
+106,5194,No Frills,"D'ITALIANO BREAD, 620/675 G OR BUNS, 6 1/8's",bread,y
+107,5144,Loblaws,"NO NAME® BREAD, 675 g",bread,y
+107,5145,Fortinos,"NO NAME® BREAD, 675 G",bread,y
+107,5146,Real Canadian Superstore,"NO NAME® BREADS, 675 G",bread,y
+107,5147,Real Canadian Superstore,"NO NAME® BREAD, 675 G",bread,y
+108,5192,Fortinos,"WONDER BREAD, 675 G, BUNS, 8'S OR PC® OR BLUE MENU® ENGLISH MUFFINS",bread,y
+108,5193,Loblaws,"WONDER BREAD 675 G, BUNS 8'S OR PC® OR BLUE MENU® ENGLISH MUFFINS",bread,y
+109,390,Well.ca,FreeYumm Banana Maple Cookies,bananas,y
+109,451,London Drugs,Freeyumm Banana Maple Cookies Size 154g,bananas,y
+110,400,Well.ca,Baby Gourmet Vanilla Banana Berry Risotto Organic Baby Food,bananas,y
+110,447,Healthy Planet,Baby Gourmet Vanilla Banana Berry Risotto Organic 128mL - Kosher and Nut Free,bananas,y
+111,404,Well.ca,Baby Gourmet Organic Banana Fig Oatmeal,bananas,y
+111,411,Well.ca,Baby Gourmet Organic Banana Fig Oatmeal Bundle,bananas,y
+111,398,Walmart,Baby Gourmet Organic Puree Banana Fig Oatmeal 4 Oz,bananas,y
+111,401,London Drugs,Baby Gourmet Plus Baby Food - Banana Fig Oatmeal,bananas,y
+112,425,Walmart,"Love Child Organics Superblends Bananas, Pumpkin, Pears + Coconut Puree 128ml Pouch 128 Ml",bananas,y
+112,432,Walmart,"Love Child Organics Power Yo'rridge Pears, Bananas, Blackberries + Raspberries Puree 128ml Pouch 128 Ml",bananas,y
+112,410,Shoppers Drug Mart,"Love Child Power Yo'rridge Pears, Bananas, Blackberries + Raspberries Puree 128 mL",bananas,y
+113,377,Walmart,Banana,bananas,y
+113,5402,Foody World,Banana Pudding,bananas,y
+114,409,London Drugs,"Love Child Organics Puree - Banana, Pumpkin, Pear and Coconut Size 128ml",bananas,y
+114,5331,Walmart,Baby Gourmet Organic Puree Harvest Pear Pumpkin Banana 128ml Various Sizes,bananas,y
+114,445,Healthy Planet,Love Child Organic Puree Banana Pumpkin Pear & Coconut 128mL - Organic and Vegan,bananas,y
+115,408,London Drugs,Made Good Cookies - Chocolate Banana Mini Size 120g5pk,bananas,y
+115,415,Healthy Planet,Made Good Mini Cookies Chocolate Banana 120g - Organic and Vegan,bananas,y
+116,427,Walmart,"Gerber Organic Purée, Pear Banana Blueberry, Baby Food 128 Ml",bananas,y
+116,429,Walmart,"Gerber Organic Purée, Banana Mango, Baby Food 128 Ml",bananas,y
+116,2759,Shoppers Drug Mart,Gerber Organic PurÃ©e Pear Banana Blueberry Baby Food 128 mL,bananas,y
+116,434,Shoppers Drug Mart,Gerber Organic PurÃ©e Banana Mango Baby Food 128 mL,bananas,y
+117,428,Walmart,Baby Gourmet Organic Puree Vanilla Banana Berry Risotto 128 Ml,bananas,y
+117,393,London Drugs,Baby Gourmet Baby Food - Vanilla Banana Berry Risotto Size 128mlst 3,bananas,y
+117,405,Shoppers Drug Mart,Baby Gourmet Vanilla Banana Berry Risotto 128 mL,bananas,y
+118,392,London Drugs,Baby Gourmet Baby Food - Cherry Banana & Spinach Size 128ml,bananas,y
+118,407,Shoppers Drug Mart,Baby Gourmet Cherry Banana & Spinach 128 mL,bananas,y
+119,431,Walmart,Gerber Puffs Banana Baby Snacks 42 G,bananas,y
+119,439,London Drugs,Gerber Toddler Snacks Puffs - Banana,bananas,y
+119,438,Shoppers Drug Mart,"Gerber Puffs, Banana, Baby Snacks 42 g",bananas,y
+120,454,Shoppers Drug Mart,Love Child Oaty Bites Chocolate + Banana Snack Bites 100 g,bananas,y
+120,463,Walmart,Love Child Organics Oaty Bites Chocolate + Banana Snack Bites 100g Pouch 100 G,bananas,y
+121,2830,Well.ca,North Coast Naturals Brown Rice Protein,rice,y
+121,2837,Well.ca,North Coast Naturals Organic Sprouted Raw Brown Rice Protein,rice,y
+121,598,Healthy Planet,"North Coast Naturals Brown Rice Protein 340g - Organic, Vegan, Helps with Muscle, Recovery and Strength",rice,y
+122,498,Walmart,Dunya Harvest Parboiled Rice 2 Kg,rice,y
+122,523,Walmart,Dunya Harvest Long Grain White Rice 2 Kg,rice,y
+122,5546,FreshCo,Dunya Harvest Rice 2 kg - Scene+ offer,rice,y
+123,566,Walmart,Botan Brown Rice 15lb 15 Lbs,rice,y
+123,5553,Foody Mart,Sekka Premium Medium Grain Rice 15Lb,rice,y
+124,564,Walmart,Mother's Magic Everyday Basmati Rice 8lb 8lb,rice,y
+124,559,Walmart,Sitara Basmati Rice 8 Lbs,rice,y
+124,5558,Centra,PAKWAN BASMATI RICE 8LB,rice,y
+125,612,Healthy Planet,Im from Rice Toner 150mL,rice,y
+125,607,Shoppers Drug Mart,I'm From Rice Toner 150 mL,rice,y
+126,5586,Oceans Fresh Food Market,Sticky Rice In Lotus Leaf,rice,y
+126,5559,Foody Mart,Sticky Rice In Lotus Leaf,rice,y
+127,5590,Fortinos,"LIVIVA SHIRATAKI DRIED RICE, 120 G",rice,y
+127,543,Healthy Planet,Liviva Dried Shirataki Instant Rice 120g - Plant Based and Vegan,rice,y
+128,5596,Sobeys,Bistro Express Rice,rice,y
+128,5601,Foodland,Bistro Express Rice,rice,y
+128,5602,Sobeys,Bistro Express Rice,rice,y
+128,5562,Walmart,Ben's Original Bistro Express rice,rice,y
+128,5563,Walmart,Ben's Original Bistro Express rice,rice,y
+128,5564,Walmart,Ben's Original Bistro Express rice,rice,y
+129,5597,Sobeys,Premium Basmati Rice,rice,y
+129,5600,Adonis,Tilda basmati rice,rice,y
+129,5549,Longos,Tilda Pure Basmati Rice,rice,y
+129,5557,Sobeys,Basmati Rice,rice,y
+129,5579,Adonis,Tilda basmati rice,rice,y
+129,5582,Sobeys,Basmati Rice,rice,y
+130,5607,Real Canadian Superstore,"BEN'S BISTRO EXPRESS RICE, 240/250G",rice,y
+130,517,Walmart,"Ben's Original Bistro Express Pilaf Rice Side Dish, 250g Pouch 250g",rice,y
+130,518,Walmart,"Ben's Original Bistro Express Brown Basmati Rice Side Dish, 240g Pouch 240g",rice,y
+130,522,Walmart,"Ben's Original Bistro Express Whole Grain Brown Rice Side Dish, 250g Pouch 250g",rice,y
+131,5608,Wholesale Club and Club Entrepôt,MAHARANI SELLA BASMATI RICE,rice,y
+131,5577,Adonis,Lal Qilla basmati rice,rice,y
+132,5410,Well.ca,Lundberg Chicken & Herb Rice Made With Regenerative Organic White Rice,rice,y
+132,482,Healthy Planet,Lundberg Long Grain White Rice & Seasoning Mix Chicken & Herb 156g - Organic and Non-GMO,rice,y
+133,5415,Well.ca,Lundberg Organic Red Rice & Quinoa Thin Stackers,rice,y
+133,595,Healthy Planet,Lundberg Organic Thin Stackers Brown Rice 168g - Salt Free and Kosher,rice,y
+133,596,Healthy Planet,Lundberg Organic Thin Stackers Red Rice & Quinoa 168g - Kosher and Organic,rice,y
+134,490,London Drugs,Kokuho Rice Kokuho Original California Supreme Rose White Rice Size 1kg,rice,y
+134,585,Walmart,Kokuho Rose Extra Fancy Premium Sushi Rice 1kg (2.2 Lbs),rice,y
+135,5418,Well.ca,Lundberg Organic California Brown Basmati Rice,rice,y
+135,5420,Well.ca,Lundberg Organic California White Basmati Rice,rice,y
+135,538,Healthy Planet,Inari Organic White Basmati Rice 500g,rice,y
+136,5419,Well.ca,Lundberg California White Jasmine Rice,rice,y
+136,5422,Well.ca,Lundberg Organic California White Jasmine Rice,rice,y
+136,5426,Well.ca,Lundberg Organic California Brown Jasmine Rice,rice,y
+136,586,Healthy Planet,Lundberg Organic Jasmine Rice California White 907g - Organic and Vegan,rice,y
+136,591,Healthy Planet,Lundberg Jasmine Rice California White 907g - Non-GMO and Kosher,rice,y
+136,593,Healthy Planet,Lundberg Organic Jasmine Rice California Brown 907g - Organic and Vegan,rice,y
+137,5421,Well.ca,Lundberg Organic Brown Long Grain Rice,rice,y
+137,5425,Well.ca,Lundberg Organic Brown Short Grain Rice,rice,y
+137,592,Healthy Planet,Lundberg Organic Brown Rice Short Grain 907g - Organic and Vegan,rice,y
+137,580,Healthy Planet,Lundberg Organic Brown Rice Long Grain 907g - Organic and Vegan,rice,y
+138,5423,Well.ca,Lundberg Organic Arborio Rice White Nutra Farmed,rice,y
+138,587,Healthy Planet,Lundberg White Arborio Rice 907g - Vegan and Non-GMO,rice,y
+139,548,Walmart,Mr.Goudas Parboiled Rice 8 Kg,rice,y
+139,5547,FreshCo,Mr. Goudas Rice 8 kg,rice,y
+140,568,Walmart,Tilda Pure Basmati Rice - 10 Lb 10 Lbs,rice,y
+140,572,Walmart,Vadilal Classic Basmati Rice 10lb,rice,y
+140,5550,Real Canadian Superstore,"LAL QILLA PREMIUM DEHRADUNI BASMATI RICE, 10 LB",rice,y
+141,565,Walmart,Dunya Harvest Long Grain White Rice 8 Kg,rice,y
+141,5551,Chalo FreshCo ,Dunya Harvest Rice,rice,y
+142,604,Walmart,Ox Head Rice 7kg,rice,y
+142,5574,T&T Supermarket,"OX HEAD WHITE FRAGRANT RICE, 7KG",rice,y
+143,5545,Food Basics,MINUTE RICE CUPS,rice,y
+143,5580,Sobeys,Rice Cups,rice,y
+144,5556,Walmart,Minute Rice,rice,y
+144,5584,Foodland,Fast and Fancy Rice,rice,y
+145,648,Walmart,Lactantia® Provençal Garlic Butter 125g,butter,y
+145,5682,Fortinos,"LACTANTIA GARLIC BUTTER STICK, 125 G",butter,y
+146,659,Walmart,Gay Lea Foods Light Spreadables Butter 227g,butter,y
+146,651,Walmart,Gay Lea Foods Gay Lea Spreadables Butter With Canola Oil 227g,butter,y
+146,5669,Farm Boy,Gay Lea Spreadable Butters,butter,y
+147,653,Walmart,Lactantia Lactose Free Unsalted Butter 454 G,butter,y
+147,656,Walmart,Lactantia Lactose Free Salted Butter 454g,butter,y
+147,5671,Adonis,LACTANTIA SALTED OR UNSALTED BUTTER,butter,y
+147,5680,Adonis,Lactantia salted or unsalted butter,butter,y
+148,662,Walmart,Gay Lea Foods Gay Lea Salted Butter 454 G,butter,y
+148,661,Walmart,Gay Lea Foods Gay Lea Unsalted Butter 1 Lbs,butter,y
+148,664,Walmart,Gay Lea Foods Gay Lea Butter Sticks - Unsalted 454 G,butter,y
+148,665,Walmart,Gay Lea Foods Gay Lea Salted Butter Convenient Sticks 454 G,butter,y
+148,5681,FreshCo,Gay Lea Butter Salted or Unsalted 454 g,butter,y
+149,5668,Your Independent Grocer,"NO NAME® BUTTER, 454 G",butter,y
+149,5670,No Frills,"NO NAME® BUTTER, 454 g",butter,y
+149,5673,Independent City Market,"NO NAME® BUTTER, 454 G",butter,y
+149,5675,Shoppers Drug Mart,NO NAME BUTTER 454g,butter,y
+150,5672,Sobeys,Butter Sticks,butter,y
+150,5674,Foodland,COMPLIMENTS Butter Sticks,butter,y
+150,5679,Foodland,Butter Sticks,butter,y
+151,1801,Walmart,Carrots,carrots,y
+151,7445,Farm Boy,Baby Carrots,carrots,y
+151,7448,Metro,BABY CARROTS,carrots,y
+152,1803,Walmart,"Carrot, Jumbo",carrots,y
+152,7446,Real Canadian Superstore,CHINESE JUMBO CARROTS,carrots,y
+152,7447,Your Independent Grocer,CHINESE JUMBO CARROT,carrots,y
+153,1807,Walmart,Baby Gourmet Organic Jar Carrots & Ancient Grains 113 Ml,carrots,y
+153,1808,Shoppers Drug Mart,Baby Gourmet Carrots & Ancient Grains 113 mL,carrots,y
+153,1796,Well.ca,Baby Gourmet Organic Jar Carrots & Ancient Grains,carrots,y
+154,1813,Walmart,Your Fresh Market Organic Baby-Cut Carrots,carrots,y
+154,1818,Walmart,Your Fresh Market Baby-Cut Carrots,carrots,y
+154,7441,Sobeys,COMPLIMENTS Baby-Cut Carrots,carrots,y
+154,1809,Walmart,Your Fresh Market Baby-Cut Carrots,carrots,y
+155,1825,Shoppers Drug Mart,Baby Gourmet Simply Gourmet Carrot Cake Mini Oat Bites toddler snack 36 g,carrots,y
+155,1832,Walmart,Simply Gourmet™ Carrot Cake Mini Oat Bites Toddler Snack | Soft-Baked Gluten-Free Snack For Toddlers 12+ Months | No Added Sugar | From The Makers Of ,carrots,y
+156,1838,Shoppers Drug Mart,Amara Foods Mango Carrot Smoothie Melts 23 g,carrots,y
+156,1840,Walmart,"Amara Plant Based Yogurt Smoothie Melts, Carrots Raspberry Various Sizes",carrots,y
+156,1841,Walmart,"Amara Plant Based Yogurt Smoothie Melts, Mango Carrots Various Sizes",carrots,y
+157,1846,Healthy Planet,Belov Organic Puffed Cereal Snack Carrot Sweet Potato and Kale 42g - Canadian Owned and Non-GMO,carrots,y
+157,1822,Shoppers Drug Mart,Belov Organic Puffed Snack Carrot Sweet Potato Kale 42 g,carrots,y
+158,7440,Real Canadian Superstore,"FARMER'S MARKET™ MINI CARROTS, 907 G",carrots,y
+158,7442,Longos,Fresh Mini Carrots,carrots,y
+158,7443,Walmart,Your Fresh Market™ mini carrots,carrots,y
+158,7453,Longos,Fresh Mini Carrots,carrots,y
+158,7454,Walmart,Your Fresh Market™ mini carrots,carrots,y
+159,6388,Real Canadian Superstore,"FARMER'S MARKET™ CARROTS OR YELLOW ONIONS, 3 LB",carrots,y
+159,6387,FreshCo,"Compliments Carrots or Yellow Onions 3 lb Bag Product of Canada, Canada No. 1, 1.36 kg",carrots,y
+160,1366,Walmart,"Original Cheerios Breakfast Cereal, Whole Grains 350 G",cereal,y
+160,6754,Food Basics,GENERAL MILLS CHEERIOS CEREAL,cereal,y
+160,6782,Food Basics,"GENERAL MILLS, CHEERIOS CEREAL",cereal,y
+161,1399,Walmart,Cap'n Crunch Original Cereal 350 G,cereal,y
+161,6779,Food Basics,"QUAKER LIFE CEREAL, 450 G CAP'N CRUNCH, 350 G",cereal,y
+161,6780,Food Basics,"CAP'N CRUNCH, QUAKER LIFE CEREAL",cereal,y
+162,1434,Walmart,Nature's Path Organic Heritage Flakes Eco Pac Cereal 907 G,cereal,y
+162,6758,Walmart,Nature's Path Organic Heritage flakes eco pac cereal,cereal,y
+162,6770,Ambrosia Natural Foods,ORGANIC ECO-PAC CEREAL,cereal,y
+162,6773,Walmart,Nature's Path Organic Heritage flakes eco pac cereal,cereal,y
+163,6750,Sobeys,Cereals,cereal,y
+163,6757,Sobeys,Cereals,cereal,y
+163,6761,Sobeys,Cereal,cereal,y
+163,6784,Food Basics,SELECTION CEREAL,cereal,y
+163,6785,Food Basics,Selection CEREAL,cereal,y
+164,6751,FreshCo,Quaker Harvest Crunch 400-510 g or Quaker Cereal 350-500 g,cereal,y
+164,6787,Real Canadian Superstore,"QUAKER HARVEST OR CAP'N CRUNCH LIFE OR SQUARES CEREAL, 288-510 G",cereal,y
+165,6752,Walmart,Post Cereal,cereal,y
+165,6755,Walmart,Post cereal,cereal,y
+165,6763,Giant Tiger,Post cereal,cereal,y
+165,6777,Giant Tiger,Post cereal,cereal,y
+165,6793,Metro,POST FAMILY CEREAL,cereal,y
+165,6794,Metro,POST FAMILY CEREAL,cereal,y
+166,6753,FreshCo,Kellogg's Family Size Cereal Selected Varieties 450-650 g,cereal,y
+166,6756,Real Canadian Superstore,"POST OR ALBERTAN FAMILY SIZE CEREAL, 525-635 G",cereal,y
+166,6808,Wholesale Club and Club Entrepôt,"KELLOGG'S FAMILY SIZE CEREAL, 450-650 G",cereal,y
+167,6759,Sobeys,Jumbo Cereal,cereal,y
+167,6786,Sobeys,Jumbo Cereal,cereal,y
+167,6799,Wholesale Club and Club Entrepôt,"JUMBO CEREAL, 825 G-1.3 KG",cereal,y
+168,6760,Metro,GENERAL MILLS CEREAL,cereal,y
+168,6765,Valu-Mart,"CÉRÉALES GENERAL MILLS, 300-437 G",cereal,y
+168,6768,Your Independent Grocer,"GENERAL MILLS CEREAL, 300-437 G",cereal,y
+168,6769,Metro,GENERAL MILLS CEREAL,cereal,y
+169,6762,Your Independent Grocer,"GENERAL MILLS CEREAL, 317-778 G",cereal,y
+169,6766,Valu-Mart,"CÉRÉALES GENERAL MILLS, 317-778 G",cereal,y
+169,6771,FreshCo,General Mills Family Size Cereal 526-778 g,cereal,y
+169,6774,Independent City Market,"GENERAL MILLS CEREAL, 317-778 G",cereal,y
+169,6802,Fortinos,"GENERAL MILLS™ FAMILY SIZE CEREAL, 516-778 G",cereal,y
+169,6803,Food Basics,GENERAL MILLS FAMILY SIZE CEREAL,cereal,y
+169,6804,Food Basics,GENERAL MILLS FAMILY SIZE CEREAL,cereal,y
+169,6806,Real Canadian Superstore,"GENERAL MILLS FAMILY SIZE CEREAL, 475-778 G",cereal,y
+170,6789,Wholesale Club and Club Entrepôt,"KELLOGG'S JUMBO CEREAL, 730 G-1.01 KG",cereal,y
+170,6795,Real Canadian Superstore,"KELLOGG'S JUMBO CEREAL, 700 G-1.05 KG",cereal,y
+170,6800,Metro,KELLOGG'S JUMBO CEREAL,cereal,y
+170,6801,Metro,KELLOGG'S JUMBO CEREAL,cereal,y
+170,6805,Sobeys,KELLOGG'S GENERAL MILLS or POST Jumbo Cereal,cereal,y
+171,6791,Foodland,Family Size Cereal,cereal,y
+171,6796,Metro,KELLOGG'S FAMILY SIZE CEREAL,cereal,y
+171,6797,Metro,KELLOGG'S FAMILY SIZE CEREAL,cereal,y
+171,6798,Metro,KELLOGG'S FAMILY SIZE CEREAL,cereal,y
+171,6809,Sobeys,Family Size Cereal,cereal,y
+171,6812,Sobeys,Family Size Cereal,cereal,y
+172,6811,Sobeys,Gerber Cereals or Oatmeal,cereal,y
+172,6813,Guardian,GERBER or NESTLÉ Baby Cereal,cereal,y
+173,6822,Fortinos,"NATURE VALLEY™ GRANOLA BARS, 120-230G, BETTY CROCKER™ FRUIT SNACKS, 128-141G, PILLSBURY™ SOFT BAKED BARS, 150G AND CEREAL TREAT BARS, 120G",cereal,y
+173,6823,Real Canadian Superstore,"NATURE VALLEY™ BARS, 120-226 G, BETTY CROCKER™ AND MOTTS™ FRUIT SNACKS, 128-226 G, PILLSBURY™ SOFT BAKED BARS, 150 G AND CEREAL TREAT BARS, 120 G",cereal,y
+174,1128,Walmart,Red Onions,onions,y
+174,6372,Food Basics,RED ONIONS,onions,y
+174,6374,Food Basics,RED ONIONS,onions,y
+174,6375,Food Basics,RED ONIONS,onions,y
+174,6377,Sobeys,Red or Vidalia Onions,onions,y
+175,1140,Healthy Planet,Bulk Onion Powder 114g,onions,y
+175,1157,Walmart,Club House Onion Powder 116 G,onions,y
+176,1165,Walmart,Green Onion,onions,y
+176,6392,Adonis,green onions,onions,y
+176,6393,Adonis,green onions,onions,y
+176,6394,Walmart,Green onions,onions,y
+176,6396,Healthy Planet,Organic Green Onions,onions,y
+177,6373,Adonis,yellow onions,onions,y
+177,6376,Adonis,yellow onions,onions,y
+177,1126,Walmart,"Onion, Yellow",onions,y
+178,6381,Loblaws,"TROPEA ITALIAN ONIONS, 1.5 lb bag",onions,y
+178,6382,Fortinos,"TROPEA ITALIAN ONIONS, 1.5 lb bag",onions,y
+179,6391,Real Canadian Superstore,BUNCHED RADISH OR GREEN ONIONS,onions,y
+179,6395,Farm Boy,Bunched Radishes or Green Onions,onions,y
+180,1185,Walmart,Barilla Spaghetti Pasta 410g,pasta,y
+180,1182,Walmart,Barilla Rotini Pasta 410g,pasta,y
+180,1203,Walmart,Barilla Cut Macaroni Pasta 410g,pasta,y
+180,6556,Real Canadian Superstore,"BARILLA PASTA, 340/410 G",pasta,y
+180,1183,Walmart,Barilla Spaghettini Pasta 410g,pasta,y
+181,1168,Healthy Planet,Bioitalia Organic Durum Wheat Semolina Pasta Caserecce 500g - Organic,pasta,y
+181,1169,Healthy Planet,Bioitalia Organic Durum Wheat Semolina Pasta Orzo 500g - Organic,pasta,y
+181,6558,Ambrosia Natural Foods,ORGANIC DURUM WHEAT PASTA,pasta,y
+182,1216,Walmart,"Catelli Whole Grains, Spaghetti Pasta 375 G",pasta,y
+182,1214,Walmart,"Catelli Whole Grains, Spaghettini Pasta 375 G",pasta,y
+182,1204,Walmart,Catelli Classic All-Natural Capelli D'angelo Pasta 375 G,pasta,y
+182,1206,Walmart,"Catelli Classic, Alphabets Pasta 375 G 375 G",pasta,y
+182,6573,No Frills,"CATELLI SMART or WHOLE GRAINS PASTA, 375 G",pasta,y
+183,1209,Walmart,Catelli Classic All-Natural Macaroni Pasta 454g,pasta,y
+183,1207,Walmart,Catelli Classic All-Natural Spaghetti Pasta 454g,pasta,y
+183,6567,Food Basics,CATELLI SMART PASTA,pasta,y
+183,6580,Adonis,Catelli pasta,pasta,y
+184,1264,Walmart,Barilla Tagliatelle Pasta Nests 450g,pasta,y
+184,1263,Walmart,Barilla Pappardelle Pasta Nests 450g,pasta,y
+184,6594,Fortinos,"BARILLA NESTED PASTA, 450 G",pasta,y
+185,6553,No Frills,"NO NAME® PASTA, 900 G",pasta,y
+185,6566,Real Canadian Superstore,"NO NAME® PASTA, 900 G",pasta,y
+186,6554,Longos,Italpasta Pasta,pasta,y
+186,6581,Highland Farms,Italpasta Artisan Pasta,pasta,y
+186,6582,Food Basics,ITALPASTA ARTISAN PASTA,pasta,y
+186,6583,Food Basics,ITALPASTA ARTISAN PASTA,pasta,y
+187,6560,Metro,IRRESISTIBLE FRESH PASTA,pasta,y
+187,6578,Sobeys,Fresh Pasta,pasta,y
+187,6590,Loblaws,FORTINOS FRESH PASTA,pasta,y
+187,6591,Fortinos,FORTINOS FRESH PASTA,pasta,y
+188,6562,Your Independent Grocer,"OLIVIERI FAMILY PACK PASTA, 500-700 G",pasta,y
+188,6596,Loblaws,"OLIVIERI FRESH FILLED PASTA OR SKILLET GNOCCHI, 250-700 g",pasta,y
+188,6597,Fortinos,"OLIVIERI FRESH FILLED PASTA OR SKILLET GNOCCHI, 250-700 G",pasta,y
+189,1852,Walmart,"Lettuce, Romaine",lettuce,y
+189,1862,Walmart,Fresh Express Your Fresh Market Chopped Romaine Lettuce,lettuce,y
+189,7473,Nature's Emporium,Organic Romaine Lettuce,lettuce,y
+190,1855,Walmart,"Lettuce, Green Leaf",lettuce,y
+190,7477,Real Canadian Superstore,"GREEN, RED LEAF OR ROMAINE LETTUCE",lettuce,y
+190,7482,Longos,Fresh Green or Red Leaf Lettuce,lettuce,y
+190,7483,Farm Boy,Green or Red Boston Lettuce,lettuce,y
+190,7485,Loblaws,GREEN OR RED LEAF LETTUCE,lettuce,y
+190,7492,Longos,Fresh Green or Red Leaf Lettuce,lettuce,y
+190,7499,Sobeys,"Romaine, Green or Red Leaf Lettuce",lettuce,y
+191,1858,Walmart,Romaine Lettuce Hearts,lettuce,y
+191,7475,Adonis,romaine hearts lettuce,lettuce,y
+191,7493,Adonis,romaine hearts lettuce,lettuce,y
+191,7500,Adonis,ROMAINE HEARTS LETTUCE,lettuce,y
+192,1859,Walmart,Romaine Hearts,lettuce,y
+192,7476,Real Canadian Superstore,"ROMAINE HEARTS, 3'S",lettuce,y
+192,7480,Farm Boy,Romaine Hearts,lettuce,y
+192,7481,Sobeys,Romaine Hearts,lettuce,y
+192,7488,Longos,Fresh Romaine Hearts,lettuce,y
+192,7491,Food Basics,ROMAINE HEARTS,lettuce,y
+192,7495,Metro,ROMAINE HEARTS,lettuce,y
+192,7497,Sobeys,Romaine Hearts,lettuce,y
+193,1860,Walmart,"Romaine Hearts, Organic",lettuce,y
+193,7490,Loblaws,"PC® ORGANICS ROMAINE HEARTS, 3's",lettuce,y
+193,7494,Fortinos,"PC® ORGANICS ROMAINE HEARTS, 3'S",lettuce,y
+194,7486,Loblaws,"ROMAINE HEARTS, 3'S OR CELERY STICKS, 454 G",lettuce,y
+194,7498,Fortinos,"ROMAINE HEARTS, 3's OR CELERY STICKS, 454 g",lettuce,y
+195,1490,Well.ca,Kiju Organic Mango Orange Juice Boxes,orange juice,y
+195,1492,Walmart,Kiju Organic Mango Orange Fruit Juice Boxes 4 X 200 Ml 4x200ml,orange juice,y
+195,1495,Healthy Planet,Kiju Organic Juice Mango Orange 4x200mL - Organic,orange juice,y
+196,1489,Staples,Dole Orange Juice - 450ml - 12 Pack,orange juice,y
+196,1488,Bureau en gros,Dole Orange Juice - 450ml - 12 Pack,orange juice,y
+197,1491,Walmart,Kiju Organic Mango Orange Fruit Juice Blend 1 L 1l,orange juice,y
+197,1494,Healthy Planet,Kiju Organic Juice Mango Orange 1L - Organic and Non-GMO,orange juice,y
+198,6858,Farm Boy,Simply Orange Juice,orange juice,y
+198,6864,Sobeys,Orange Juice,orange juice,y
+198,6865,Foodland,Orange Juice,orange juice,y
+198,6869,Food Basics,IRRESISTIBLE ORANGE JUICE,orange juice,y
+199,6861,Bestco Foodmart,Oasis Orange Juice,orange juice,y
+199,6862,Bestco Foodmart,Oasis Orange Juice,orange juice,y
+199,6868,Costco,"Oasis Orange Juice, 24 × 300 mL",orange juice,y
+200,6863,Sobeys,COMPLIMENTS Orange Juice,orange juice,y
+200,6867,Foodland,COMPLIMENTS Pure Orange Juice,orange juice,y
+201,6870,Valu-Mart,PC® ORANGE JUICE 1.36 L OR ASTRO TUBS 650/750 G,orange juice,y
+201,6871,Your Independent Grocer,"PC® ORANGE JUICE, 1.36 L OR ASTRO YOGURT TUB, 650-750 G",orange juice,y
+202,1497,Well.ca,Baby Gourmet Melties Banana Berry with Greek Yogurt,yogurt,y
+202,1499,Well.ca,Baby Gourmet Melties Banana Berry with Greek Yogurt Bundle,yogurt,y
+202,1498,London Drugs,Baby Gourmet Mushies Snacks - Banana Berry with Greek Yogurt,yogurt,y
+203,7045,Walmart,Yoplait Tubes 8 x 56 g yogurt,yogurt,y
+203,7107,Fortinos,"YOPLAIT TUBES, 8'S OR MINIGO, 6'S YOGURT",yogurt,y
+203,7021,Walmart,Yoplait Tubes yogurt,yogurt,y
+203,7023,Walmart,Yoplait Tubes yogurt,yogurt,y
+204,7048,Longos,Siggi's Skyr Yogurt 650-750g or iOGO multipack Yogurt 16x100g,yogurt,y
+204,7051,Independent City Market,"SIGGI'S SKYR YOGURT TUBS, 650/750 G OR IÖGO CREAMY YOGURT, 16X100 G",yogurt,y
+204,7052,Longos,Siggi's Skyr Yogurt 650-750g or iOGO multipack Yogurt 16x100g,yogurt,y
+204,7061,Your Independent Grocer,"IÖGO CREAMY YOGURT CUPS, 16X100 G OR SIGGI'S SKYR YOGURT TUBS, 750 G",yogurt,y
+204,7026,Longos,Siggi's Skyr Yogurt 650-750g or iOGO multipack Yogurt 16x100g,yogurt,y
+205,7053,Walmart,Liberté Greek yogurt,yogurt,y
+205,7054,Walmart,Liberté Greek yogurt,yogurt,y
+205,1641,Walmart,"Liberté Liberte Greek 0% Yogurt, Plain, High Protein 1kg 1 Kg",yogurt,y
+205,7043,Farm Boy,Liberté Greek or Méditerranée Yogurt,yogurt,y
+206,7055,Metro,IRRESISTIBLE GREEK YOGOURT TUB,yogurt,y
+206,7079,Metro,LIBERTÉ YOGOURT TUBS,yogurt,y
+206,7083,Highland Farms,iögo Yogourt Tubs,yogurt,y
+206,7091,Metro,LIBERTÉ GREEK YOGOURT TUBS,yogurt,y
+206,7092,Metro,LIBERTÉ GREEK YOGOURT TUBS,yogurt,y
+207,7056,Walmart,Liberté Greek yogurt tubs,yogurt,y
+207,7063,Walmart,Liberté Greek or yogurt tubs,yogurt,y
+207,7150,Real Canadian Superstore,"LIBERTÉ GREEK TUBS, 650/750 G OR MEDITERRANÉE, 900 G, YOGURT OR PC® ORANGE JUICE, 2.5 L",yogurt,y
+207,7030,Real Canadian Superstore,LIBERTÉ GREEK YOGURT TUBS,yogurt,y
+208,7057,Sobeys,Activia Yogurt,yogurt,y
+208,7075,Metro,ACTIVIA YOGOURT,yogurt,y
+208,7076,Sobeys,Activia Yogurt,yogurt,y
+208,7085,Adonis,Activia yogurt,yogurt,y
+208,7086,Foodland,Activia Yogurt,yogurt,y
+208,7130,Food Basics,ACTIVIA DRINKABLE YOGURT,yogurt,y
+208,7144,Metro,ACTIVIA MULTI OR DRINKABLE YOGOURT,yogurt,y
+208,7145,Metro,ACTIVIA MULTI OR DRINKABLE YOGOURT,yogurt,y
+209,7058,Wholesale Club and Club Entrepôt,GREEK YOGURT,yogurt,y
+209,7064,Sobeys,GREEK YOGURT,yogurt,y
+209,7074,Sobeys,Greek Yogurt,yogurt,y
+209,7084,Foodland,Greek Yogurt,yogurt,y
+209,7041,Sobeys,COMPLIMENTS Greek Yogurt,yogurt,y
+209,7042,Adonis,Irrésistible greek yogurt,yogurt,y
+210,7060,FreshCo,Liberté Greek Yogurt 650-750 g,yogurt,y
+210,1594,Walmart,"Liberté Liberte Greek Yogurt Coconut, 750gr 750 G",yogurt,y
+211,7065,Longos,Oikos or Liberté Greek Yogourt,yogurt,y
+211,7071,Longos,Oikos or Liberté Greek Yogourt,yogurt,y
+211,7080,Metro,LIBERTÉ GREEK YOGOURT,yogurt,y
+211,7081,Longos,Oikos or Liberté Greek Yogourt,yogurt,y
+211,7082,Metro,LIBERTÉ MÉDITERRANÉE OR CRUNCH GREEK YOGOURT,yogurt,y
+212,7066,Walmart,Oikos Greek yogurt 4-pack,yogurt,y
+212,7072,Walmart,Oikos Greek yogurt 4-pack,yogurt,y
+212,7095,Sobeys,Oikos Greek Yogurt,yogurt,y
+212,7102,Real Canadian Superstore,"OIKOS GREEK YOGURT, 12X100 G",yogurt,y
+212,7029,Walmart,Oîkos Greek yogurt 12-pack,yogurt,y
+213,7069,Walmart,Astro yogurt tubs,yogurt,y
+213,7073,Walmart,Astro yogurt tubs,yogurt,y
+213,7077,Metro,ASTRO YOGOURT TUBS,yogurt,y
+213,7078,Metro,ASTRO YOGOURT TUBS,yogurt,y
+214,7087,Sobeys,Balkan Yogurt,yogurt,y
+214,7108,Food Basics,ASTRO ORIGINAL BALKAN YOGURT,yogurt,y
+214,7025,Food Basics,ASTRO ORIGINAL BALKAN YOGURT,yogurt,y
+215,7089,Highland Farms,Siggi's Skyr Yogourt,yogurt,y
+215,7143,Metro,"SIGGI'S SKYR, IÖGO NANO DRINKABLE YOGOURT",yogurt,y
+216,7097,Highland Farms,Danone Oikos Yogurt,yogurt,y
+216,7134,Adonis,Danone Oîkos drinkable yogurt,yogurt,y
+216,7135,Adonis,Danone Danino drinkable yogurt,yogurt,y
+217,7100,Fortinos,"KREMA YOGURT, 650 G",yogurt,y
+217,1575,Walmart,Olympic Krema Honey Yogurt 9% 650g,yogurt,y
+217,1573,Walmart,Olympic Krema Plain Yogurt 10% 650g,yogurt,y
+217,1572,Walmart,Olympic Krema Vanilla Yogurt 9% 650g,yogurt,y
+218,7104,Food Basics,OLYMPIC KREMA OR ORGANIC YOGURT,yogurt,y
+218,7105,Food Basics,OLYMPIC KREMA OR ORGANIC YOGURT,yogurt,y
+218,7028,Real Canadian Superstore,OLYMPIC KREMA YOGURT,yogurt,y
+219,7106,No Frills,"ACTIVIA PROBIOTIC YOGURT, 12x100 g",yogurt,y
+219,7022,Farm Boy,Activia Probiotic Yogurt,yogurt,y
+220,7112,Fortinos,"SILK PLANT-BASED YOGURT, 500-650 G",yogurt,y
+220,7114,Sobeys,Plant-Based Yogurt,yogurt,y
+221,7113,Real Canadian Superstore,"YOPLAIT SOURCE OR CREAMY YOGURT, 16x90/100 g",yogurt,y
+221,7034,FreshCo,Yoplait Yogurt 16 pk,yogurt,y
+222,1501,Walmart,"Gerber Apple Banana Blueberry Yogurt Purée, Real Fruit & Yogurt, For Babies, 94ml 94 Ml",yogurt,y
+222,1519,Shoppers Drug Mart,"Gerber Apple Yogurt PurÃ©e, For Babies Pouch 92 mL",yogurt,y
+222,1515,Shoppers Drug Mart,Gerber Apple Banana Blueberry Yogurt PurÃ©e 94 mL,yogurt,y
+222,1516,Shoppers Drug Mart,Gerber Pear Banana Yogurt PurÃ©e Pouch 92 mL,yogurt,y
+222,1502,Walmart,"Gerber Banana Apple Mango Yogurt Purée, Real Fruit & Yogurt, For Babies, 94ml 94 Ml",yogurt,y
+223,7124,Food Basics,IÖGO NANO FROZEN YOGOURT BARS,yogurt,y
+223,7126,Food Basics,IÖGO NANO FROZEN YOGOURT BARS,yogurt,y
+223,7033,Metro,IÖGO NANO BUBBLES YOGOURT,yogurt,y
+224,7131,Walmart,Oikos high protein drinkable Greek yogurt,yogurt,y
+224,7137,Real Canadian Superstore,"OIKOS PRO DRINKABLE YOGURT, 300 ML",yogurt,y
+224,7148,Walmart,Oikos Pro drinkable yogurt,yogurt,y
+224,7151,Walmart,Oikos Pro drinkable yogurt,yogurt,y
+224,7152,Walmart,Oikos Pro drinkable yogurt,yogurt,y
+224,7153,Walmart,Oîkos Pro drinkable yogurt,yogurt,y
+225,7132,Food Basics,YOPLAIT YOP DRINKABLE YOGURT,yogurt,y
+225,7133,Foodland,Yop Drinkable Yogurt,yogurt,y
+225,7140,Food Basics,YOPLAIT YOP DRINKABLE YOGURT,yogurt,y
+225,7141,Metro,YOP DRINKABLE YOGOURT,yogurt,y
+225,7142,Metro,YOP DRINKABLE YOGOURT,yogurt,y
+225,7146,Sobeys,Drinkable Yogurt,yogurt,y
+225,7147,Highland Farms,Yoplait Yop Yogurt Drinks,yogurt,y
+226,7136,Real Canadian Superstore,"IÖGO NANO DRINKABLE YOGURT, 24X93 ML",yogurt,y
+226,7139,Food Basics,IÖGO NANO DRINKABLE YOGURT,yogurt,y
+227,7149,Foodland,Icelandic Style Skyr Yogurt,yogurt,y
+227,7040,Sobeys,Dairy Skyr Yogurt,yogurt,y
+228,1605,Walmart,"Siggi's Plain Skyr Yogurt, High Protein, 0% 750g",yogurt,y
+228,1606,Walmart,"Siggi's Plain Skyr Yogurt, High Protein, 3.6%, 750g 750g",yogurt,y
+228,7027,Adonis,Siggi's yogurt,yogurt,y
+229,1618,London Drugs,Gerber Organic Yogurt Melts - Strawberry Banana Size 28g,yogurt,y
+229,1611,Walmart,Gerber Organic Yogurt Melts Strawberry Banana Toddler Snack 28 G,yogurt,y
+230,7024,Walmart,Astro Original yogurt 12-pack,yogurt,y
+230,7032,Oceans Fresh Food Market,Astro Plain Yogurt Series,yogurt,y
+230,7037,Adonis,Astro Original yogurt,yogurt,y
+231,7035,Foodland,Source Yogurt,yogurt,y
+231,7036,Sobeys,Source Yogurt,yogurt,y
+231,7038,Foodland,Source Yogurt,yogurt,y
+232,1920,Walmart,Great Value Medium Roast Ground Coffee 907 G,ground coffee,y
+232,1921,Walmart,Great Value Medium Roast Decaffeinated Ground Coffee 907 G,ground coffee,y
+232,1919,Walmart,Great Value Dark Roast Ground Coffee 907 G,ground coffee,y
+232,7658,Shoppers Drug Mart,MAXWELL HOUSE ORIGINAL (864g) or DARK (900g) ROAST GROUND COFFEE,ground coffee,y
+233,1939,Walmart,Nabob Full City Dark Ground Coffee 915 G,ground coffee,y
+233,1966,Walmart,"Nabob Traditional Fine Grind Ground Coffee, Medium 930 G",ground coffee,y
+233,7669,Food Basics,NABOB TRADITION GROUND COFFEE,ground coffee,y
+234,1947,Staples,Folgers Black Silk Ground Coffee - 750g,ground coffee,y
+234,1948,Bureau en gros,Folgers Black Silk Ground Coffee - 750g,ground coffee,y
+235,1889,Shoppers Drug Mart,Nescafe GOLD Instant and Roast & Ground Medium Coffee 100 g,ground coffee,y
+235,1901,Walmart,"Nescafé Nescafe Gold Premium Instant Medium Roast & Ground Coffee, Just Add Hot Water 100 G",ground coffee,y
+236,1884,Well.ca,Level Ground Andes Medium Roast Ground Coffee,ground coffee,y
+236,1936,London Drugs,Level Ground Peru Ground Coffee - Medium Roast Size 300g,ground coffee,y
+236,1974,London Drugs,Level Ground Andes Mountains Ground Coffee - Medium Roast Size 300g,ground coffee,y
+236,1985,London Drugs,Level Ground Peru Whole Bean Coffee - Medium Roast Size 300g,ground coffee,y
+236,1998,London Drugs,Level Ground Andes Mountains Whole Bean Coffee - Medium Roast Size 300g,ground coffee,y
+237,1893,Bureau en gros,Tim Hortons Decaf Blend Ground Coffee - 300g,ground coffee,y
+237,1895,Staples,Tim Hortons Decaf Blend Ground Coffee - 300g,ground coffee,y
+237,1892,Bureau en gros,Tim Hortons Original Blend Ground Coffee - 300g,ground coffee,y
+237,1894,Staples,Tim Hortons Original Blend Ground Coffee - 300g,ground coffee,y
+237,1954,London Drugs,Tim Hortons Coffee - Decaf - Ground Coffee Size 300g,ground coffee,y
+237,1949,London Drugs,Tim Hortons Coffee - Original Blend - Ground Coffee Size 300g,ground coffee,y
+237,1943,London Drugs,Tim Hortons Coffee - Dark Roast - Ground Coffee Size 300g,ground coffee,y
+237,1970,London Drugs,Tim Hortons Coffee - French Vanilla Light Medium Roast - Ground Coffee Size 300g,ground coffee,y
+238,1909,Walmart,"Illy Ground Coffee Drip Classico Medium Roast, 8.8 Oz 8.8 Oz",ground coffee,y
+238,1961,London Drugs,Illy Intenso Bold Roast - Ground Coffee Size 250g,ground coffee,y
+238,1965,London Drugs,Illy Classico Classic Roast - Ground Coffee Size 250g,ground coffee,y
+238,1989,London Drugs,Illy Intenso Bold Roast - Espresso Ground Coffee Size 250g,ground coffee,y
+239,1910,Walmart,Starbucks Caramel Flavoured Ground Coffee Bag 311 G,ground coffee,y
+239,1879,London Drugs,Starbucks Ground Coffee - Caramel Size 311g,ground coffee,y
+240,1875,London Drugs,Starbucks Coffee - Pike Place Medium Roast - Ground Coffee Size 340g,ground coffee,y
+240,1930,Walmart,"Starbucks Pike Place Roast Ground Coffee, Medium Roast, Smooth, Well-Rounded Blend 340 G",ground coffee,y
+241,1876,London Drugs,Starbucks Coffee - True North Blonde Roast - Ground Coffee Size 340g,ground coffee,y
+241,1929,Walmart,Starbucks True North Blend Blonde Roast Ground Coffee Bag 340 G,ground coffee,y
+242,1912,Walmart,"Nabob Medium Roast Swiss Water Decaf 1896 Tradition Ground Coffee, 340g Canister 340 G",ground coffee,y
+242,1915,Walmart,"Nabob Medium Roast 1896 Tradition Ground Coffee, 340g Canister 340 G",ground coffee,y
+242,1916,Walmart,"Nabob Medium Roast Breakfast Blend Ground Coffee, 340g Canister 340g",ground coffee,y
+242,1911,Walmart,"Nabob Dark Bold Roast Full City Dark Ground Coffee, 340g Canister 340 G",ground coffee,y
+242,1914,Walmart,"Nabob Medium Roast 100% Colombian Summit Ground Coffee, 340g Canister 340 G",ground coffee,y
+242,7653,FreshCo,Nabob Roast & Ground Coffee 340 g Any Variety,ground coffee,y
+243,1941,Walmart,Melitta Traditional Medium Roast & Ground Coffee,ground coffee,y
+243,1980,London Drugs,Melitta Traditional Ground Coffee Size 930g tin,ground coffee,y
+244,1944,Bureau en gros,Folgers Mountain Roast Ground Coffee - 865g,ground coffee,y
+244,1952,Staples,Folgers Mountain Roast Ground Coffee - 865g,ground coffee,y
+244,1964,Staples,McCafé Premium Medium Dark Roast Ground Coffee - 875g,ground coffee,y
+244,1963,Bureau en gros,McCafé Premium Medium Dark Roast Ground Coffee - 875g,ground coffee,y
+244,2012,Staples,McCafé Premium Medium Dark Roast - Ground Coffee - 875g,ground coffee,y
+244,2011,Bureau en gros,McCafé Premium Medium Dark Roast - Ground Coffee - 875g,ground coffee,y
+245,1945,Walmart,Muskoka Roastery Coffee Co. Howling Wolf Medium Dark Ground Coffee,ground coffee,y
+245,1946,Well.ca,Muskoka Roastery Coffee Co. Ground Coffee Howling Wolf Medium Dark,ground coffee,y
+245,1957,Walmart,Muskoka Roastery Coffee Co. Loon Call Breakfast Blend Medium Ground Coffee,ground coffee,y
+246,1968,Walmart,"Maxwell House Breakfast Blend Ground Coffee, Medium 900 G",ground coffee,y
+246,7655,Walmart,Maxwell House ground coffee,ground coffee,y
+246,7659,Food Basics,MAXWELL HOUSE GROUND COFFEE,ground coffee,y
+246,7668,Walmart,Maxwell House ground coffee,ground coffee,y
+247,1975,Walmart,"Maxwell House Decaf Ground Coffee, Medium 631 G",ground coffee,y
+247,2007,Bureau en gros,Tim Hortons Decaf Ground Coffee - 640g,ground coffee,y
+247,2006,Staples,Tim Hortons Decaf Ground Coffee - 640g,ground coffee,y
+247,2008,London Drugs,Tim Hortons Coffee - Decaf - Ground Coffee Size 652g,ground coffee,y
+248,1981,Staples,Mother Parkers Original Ground Coffee Tin - 925g,ground coffee,y
+248,1982,Bureau en gros,Mother Parkers Original Ground Coffee Tin - 925g,ground coffee,y
+249,2004,London Drugs,Four Sigmatic Adaptogen Medium Roast Ground Coffee with Ashwagandha - Balance Size 340g,ground coffee,y
+249,2014,Healthy Planet,Four Sigmatic Organic Adaptogen Ground Coffee With Ashwagandha Balance 340g - Organic and Fair Trade,ground coffee,y
+250,2010,Bureau en gros,Tim Hortons Original Blend Ground Coffee - 875g,ground coffee,y
+250,2009,Staples,Tim Hortons Original Blend Ground Coffee - 875g,ground coffee,y
+250,7654,FreshCo,Tim Hortons Ground Coffee 825-875 g,ground coffee,y
+251,2016,Bureau en gros,Folgers Classic Roast Pre-Measured Ground Coffee - 39.7g - 42 Pack,ground coffee,y
+251,2015,Staples,Folgers Classic Roast Pre-Measured Ground Coffee - 39.7g - 42 Pack,ground coffee,y
+252,7656,Sobeys,Roast & Ground Coffee,ground coffee,y
+252,7657,Metro,IRRESISTIBLE GROUND COFFEE,ground coffee,y
+252,7660,Adonis,Starbucks ground coffee,ground coffee,y
+252,7661,Foodland,Roast & Ground Coffee,ground coffee,y
+252,7662,Sobeys,Roast & Ground Coffee,ground coffee,y
+252,7665,Sobeys,Ground Coffee,ground coffee,y
+252,7666,Foodland,Roast & Ground Coffee,ground coffee,y
+253,7664,FreshCo,Kicking Horse Ground Coffee 284 g or McCafe Ground Coffee 300 g or McCafe K-Cup Pods 12 pk,ground coffee,y
+253,7667,Your Independent Grocer,PC® PODS 30'S OR MCCAFÉ GROUND COFFEE 290/300 G,ground coffee,y
+254,2028,Well.ca,Seggiano Organic Extra Virgin Basil Olive Oil,olive oil,y
+254,2053,Healthy Planet,Bioitalia Organic Extra Virgin Olive Oil with Basilic 250mL - Organic and Cold Pressed,olive oil,y
+255,2020,London Drugs,Bertolli Extra Virgin Olive Oil - Rich Taste Size 1l,olive oil,y
+255,2117,Walmart,"Bertolli Olive Oil, Extra Light Taste - Cold Extracted, 100% Recycled Bottle, Canada’s Most Trusted Olive Oil Brand 1l",olive oil,y
+255,2118,Walmart,"Bertolli Extra Virgin Olive Oil, Rich Taste – Cold Extracted, 100% Recycled Bottle, Canada’s Most Trusted Olive Oil Brand 1l",olive oil,y
+256,2108,Healthy Planet,Graza Extra Virgin Olive Oil Super Sizzle 1L,olive oil,y
+256,7790,Fortinos,"PRIMO EXTRA VIRGIN OLIVE OIL, 1 L",olive oil,y
+257,2037,Walmart,Great Value Extra Virgin Olive Oil 500 Ml,olive oil,y
+257,2023,London Drugs,Berio Olive Oil Organic Olive Oil - Extra Virgin Size 500ml,olive oil,y
+258,2045,Walmart,Saporito Foods Extra Virgin Olive Oil 1 L,olive oil,y
+258,7786,Food Basics,SAPORITO EXTRA VIRGIN OLIVE OIL,olive oil,y
+259,2050,Walmart,Bella Del Sol Organic Extra Virgin Olive Oil 750ml 750 Ml,olive oil,y
+259,2069,Healthy Planet,Silver Leaf Organic Extra Virgin Olive Oil 750mL - Organic,olive oil,y
+259,2111,Healthy Planet,La Tourangelle Organic Extra Virgin Olive Oil 750mL - Organic and Non-GMO,olive oil,y
+260,2052,Healthy Planet,Four Trees by Phoeapolis Organic Extra Virgin Olive Oil 250mL - Organic and Cold Extracted,olive oil,y
+260,7778,Longos,Four Trees By Phoeapolis Extra Virgin Olive Oil,olive oil,y
+261,2018,Walmart,Gallo Salame Gallo Extra Virgin Olive Oil 1l 1 L,olive oil,y
+261,7777,Highland Farms,Gallo Extra Virgin Olive Oil,olive oil,y
+261,7781,No Frills,"GALLO EXTRA VIRGIN OLIVE OIL, 1 L",olive oil,y
+262,2063,Walmart,Terra Delyssa Premium Extra Virgin Olive Oil 1l 1 L,olive oil,y
+262,2074,Healthy Planet,Terra Delyssa Extra Virgin Olive Oil 1L - Non-GMO and Kosher,olive oil,y
+262,7773,Walmart,Terra Delyssa extra virgin olive oil,olive oil,y
+262,7776,Your Independent Grocer,"TERRA DELYSSA EXTRA VIRGIN OLIVE OIL, 1 L",olive oil,y
+263,2062,Walmart,Kriti Gold Extra Virgin Olive Oil 750 Ml,olive oil,y
+263,7775,Centra,CLEOPATRA EXTRA VIRGIN OLIVE OIL 750 ML,olive oil,y
+264,2032,London Drugs,Berio Olive Oil Filippo Berio Extra Virgin Olive Oil Size 3l,olive oil,y
+264,2027,London Drugs,Hermes Extra Virgin Olive Oil Size 3l,olive oil,y
+264,7784,Wholesale Club and Club Entrepôt,"EXTRA VIRGIN OLIVE OIL, 2.85 L",olive oil,y
+265,2115,Walmart,Gabriel Sardines In Olive Oil 120,olive oil,y
+265,2116,Healthy Planet,Sea Tales Wild Sardines In Extra Virgin Olive Oil 120g - Kosher,olive oil,y
+266,7782,Shoppers Drug Mart,PC SPLENDIDO COLD PRESSED EXTRA VIRGIN OLIVE OIL,olive oil,y
+266,7789,Real Canadian Superstore,"PC SPLENDIDO™ COLD-PRESSED EXTRA VIRGIN OLIVE OIL, 3 L",olive oil,y
+267,2119,Walmart,Great Value Unbleached All Purpose Flour 2.5 Kg,flour,y
+267,2144,London Drugs,Rogers All-Purpose Flour - Unbleached Size 2.5kg,flour,y
+268,2125,Healthy Planet,Bobs Red Mill All Purpose Baking Flour Gluten Free 623g - Kosher and Non-GMO,flour,y
+268,2127,Walmart,Bob's Red Mill Bob’s Red Mill Gluten Free All Purpose Baking Flour 624 G,flour,y
+268,2180,Walmart,Bob's Red Mill Gluten Free 1 To 1 Baking Flour 624 G,flour,y
+268,2198,Healthy Planet,Bobs Red Mill Baking Flour 1 to 1 Gluten Free 624g - Gluten Free and Kosher,flour,y
+268,2197,Healthy Planet,Bobs Red Mill Gluten Free Whole Grain Oat Flour 623g - Kosher and Vegan,flour,y
+269,2129,Walmart,"Five Roses All Purpose Flour, White, 10kg 10 Kg",flour,y
+269,7944,Metro,FIVE ROSES ALL PURPOSE FLOUR WHITE,flour,y
+270,2135,Healthy Planet,Bobs Red Mill All Purpose Baking Flour Gluten Free 1.24kg - Kosher and Non-GMO,flour,y
+270,2217,Walmart,Bob's Red Mill Gf 1-1 Baking Flour 1.24kg,flour,y
+270,2246,Healthy Planet,Bobs Red Mill Baking Flour 1 To 1 Gluten Free 1.24kg - Gluten Free and Kosher,flour,y
+271,2147,Well.ca,Bob's Red Mill Organic Coconut Flour,flour,y
+271,2193,Healthy Planet,Bobs Red Mill Organic Coconut Flour 453g - Kosher and Fair Trade,flour,y
+272,2178,Walmart,Bob's Red Mill Org Buckwheat Flour 22 Oz,flour,y
+272,2194,Healthy Planet,Bobs Red Mill Organic Buckwheat Flour 624g - Organic and Non-GMO,flour,y
+273,2230,Healthy Planet,Bobs Red Mill Cassava Flour 567g - Vegan and Plant Based,flour,y
+273,2212,Walmart,Bob's Red Mill Cassava Flour 567 G,flour,y
+274,2243,Healthy Planet,Good Eats Almond Meal Flour Gluten Free 454g - Vegan and Non-GMO,flour,y
+274,2240,Healthy Planet,Benefits By Nature Organic Almond Flour Extra Fine 454g - Gluten Free and Non-GMO,flour,y
+274,7946,Sobeys,COMPLIMENTS NATURALLY SIMPLE Gluten Free Almond Flour 453 g,flour,y
+275,7943,Your Independent Grocer,"ROBIN HOOD OR FIVE ROSES ALL PURPOSE FLOUR, 10 KG",flour,y
+275,7948,Metro,ROBIN HOOD FIVE ROSES FLOUR,flour,y
+275,7952,Metro,ROBIN HOOD OR FIVE ROSES FLOUR,flour,y
+275,7953,Metro,ROBIN HOOD OR FIVE ROSES FLOUR,flour,y
+276,7947,Sobeys,Flour,flour,y
+276,7951,Food Basics,SELECTION FLOUR,flour,y
+277,2329,Walmart,"Great Value Frozen Mixed Vegetables, Canada A, Value Size 2 Kg",frozen vegetables,y
+277,2334,Walmart,Great Value Frozen California Style Mixed Vegetables 2 Kg,frozen vegetables,y
+277,8048,Real Canadian Superstore,"NO NAME FROZEN VEGETABLES, 2 KG",frozen vegetables,y
+278,8043,Shoppers Drug Mart,PC FROZEN VEGETABLES,frozen vegetables,y
+278,8045,Foodland,Frozen Vegetables,frozen vegetables,y
+278,8046,Sobeys,COMPLIMENTS Frozen Vegetables,frozen vegetables,y
+279,5281,Food Basics,FRESH CHICKEN BREAST FAMILY PACK,chicken breast,y
+279,5282,Food Basics,FRESH CHICKEN BREAST FAMILY PACK,chicken breast,y
+279,5266,T&T Supermarket,"CHICKEN BREAST (VALUE PACK) (FRESH, BONELESS, SKINLESS)",chicken breast,y
+280,5283,Adonis,Zabiha chicken breast roast Halal,chicken breast,y
+280,333,Walmart,Zabiha Halal Cajun Chicken Breast Roast,chicken breast,y
+280,335,Walmart,Zabiha Halal Smoked Chicken Breast Roast,chicken breast,y
+280,5260,Adonis,Zabiha chicken breast roast Halal,chicken breast,y
+281,5284,Fortinos,CAROLINA BBQ BEEF PLAIN CHICKEN BREAST,chicken breast,y
+281,5271,Loblaws,CAROLINA BBQ CHICKEN BREAST,chicken breast,y
+281,5272,Fortinos,CAROLINA BBQ CHICKEN BREAST,chicken breast,y
+282,5285,Adonis,boneless skinless split chicken breast Halal,chicken breast,y
+282,337,Walmart,Mina Halal Boneless Skinless Chicken Breasts,chicken breast,y
+282,348,Walmart,Mina Halal Boneless Skinless Chicken Breasts,chicken breast,y
+282,5270,No Frills,BONELESS SKINLESS CHICKEN BREAST,chicken breast,y
+283,5286,Fortinos,HONEY GARLIC CHICKEN BREAST KEBOBS,chicken breast,y
+283,5274,Loblaws,PLAIN CHICKEN BREAST KEBOBS,chicken breast,y
+284,5287,Loblaws,SWEET CHIPOTLE CHICKEN BREAST KEBOBS,chicken breast,y
+284,5273,Fortinos,SWEET CHIPOTLE CHICKEN BREAST,chicken breast,y
+285,5288,Real Canadian Superstore,"WATSON RIDGE CHICKEN BREASTS, 800 G",chicken breast,y
+285,345,Walmart,Watson Ridge Iqf Chicken Breast 800g 800g,chicken breast,y
+286,5290,Foodland,Chicken Breast Strips,chicken breast,y
+286,354,Walmart,Deli Express Chicken Breast Strips 560gr,chicken breast,y
+286,359,Walmart,Mina Halal Chicken Breast Strips 600gr,chicken breast,y
+287,5291,M&M Food Market,Breaded Chicken Breasts,chicken breast,y
+287,5255,Real Canadian Superstore,CHICKEN BREASTS,chicken breast,y
+288,5292,Loblaws,"MARCANGELO MINI CHICKEN BREAST SKEWERS, 300 G",chicken breast,y
+288,5293,Fortinos,"MARCANGELO MINI CHICKEN BREAST SKEWERS, 300 g",chicken breast,y
+289,5294,Loblaws,"PC® CHICKEN BREAST BITES OR SHAWARMA STRIPS, 300 G",chicken breast,y
+289,5295,Fortinos,"PC® CHICKEN BREAST BITES OR SHAWARMA STRIPS, 300 G",chicken breast,y
+290,331,Walmart,Prime Boneless Skinless Chicken Breasts Raised Without Antibiotics,chicken breast,y
+290,362,Walmart,Prime Sliced Boneless Skinless Chicken Breasts Raised Without Antibiotics,chicken breast,y
+290,339,Walmart,Prime Raised Without Antibiotics Diced Chicken Breast,chicken breast,y
+290,349,Walmart,Prime Boneless Skinless Chicken Breasts Raised Without Antibiotics,chicken breast,y
+290,5250,Food Basics,PRIME RAISED WITHOUT ANTIBIOTICS FRESH BONELESS SKINLESS CHICKEN BREAST,chicken breast,y
+290,5253,Food Basics,PRIME RAISED WITHOUT ANTIBIOTICS FRESH BONELESS SKINLESS CHICKEN BREAST,chicken breast,y
+291,5265,No Frills,"PC® BLUE MENU® BONELESS SKINESS CHICKEN BREAST FILLETS, 350 G",chicken breast,y
+291,5276,Real Canadian Superstore,"PC BLUE MENU EXTRA LEAN CHICKEN BREAST FILLETS, UP TO 350 G",chicken breast,y
+292,5267,Loblaws,CHICKEN BREAST SHAWARMA,chicken breast,y
+292,5268,Fortinos,CHICKEN BREAST SHAWARMA,chicken breast,y
+293,2269,Bureau en gros,"Lantic Fine Granulated Sugar, 2 kg",sugar,y
+293,2270,Staples,"Lantic Fine Granulated Sugar, 2 kg",sugar,y
+294,2272,Staples,"Lantic Granulated Real Sugar Packets, 2000 Pack",sugar,y
+294,2271,Bureau en gros,"Lantic Granulated Real Sugar Packets, 2000 Pack",sugar,y
+295,2284,Walmart,Redpath Sugar Redpath Dark Brown Sugar 1 Kg,sugar,y
+295,2285,Walmart,Redpath Sugar Redpath Golden Yellow Sugar 1 Kg,sugar,y
+295,2283,Walmart,Redpath Sugar Redpath Demerara Style Sugar 1 Kg,sugar,y
+295,7999,Longos,Redpath Granulated Sugar,sugar,y
+295,8001,Longos,Redpath Granulated Sugar,sugar,y
+296,2290,Bureau en gros,"Mother Parkers Sugar, 20 oz.",sugar,y
+296,2289,Staples,"Mother Parkers Sugar, 20 oz.",sugar,y
+297,2309,Bureau en gros,Rogers Sugar Cubes - 500 g - 12 Pack,sugar,y
+297,2310,Staples,Rogers Sugar Cubes - 500 g - 12 Pack,sugar,y
+298,2314,Walmart,Unico Canned Black Beans 540 Ml,canned beans,y
+298,8015,FreshCo,Dunya Harvest Canned Beans 540 mL,canned beans,y

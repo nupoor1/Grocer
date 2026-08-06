@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException, Query
@@ -31,6 +31,10 @@ class Offer(BaseModel):
     image_url: Optional[str]
     price_per_unit: Optional[float]
     unit_label: Optional[str]
+    source: str
+    sale_story: Optional[str]
+    valid_from: Optional[date]
+    valid_to: Optional[date]
 
 
 class ProductResult(BaseModel):
@@ -56,6 +60,10 @@ class DealObservation(BaseModel):
     store_count: int
     price_per_unit: Optional[float]
     unit_label: Optional[str]
+    source: str
+    sale_story: Optional[str]
+    valid_from: Optional[date]
+    valid_to: Optional[date]
 
 
 class Category(BaseModel):
@@ -67,6 +75,7 @@ class HistoryPoint(BaseModel):
     merchant: str
     observed_at: datetime
     current_price: float
+    source: str
 
 
 # Shared building blocks for every query below:
@@ -77,8 +86,10 @@ class HistoryPoint(BaseModel):
 SIGNALS_CTE = """
 WITH latest AS (
     SELECT DISTINCT ON (item_id)
-        item_id, current_price, original_price
+        item_id, current_price, original_price, source, sale_story, valid_from, valid_to
     FROM price_observations
+    WHERE source = 'ecom'
+       OR (source = 'flyer' AND CURRENT_DATE BETWEEN valid_from AND valid_to)
     ORDER BY item_id, observed_at DESC
 ),
 recent_30d AS (
@@ -119,7 +130,8 @@ SIGNAL_COLUMNS = """
     l.current_price, l.original_price,
     md.median_price, sb.avg_price AS statcan_avg,
     igm.group_id, pg.canonical_name, i.image_url,
-    COALESCE(gc.cnt, 1) AS store_count
+    COALESCE(gc.cnt, 1) AS store_count,
+    l.source, l.sale_story, l.valid_from, l.valid_to
 """
 
 SIGNAL_JOINS = """
@@ -210,7 +222,9 @@ def rows_to_products(rows):
     item is its own single-offer bucket. Shared by every endpoint that returns
     ProductResult shapes, so a product's signals are computed identically everywhere."""
     buckets = {}
-    for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name, image_url, store_count in rows:
+    for (item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg,
+         group_id, canonical_name, image_url, store_count,
+         source, sale_story, valid_from, valid_to) in rows:
         key = ("group", group_id) if group_id is not None else ("item", item_id)
         if key not in buckets:
             buckets[key] = {
@@ -238,6 +252,10 @@ def rows_to_products(rows):
                 image_url=image_url,
                 price_per_unit=price_per_unit,
                 unit_label=unit_label,
+                source=source,
+                sale_story=sale_story,
+                valid_from=valid_from,
+                valid_to=valid_to,
             )
         )
 
@@ -303,7 +321,9 @@ def best_deals(limit: int = Query(20, ge=1, le=100)):
     conn.close()
 
     deals = []
-    for item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg, group_id, canonical_name, image_url, store_count in rows:
+    for (item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg,
+         group_id, canonical_name, image_url, store_count,
+         source, sale_story, valid_from, valid_to) in rows:
         is_deal, discount_pct, vs_own_history_pct, vs_statcan_pct, composite_score = compute_signals(
             current_price, original_price, median_30d, statcan_avg
         )
@@ -325,6 +345,10 @@ def best_deals(limit: int = Query(20, ge=1, le=100)):
                 store_count=store_count,
                 price_per_unit=price_per_unit,
                 unit_label=unit_label,
+                source=source,
+                sale_story=sale_story,
+                valid_from=valid_from,
+                valid_to=valid_to,
             )
         )
 
@@ -334,7 +358,7 @@ def best_deals(limit: int = Query(20, ge=1, le=100)):
 
 
 HISTORY_BY_GROUP_QUERY = """
-SELECT m.name, po.observed_at, po.current_price
+SELECT m.name, po.observed_at, po.current_price, po.source
 FROM item_group_map igm
 JOIN items i ON i.id = igm.item_id
 JOIN merchants m ON m.merchant_id = i.merchant_id
@@ -344,7 +368,7 @@ ORDER BY po.observed_at
 """
 
 HISTORY_BY_ITEM_QUERY = """
-SELECT m.name, po.observed_at, po.current_price
+SELECT m.name, po.observed_at, po.current_price, po.source
 FROM items i
 JOIN merchants m ON m.merchant_id = i.merchant_id
 JOIN price_observations po ON po.item_id = i.id
@@ -367,8 +391,8 @@ def history(group_id: Optional[int] = None, item_id: Optional[int] = None):
     conn.close()
 
     return [
-        HistoryPoint(merchant=merchant, observed_at=observed_at, current_price=current_price)
-        for merchant, observed_at, current_price in rows
+        HistoryPoint(merchant=merchant, observed_at=observed_at, current_price=current_price, source=source)
+        for merchant, observed_at, current_price, source in rows
     ]
 
 
