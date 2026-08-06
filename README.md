@@ -1,6 +1,6 @@
 # Grocer: Canadian Grocery Price Intelligence
 
-**[Live Demo](ADD_URL_ONCE_DEPLOYED)**
+**[Live Demo](https://grocer-vqme.onrender.com)**
 
 Grocery flyers tell you what's on sale. They don't tell you whether the sale price is
 actually good. Grocer tracks live pricing across Canadian retailers, keeps a full price
@@ -260,12 +260,61 @@ StatCan ────────────────────────
 ```
 
 **Stack:** Python 3.12, FastAPI, PostgreSQL (Supabase), React + TypeScript,
-sentence-transformers, rapidfuzz, pandas.
+sentence-transformers, rapidfuzz, pandas. Single Render web service serves both halves.
 
 Ingestion (`ingest.py`) and product matching (`match_candidates.py` → manual CSV review →
 `commit_groups.py`) are currently run manually, not on a schedule. Scheduling ingestion via
-GitHub Actions, and deploying the API + frontend (Render is the likely target), are next
-steps — see Limitations.
+GitHub Actions is the next step — see Limitations.
+
+### Deployment
+
+One Render web service runs `uvicorn main:app`, and that same FastAPI process serves both
+the API and the built React app — no separate static host, no CORS to configure in
+production, one URL for everything.
+
+**Why the API moved under `/api/*`.** The React app and the API used to be able to share
+bare paths like `/search` because they lived on different ports in dev. Once they share an
+origin, that stops being safe: react-router's client-side route is `/search`, and the old
+FastAPI route was also literally `/search` (requiring a `q` query param). A browser
+refresh or direct link to `/search?q=milk` would've hit FastAPI's `/search` handler first
+and gotten back raw JSON instead of the page. Namespacing every API route under `/api/*`
+(`/api/search`, `/api/deals`, `/api/product`, `/api/history`, `/api/categories`) removes the
+collision entirely — the frontend's routes and the API's routes no longer share a
+namespace. `frontend/src/api.ts` calls `/api/*` unconditionally now (no more
+`VITE_API_BASE`/absolute-URL logic); it works identically in production (same origin) and
+in dev, where `vite.config.ts` proxies `/api/*` to `http://127.0.0.1:8000` so `npm run dev`
+still talks to a local FastAPI server without a CORS round-trip.
+
+**How one path serves both.** `main.py` registers every `/api/*` route first, then at the
+bottom mounts `frontend/dist/assets` for the built JS/CSS and adds a catch-all
+`GET /{full_path:path}` route. Starlette matches routes in the order they're registered, so
+`/api/search` always resolves to the real endpoint; anything else either matches a real file
+in `dist` (e.g. `/favicon.svg`) or falls back to `dist/index.html`, letting react-router take
+over client-side for paths like `/search` or `/item/group/42` that aren't real files on disk.
+
+**Render configuration:**
+
+- **Build Command:**
+  ```
+  pip install -r requirements.txt && cd frontend && npm install && npm run build && cd ..
+  ```
+  Installs the Python deps and builds the frontend into `frontend/dist` in the same build
+  step, so it's sitting there when `uvicorn` starts. `frontend/dist` stays gitignored — it's
+  built fresh on every deploy, never committed.
+- **Start Command** (should already be set, since the API-only deploy was already working):
+  ```
+  uvicorn main:app --host 0.0.0.0 --port $PORT
+  ```
+- **One thing I can't verify from here:** whether Render's Python-runtime build image has
+  `npm` available. Render's native environments have historically bundled multiple language
+  runtimes in one build image, so this is likely to just work — but if the build log shows
+  `npm: command not found`, the fallback is switching this service to a Dockerfile-based
+  deploy (a `python:3.12` base image with Node installed via `apt-get`, or `node` base image
+  with Python installed) for guaranteed control over what's in the build environment.
+- Also caught while verifying this locally: `npm run build` (`tsc -b && vite build`) was
+  actually failing on a pre-existing TypeScript error in `ItemDetailPage.tsx` (a `recharts`
+  `Tooltip formatter` prop typed too narrowly) — unrelated to this change, but it would have
+  failed Render's build the moment the frontend build step was added. Fixed alongside this.
 
 ---
 
@@ -279,9 +328,9 @@ steps — see Limitations.
   re-running matching on the flyer-expanded data hasn't been through the manual y/n review the
   original 78-group ecom set got — see Product matching. Multi-product flyer lines
   (`"X or Y or Z"`) are a known source of false positives in it.
-- **Not yet deployed / not yet scheduled.** Ingestion and product matching are run by hand
-  today. A GitHub Actions cron for `ingest.py` and a Render deployment for the API/frontend
-  are the natural next steps, not yet built.
+- **Not yet scheduled.** Ingestion and product matching are still run by hand — a GitHub
+  Actions cron for `ingest.py` is the natural next step, not yet built. (The app itself is
+  deployed — see Live Demo above and [Deployment](#deployment).)
 - **Sale-cycle prediction** is the natural extension, predicting *when* an item will next
   be discounted. Not implemented: it requires months of observed sale cycles to distinguish
   real periodicity from noise, and the dataset currently spans weeks. The pipeline

@@ -1,8 +1,11 @@
 from datetime import date, datetime
+from pathlib import Path
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from db import get_connection
@@ -266,7 +269,7 @@ def rows_to_products(rows):
     return results
 
 
-@app.get("/search", response_model=list[ProductResult])
+@app.get("/api/search", response_model=list[ProductResult])
 def search(q: str = Query(..., min_length=1)):
     conn = get_connection()
     with conn.cursor() as cur:
@@ -290,7 +293,7 @@ def search(q: str = Query(..., min_length=1)):
 PRODUCT_BY_ITEM_QUERY = SIGNALS_CTE + f"SELECT {SIGNAL_COLUMNS} FROM items i {SIGNAL_JOINS} WHERE i.id = %s"
 
 
-@app.get("/product", response_model=ProductResult)
+@app.get("/api/product", response_model=ProductResult)
 def product(group_id: Optional[int] = None, item_id: Optional[int] = None):
     """Full signal data (not just price history) for one product -- backs the item
     detail page's per-store comparison, since /history only has raw prices."""
@@ -312,7 +315,7 @@ def product(group_id: Optional[int] = None, item_id: Optional[int] = None):
     return products[0]
 
 
-@app.get("/deals", response_model=list[DealObservation])
+@app.get("/api/deals", response_model=list[DealObservation])
 def best_deals(limit: int = Query(20, ge=1, le=100)):
     conn = get_connection()
     with conn.cursor() as cur:
@@ -377,7 +380,7 @@ ORDER BY po.observed_at
 """
 
 
-@app.get("/history", response_model=list[HistoryPoint])
+@app.get("/api/history", response_model=list[HistoryPoint])
 def history(group_id: Optional[int] = None, item_id: Optional[int] = None):
     if (group_id is None) == (item_id is None):
         raise HTTPException(400, "Provide exactly one of group_id or item_id")
@@ -405,7 +408,7 @@ ORDER BY search_term
 """
 
 
-@app.get("/categories", response_model=list[Category])
+@app.get("/api/categories", response_model=list[Category])
 def categories():
     conn = get_connection()
     with conn.cursor() as cur:
@@ -413,3 +416,22 @@ def categories():
         rows = cur.fetchall()
     conn.close()
     return [Category(search_term=term, item_count=count) for term, count in rows]
+
+
+# Serves the built React app so one Render service covers both API and frontend.
+# All API routes are under /api/*, registered above this point -- Starlette matches
+# routes in registration order, so those always win before anything below is tried.
+FRONTEND_DIST = Path(__file__).parent / "frontend" / "dist"
+
+if FRONTEND_DIST.exists():
+    app.mount("/assets", StaticFiles(directory=FRONTEND_DIST / "assets"), name="assets")
+
+    @app.get("/{full_path:path}")
+    def spa(full_path: str):
+        """Serves a real file (favicon.svg, etc.) if one exists at that path, otherwise
+        falls back to index.html so react-router's client-side routing (e.g. /search,
+        /item/group/42) can take over -- those paths don't correspond to real files."""
+        candidate = FRONTEND_DIST / full_path
+        if full_path and candidate.is_file():
+            return FileResponse(candidate)
+        return FileResponse(FRONTEND_DIST / "index.html")

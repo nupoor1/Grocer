@@ -2,7 +2,7 @@ import requests
 
 from db import get_connection
 
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "http://127.0.0.1:8000/api"
 
 TEST_QUERIES = ["Bach Crab Apple", "Villaggio", "Tim Hortons", "Bob's Red Mill", "flour", "coffee"]
 

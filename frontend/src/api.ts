@@ -1,4 +1,7 @@
-const API_BASE = import.meta.env.VITE_API_BASE ?? "http://127.0.0.1:8000";
+// Always relative -- in production this resolves against whatever domain served the
+// page (single Render service serves both), and in dev vite.config.ts proxies /api to
+// the local FastAPI server, so this never needs to know an absolute host.
+const API_BASE = "/api";
 
 export interface Offer {
   item_id: number;

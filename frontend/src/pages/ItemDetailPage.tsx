@@ -102,7 +102,7 @@ export default function ItemDetailPage() {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="date" fontSize={12} />
               <YAxis fontSize={12} tickFormatter={(v) => `$${v}`} width={45} />
-              <Tooltip formatter={(v: number) => `$${v.toFixed(2)}`} />
+              <Tooltip formatter={(v) => `$${Number(v).toFixed(2)}`} />
               <Legend />
               {merchants.map((m, i) => (
                 <Line
