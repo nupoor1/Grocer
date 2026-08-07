@@ -57,14 +57,6 @@ anti-detection tooling, I found that Flipp, which aggregates pricing from Canadi
 retailers, exposes an unauthenticated backend serving equivalent data without needing to
 defeat bot protection at all.
 
-**The pivot didn't fully close the coverage gap on its own.** `ecom_items[]` alone returns
-Walmart and a mix of drugstore, office-supply, and hardware retailers instead of the big grocery
-banners that blocked direct scraping. That turned out to be an endpoint choice rather than a Flipp
-limitation. The same API response also carries an `items[]` array (the weekly flyer data),
-and that's where Metro, Sobeys, No Frills, Loblaws, FreshCo, and the rest of the banners
-actually show up. Parsing that second array (below) closed the gap the scraping attempts
-couldn't.
-
 ---
 
 ## Flyer pricing
@@ -191,25 +183,11 @@ embedding stage. The real errors clustered into three patterns:
   "Extra Light Taste" olive oil, and Walmart's different Villaggio bread types, occasionally
   landed in the same cluster.
 
-These were corrected by hand (`fix_groups.py`) rather than by retuning the similarity
+These were corrected manually (`fix_groups.py`) rather than by retuning the similarity
 threshold, since tightening it enough to split flavor variants started splitting genuine
 duplicates too. The threshold is a precision/recall dial. Loosen it and variants merge,
 tighten it and duplicates fracture. 0.75 cosine similarity was the best tradeoff found by
 eye, not by a held-out validation set.
-
-**Flyer text introduced a failure mode ecom listings didn't have.** Re-running the matching
-pipeline on the flyer-expanded item set produced 298 cross-merchant candidate groups (954
-rows, written fresh to `candidate_groups.csv`, not yet manually reviewed. The ecom-only
-review above is a baseline, not a validation of this larger set). Spot-checking a sample
-surfaced a pattern that's structural, not a tuning problem. Some flyer lines describe
-*several* products at once as a single ad slot, such as
-`"Kicking Horse Ground Coffee 284 g or McCafe Ground Coffee 300 g or McCafe K-Cup Pods 12 pk",`
-or describe a category rather than a specific product.
-`"GENERAL MILLS CEREAL, 317-778 G"` matched near-identically across six different banners'
-flyers, even though it could mean Cheerios at one store and Lucky Charms at another. Neither
-rapidfuzz nor the embedding model can resolve this. The ambiguity is in the source text
-itself, not in how it's compared. Filtering or splitting `"X or Y or Z"` flyer lines before
-they enter matching is the natural next step; not yet implemented.
 
 ---
 
@@ -258,35 +236,7 @@ StatCan ────────────────────────
 **Stack:** Python 3.12, FastAPI, PostgreSQL (Supabase), React + TypeScript,
 sentence-transformers, rapidfuzz, pandas. Single Render web service serves both halves.
 
-Ingestion (`ingest.py`) runs on a schedule via GitHub Actions (`.github/workflows/ingest.yml`,
-see below). Product matching (`match_candidates.py` → manual CSV review →
-`commit_groups.py`) is still run by hand; it involves a human review step by design, so it
-isn't a scheduling candidate the same way ingestion is.
-
 ### Deployment
-
-One Render web service runs `uvicorn main:app`, and that same FastAPI process serves both
-the API and the built React app.
-
-**Why the API moved under `/api/*`.** The React app and the API used to be able to share
-bare paths like `/search` because they lived on different ports in dev. Once they share an
-origin, that stops being safe: react-router's client-side route is `/search`, and the old
-FastAPI route was also literally `/search` (requiring a `q` query param). A browser
-refresh or direct link to `/search?q=milk` would've hit FastAPI's `/search` handler first
-and gotten back raw JSON instead of the page. Namespacing every API route under `/api/*`
-(`/api/search`, `/api/deals`, `/api/product`, `/api/history`, `/api/categories`) removes the
-collision entirely. The frontend's routes and the API's routes no longer share a
-namespace. `frontend/src/api.ts` calls `/api/*` unconditionally now (no more
-`VITE_API_BASE`/absolute-URL logic); it works identically in production (same origin) and
-in dev, where `vite.config.ts` proxies `/api/*` to `http://127.0.0.1:8000` so `npm run dev`
-still talks to a local FastAPI server without a CORS round trip.
-
-**How one path serves both.** `main.py` registers every `/api/*` route first, then at the
-bottom mounts `frontend/dist/assets` for the built JS/CSS and adds a catch-all
-`GET /{full_path:path}` route. Starlette matches routes in the order they're registered, so
-`/api/search` always resolves to the real endpoint; anything else either matches a real file
-in `dist` (e.g. `/favicon.svg`) or falls back to `dist/index.html`, letting react-router take
-over client-side for paths like `/search` or `/item/group/42` that aren't real files on disk.
 
 **Render configuration:**
 
@@ -301,27 +251,6 @@ over client-side for paths like `/search` or `/item/group/42` that aren't real f
   uvicorn main:app --host 0.0.0.0 --port $PORT
   ```
 
-### Ingestion schedule
-
-`.github/workflows/ingest.yml` runs `ingest.py` on a cron schedule (every 2 days) plus
-`workflow_dispatch` for manual runs. Two reasons: it's how price history actually
-accumulates over time (the whole basis for the "own price history" deal signal), and it
-keeps the Supabase free-tier project from auto-pausing after a week of inactivity.
-
-It installs from `requirements-ingest.txt`, not the full `requirements.txt`. Ingestion
-itself only needs `requests`, `psycopg2-binary`, and `python-dotenv`; the rest of
-`requirements.txt` (`sentence-transformers`, `scikit-learn`, `pandas`, `fastapi`, ...) is for
-the API and the separate, manually-run matching pipeline, and installing it on every
-scheduled run would mean downloading `torch` for no reason every 2 days. `ingest.py` never
-imports `sentence-transformers` or `torch`; matching is a fully separate script, never
-invoked by ingestion.
-
-The workflow needs one repository secret: **`Settings → Secrets and variables → Actions →
-New repository secret`**, name `DATABASE_URL`, value the same Supabase connection string
-from your local `.env` (session pooler, port 5432). `db.py` already reads
-`os.environ["DATABASE_URL"]`. `load_dotenv()` no-ops when there's no `.env` file, which is
-exactly the case on the runner, so no code changes were needed for the connection itself.
-
 ---
 
 ## Limitations & future work
@@ -334,9 +263,6 @@ exactly the case on the runner, so no code changes were needed for the connectio
   re-running matching on the flyer-expanded data hasn't been through the manual y/n review the
   original 78-group ecom set got (see Product matching). Multi-product flyer lines
   (`"X or Y or Z"`) are a known source of false positives in it.
-- **Product matching is still manual.** Ingestion is scheduled (see
-  [Ingestion schedule](#ingestion-schedule)), but matching involves a human review step by
-  design, so it's run by hand, not on a cron.
 - **Sale-cycle prediction** is the natural extension, predicting *when* an item will next
   be discounted. Not implemented; it requires months of observed sale cycles to distinguish
   real periodicity from noise, and the dataset currently spans weeks. The pipeline
