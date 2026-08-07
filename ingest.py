@@ -1,3 +1,4 @@
+import sys
 import time
 from datetime import datetime
 
@@ -133,13 +134,15 @@ def ingest_flyer_entry(cur, entry, term, postal_code):
 def main():
     conn = get_connection()
     summary = {}
+    failed_terms = []
 
     for term in BASKET:
         try:
             data = fetch_search(term, POSTAL_CODE)
         except requests.RequestException as e:
-            print(f"{term}: request failed ({e})")
+            print(f"{term}: request failed ({e})", file=sys.stderr)
             summary[term] = {"ecom": 0, "flyer": 0}
+            failed_terms.append(term)
             continue
 
         ecom_count = 0
@@ -166,6 +169,17 @@ def main():
         total_ecom += counts["ecom"]
         total_flyer += counts["flyer"]
     print(f"{'TOTAL':20s} ecom={total_ecom:<5d} flyer={total_flyer:<5d}")
+
+    if failed_terms:
+        print(f"\n{len(failed_terms)}/{len(BASKET)} terms failed to fetch: {', '.join(failed_terms)}", file=sys.stderr)
+
+    # A run that inserted zero rows accomplished nothing -- whether every request
+    # failed, or requests succeeded but returned nothing usable, that's a failure,
+    # not a quiet success. Individual failed terms alongside real data are only a
+    # warning (transient/per-term issues), not a whole-run failure.
+    if total_ecom + total_flyer == 0:
+        print("\nFAILED: 0 rows ingested across the entire basket.", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

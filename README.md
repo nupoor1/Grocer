@@ -262,9 +262,10 @@ StatCan ────────────────────────
 **Stack:** Python 3.12, FastAPI, PostgreSQL (Supabase), React + TypeScript,
 sentence-transformers, rapidfuzz, pandas. Single Render web service serves both halves.
 
-Ingestion (`ingest.py`) and product matching (`match_candidates.py` → manual CSV review →
-`commit_groups.py`) are currently run manually, not on a schedule. Scheduling ingestion via
-GitHub Actions is the next step — see Limitations.
+Ingestion (`ingest.py`) runs on a schedule via GitHub Actions (`.github/workflows/ingest.yml`)
+— see below. Product matching (`match_candidates.py` → manual CSV review →
+`commit_groups.py`) is still run by hand; it involves a human review step by design, so it
+isn't a scheduling candidate the same way ingestion is.
 
 ### Deployment
 
@@ -316,6 +317,27 @@ over client-side for paths like `/search` or `/item/group/42` that aren't real f
   `Tooltip formatter` prop typed too narrowly) — unrelated to this change, but it would have
   failed Render's build the moment the frontend build step was added. Fixed alongside this.
 
+### Ingestion schedule
+
+`.github/workflows/ingest.yml` runs `ingest.py` on a cron schedule (every 2 days) plus
+`workflow_dispatch` for manual runs. Two reasons: it's how price history actually
+accumulates over time (the whole basis for the "own price history" deal signal), and it
+keeps the Supabase free-tier project from auto-pausing after a week of inactivity.
+
+It installs from `requirements-ingest.txt`, not the full `requirements.txt` — ingestion
+itself only needs `requests`, `psycopg2-binary`, and `python-dotenv`; the rest of
+`requirements.txt` (`sentence-transformers`, `scikit-learn`, `pandas`, `fastapi`, ...) is for
+the API and the separate, manually-run matching pipeline, and installing it on every
+scheduled run would mean downloading `torch` for no reason every 2 days. `ingest.py` never
+imports `sentence-transformers` or `torch` — matching is a fully separate script, never
+invoked by ingestion.
+
+The workflow needs one repository secret: **`Settings → Secrets and variables → Actions →
+New repository secret`**, name `DATABASE_URL`, value the same Supabase connection string
+from your local `.env` (session pooler, port 5432). `db.py` already reads
+`os.environ["DATABASE_URL"]` — `load_dotenv()` no-ops when there's no `.env` file, which is
+exactly the case on the runner, so no code changes were needed for the connection itself.
+
 ---
 
 ## Limitations & future work
@@ -328,9 +350,9 @@ over client-side for paths like `/search` or `/item/group/42` that aren't real f
   re-running matching on the flyer-expanded data hasn't been through the manual y/n review the
   original 78-group ecom set got — see Product matching. Multi-product flyer lines
   (`"X or Y or Z"`) are a known source of false positives in it.
-- **Not yet scheduled.** Ingestion and product matching are still run by hand — a GitHub
-  Actions cron for `ingest.py` is the natural next step, not yet built. (The app itself is
-  deployed — see Live Demo above and [Deployment](#deployment).)
+- **Product matching is still manual.** Ingestion is scheduled (see
+  [Ingestion schedule](#ingestion-schedule)), but matching involves a human review step by
+  design, so it's run by hand, not on a cron.
 - **Sale-cycle prediction** is the natural extension, predicting *when* an item will next
   be discounted. Not implemented: it requires months of observed sale cycles to distinguish
   real periodicity from noise, and the dataset currently spans weeks. The pipeline
