@@ -6,7 +6,7 @@ Grocery flyers tell you what's on sale. They don't tell you whether the sale pri
 actually good. Grocer tracks live pricing across Canadian retailers, keeps a full price
 history, and tells you which store is cheapest for this item and if the price is actually a deal.
 
-![Screenshot](ADD_SCREENSHOT.png)
+![Screenshot](screenshot.png)
 
 ---
 
