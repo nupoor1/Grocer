@@ -12,12 +12,6 @@ SINGLE_RE = re.compile(
 
 
 def extract_quantity(name):
-    """Return (value, dimension) in a normalized base unit (grams or millilitres),
-    or None if no size found. Takes the multipack total if present ("4x200ml" -> 800ml),
-    otherwise the last plain quantity mentioned in the name.
-
-    Shared between the product-matching pipeline (match_candidates.py) and the live
-    API (main.py's price-per-unit "best value" ranking) so both use identical parsing."""
     multipack_matches = list(MULTIPACK_RE.finditer(name))
     if multipack_matches:
         count, value, unit = multipack_matches[-1].groups()
@@ -36,8 +30,6 @@ def extract_quantity(name):
 
 
 def quantity_compatible(q1, q2, tolerance=0.05):
-    """No detected size on either side -> caller should treat as unknown/compatible.
-    Both detected -> must be the same dimension and within tolerance of each other."""
     if q1 is None or q2 is None:
         return True
     value1, dim1 = q1

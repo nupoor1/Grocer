@@ -27,8 +27,6 @@ def fetch_search(term, postal_code):
 
 
 def parse_iso_date(value):
-    """Flyer validity is an ISO datetime ("2026-07-30T04:00:00+00:00"); the schema
-    only needs the date portion."""
     if not value:
         return None
     return datetime.fromisoformat(value).date()
@@ -99,17 +97,11 @@ def ingest_ecom_entry(cur, entry, term, postal_code):
 
 
 def ingest_flyer_entry(cur, entry, term, postal_code):
-    # items[] has no "sku" -- "id" (== flyer_item_id) is the closest unique
-    # identifier, but it's scoped to a single flyer run rather than a persistent
-    # product, so the same physical product gets a new item row each flyer cycle.
     merchant_id = entry.get("merchant_id")
     merchant_name = entry.get("merchant_name")
     name = entry.get("name")
     sku = entry.get("id")
     current_price = entry.get("current_price")
-    # Some flyer entries are loyalty-points or percentage-off promos with no dollar
-    # price at all (e.g. "SAVE 10%", "Get PC Optimum 10,000 pts") -- unusable for
-    # price comparison, so skip rather than store an unpriced row.
     if merchant_id is None or not name or sku is None or current_price is None:
         return False
     sku = str(sku)
@@ -173,10 +165,6 @@ def main():
     if failed_terms:
         print(f"\n{len(failed_terms)}/{len(BASKET)} terms failed to fetch: {', '.join(failed_terms)}", file=sys.stderr)
 
-    # A run that inserted zero rows accomplished nothing -- whether every request
-    # failed, or requests succeeded but returned nothing usable, that's a failure,
-    # not a quiet success. Individual failed terms alongside real data are only a
-    # warning (transient/per-term issues), not a whole-run failure.
     if total_ecom + total_flyer == 0:
         print("\nFAILED: 0 rows ingested across the entire basket.", file=sys.stderr)
         sys.exit(1)

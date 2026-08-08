@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchCategories, type Category } from "../api";
 
-// Capitalize for display only -- the underlying search_term stays lowercase,
-// since that's what the API/DB actually stores and matches on.
 function displayLabel(term: string) {
   return term.replace(/\b\w/g, (c) => c.toUpperCase());
 }

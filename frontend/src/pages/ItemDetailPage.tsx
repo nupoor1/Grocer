@@ -16,8 +16,6 @@ import DealSignals from "../components/DealSignals";
 
 const LINE_COLORS = ["#2563eb", "#dc2626", "#16a34a", "#d97706", "#7c3aed", "#0891b2"];
 
-// Reshape from one-row-per-observation to one-row-per-day, with each merchant as its
-// own column, since recharts wants "wide" data to draw one Line per merchant.
 function toChartRows(points: HistoryPoint[]) {
   const byDate = new Map<string, Record<string, number>>();
   for (const p of points) {

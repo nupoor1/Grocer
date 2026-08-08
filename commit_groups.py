@@ -12,7 +12,6 @@ def load_reviewed_groups():
         for row in csv.DictReader(f):
             if row["approved"].strip().lower() == "y":
                 groups[int(row["group_id"])].append(row)
-    # a group only means something if at least 2 items still survive review
     return {gid: rows for gid, rows in groups.items() if len(rows) >= 2}
 
 

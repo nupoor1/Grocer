@@ -14,20 +14,12 @@ function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-// The search grid tolerates loose substring matches (e.g. "milk" matching "Buttermilk")
-// since it's just one extra card among many -- but this banner *asserts* a single winner,
-// so a substring false-positive here (chicken breast as "best value milk") is much more
-// damaging to trust. Require a whole-word match on the query before a result is eligible.
 function matchesWholeWord(name: string, query: string) {
   const escaped = escapeRegExp(query.trim());
   if (!escaped) return true;
   return new RegExp(`\\b${escaped}\\b`, "i").test(name);
 }
 
-// Finds the single cheapest $/unit across every offer in every eligible result, one winner
-// per unit dimension (100g and 100mL are never compared to each other -- that's meaningless).
-// This deliberately spans different products/brands/sizes, unlike the per-product
-// "Compare stores" view, so it's labeled accordingly rather than implied to be apples-to-apples.
 function findBestValues(results: ProductResult[], query: string): BestValue[] {
   const best = new Map<string, BestValue>();
 

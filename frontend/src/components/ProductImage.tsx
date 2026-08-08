@@ -5,8 +5,6 @@ interface Props {
   alt: string;
 }
 
-// Flipp's image URLs occasionally 404 or the item may never have had one --
-// fall back to a simple placeholder rather than showing a broken-image icon.
 export default function ProductImage({ src, alt }: Props) {
   const [failed, setFailed] = useState(false);
 

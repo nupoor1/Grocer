@@ -11,9 +11,9 @@ from quantity import extract_quantity, quantity_compatible
 
 CANDIDATES_CSV = "candidate_groups.csv"
 
-FUZZY_PREFILTER_THRESHOLD = 40   # lenient: only rules out obvious non-matches
-COSINE_MATCH_THRESHOLD = 0.75    # the real decision boundary — tune this
-QUANTITY_TOLERANCE = 0.05        # 623g vs 624g should still count as "the same size"
+FUZZY_PREFILTER_THRESHOLD = 40
+COSINE_MATCH_THRESHOLD = 0.75
+QUANTITY_TOLERANCE = 0.05
 
 MODEL_NAME = "all-MiniLM-L6-v2"
 
@@ -43,14 +43,8 @@ def cluster_block(items, model):
     n = len(items)
     names = [it["name"] for it in items]
     quantities = [extract_quantity(name) for name in names]
-    # rapidfuzz.fuzz.token_sort_ratio is case-sensitive (identical strings differing
-    # only in case score ~42, not 100) -- flyer names are often ALL CAPS while ecom
-    # names are mixed case, so this stage needs a case-folded view to compare fairly.
-    # The embedding stage doesn't need this: all-MiniLM-L6-v2 is an uncased model
-    # (cosine similarity 1.0 for the same text in different cases).
     names_for_fuzzy = [name.lower() for name in names]
 
-    # Stage 1: rapidfuzz text pre-filter + quantity gate -> boolean candidate mask
     candidate = np.zeros((n, n), dtype=bool)
     for i in range(n):
         for j in range(i + 1, n):
@@ -58,12 +52,9 @@ def cluster_block(items, model):
             if score >= FUZZY_PREFILTER_THRESHOLD and quantity_compatible(quantities[i], quantities[j], QUANTITY_TOLERANCE):
                 candidate[i, j] = candidate[j, i] = True
 
-    # Stage 2: embeddings + cosine similarity, only meaningful where stage 1 passed
     embeddings = model.encode(names, normalize_embeddings=True)
     cosine_sim = embeddings @ embeddings.T
 
-    # Build a distance matrix: 1 - similarity where both stages agree it's a match,
-    # otherwise "infinitely far apart" (max distance) so they never cluster together.
     distance = np.ones((n, n))
     np.fill_diagonal(distance, 0.0)
     for i in range(n):

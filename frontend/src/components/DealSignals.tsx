@@ -2,8 +2,6 @@ interface Props {
   discountPct: number | null;
   vsOwnHistoryPct: number | null;
   vsStatcanPct: number | null;
-  /** Compact mode drops empty signals and shortens labels, for tight spaces like
-   * grid cards -- but every visible pill still says what it's measuring. */
   compact?: boolean;
 }
 
@@ -14,8 +12,6 @@ interface SignalProps {
   compact?: boolean;
 }
 
-// Every signal uses the same convention: positive = currently cheaper (good for the
-// buyer), so a single indicator function covers discount/history/regional signals alike.
 function Signal({ label, compactLabel, value, compact }: SignalProps) {
   const text = compact ? compactLabel : label;
 
@@ -28,7 +24,6 @@ function Signal({ label, compactLabel, value, compact }: SignalProps) {
     );
   }
 
-  // value === 0 means "exactly at baseline" -- neutral, not a price increase
   if (value === 0) {
     if (compact) return null;
     return (

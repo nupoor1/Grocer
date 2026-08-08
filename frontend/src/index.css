@@ -31,8 +31,6 @@ body {
   min-height: 100vh;
 }
 
-/* top bar -- logo + primary nav + a persistent search field, all in one place.
-   No bottom nav: this is meant to read as a web app, not a mobile app shell. */
 .top-bar {
   position: sticky;
   top: 0;
@@ -78,9 +76,6 @@ body {
   color: var(--primary-dark);
 }
 
-/* header search field wraps to its own full-width row on narrow screens,
-   grows to fill the remaining bar width (up to a cap) once there's room
-   next to the logo/nav, instead of leaving the bar looking empty */
 .top-search-form {
   flex: 1 1 100%;
   display: flex;
@@ -145,7 +140,6 @@ h2 {
   color: var(--sale);
 }
 
-/* hero */
 .hero {
   padding: 0.25rem 0 1rem;
 }
@@ -156,7 +150,6 @@ h2 {
   font-size: 0.9rem;
 }
 
-/* category chips */
 .chip-row {
   display: flex;
   gap: 0.5rem;
@@ -190,8 +183,6 @@ h2 {
   color: var(--primary-dark);
 }
 
-/* best-value-per-unit banner -- spans different products/sizes, so it's visually
-   distinct (dark card) from the per-product store comparisons below it */
 .best-value-section {
   margin-bottom: 1.25rem;
 }
@@ -244,7 +235,6 @@ h2 {
   margin: 0.5rem 0 0;
 }
 
-/* product grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -357,7 +347,6 @@ h2 {
   margin-left: 0.3rem;
 }
 
-/* deal signal badges */
 .signals-row {
   display: flex;
   flex-wrap: wrap;
@@ -395,7 +384,6 @@ h2 {
   color: #9ca3af;
 }
 
-/* item detail */
 .detail-header {
   text-align: center;
   padding: 0.25rem 0 1rem;

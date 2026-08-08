@@ -81,11 +81,6 @@ class HistoryPoint(BaseModel):
     source: str
 
 
-# Shared building blocks for every query below:
-#   latest          -- each item's most recent price observation
-#   median_30d       -- each item's trailing-30-day median price (window-function trick,
-#                        since Postgres won't allow PERCENTILE_CONT as a window function)
-#   statcan_baseline -- each StatCan category's most recent Ontario average
 SIGNALS_CTE = """
 WITH latest AS (
     SELECT DISTINCT ON (item_id)
@@ -148,14 +143,11 @@ LEFT JOIN statcan_baseline sb ON sb.product_category = pgsm.statcan_category
 LEFT JOIN group_counts gc ON gc.group_id = igm.group_id
 """
 
-# Items whose own text matches the search query.
 MATCHING_ITEMS_QUERY = (
     SIGNALS_CTE
     + f"SELECT {SIGNAL_COLUMNS} FROM items i {SIGNAL_JOINS} WHERE i.name ILIKE %s"
 )
 
-# Every item belonging to a given set of groups, regardless of whether its own text
-# happened to match the search query -- so a matched group's offers are never partial.
 GROUP_MEMBERS_QUERY = (
     SIGNALS_CTE
     + f"""
@@ -167,15 +159,10 @@ WHERE igm_filter.group_id = ANY(%s)
 """
 )
 
-# Every item, unfiltered -- backs the "best deals right now" home screen.
 ALL_ITEMS_QUERY = SIGNALS_CTE + f"SELECT {SIGNAL_COLUMNS} FROM items i {SIGNAL_JOINS}"
 
 
 def compute_signals(current_price, original_price, median_30d, statcan_avg):
-    """Three independent, separately-meaningful deal signals, plus a composite
-    for sorting only. Each signal is None when its underlying data isn't available;
-    the composite averages whichever signals ARE available rather than penalizing
-    an item just because e.g. it has no price history yet."""
     is_deal = (
         current_price is not None
         and original_price is not None
@@ -204,10 +191,6 @@ def compute_signals(current_price, original_price, median_30d, statcan_avg):
 
 
 def compute_price_per_unit(name, current_price):
-    """Normalized $/100g or $/100mL, for comparing value across different products and
-    package sizes (e.g. is a 4L jug or a 2L carton the better deal). Reuses the same
-    quantity parser the matching pipeline uses. None when the name has no parseable size
-    -- not every listing's title includes one."""
     if current_price is None:
         return None, None
     quantity = extract_quantity(name)
@@ -221,9 +204,6 @@ def compute_price_per_unit(name, current_price):
 
 
 def rows_to_products(rows):
-    """Bucket raw signal rows by group_id when present, otherwise each ungrouped
-    item is its own single-offer bucket. Shared by every endpoint that returns
-    ProductResult shapes, so a product's signals are computed identically everywhere."""
     buckets = {}
     for (item_id, name, merchant_name, current_price, original_price, median_30d, statcan_avg,
          group_id, canonical_name, image_url, store_count,
@@ -282,7 +262,6 @@ def search(q: str = Query(..., min_length=1)):
             rows += cur.fetchall()
     conn.close()
 
-    # dedupe: an item can appear both as a direct text match and as a group member
     rows = list({row[0]: row for row in rows}.values())
 
     results = rows_to_products(rows)
@@ -295,8 +274,6 @@ PRODUCT_BY_ITEM_QUERY = SIGNALS_CTE + f"SELECT {SIGNAL_COLUMNS} FROM items i {SI
 
 @app.get("/api/product", response_model=ProductResult)
 def product(group_id: Optional[int] = None, item_id: Optional[int] = None):
-    """Full signal data (not just price history) for one product -- backs the item
-    detail page's per-store comparison, since /history only has raw prices."""
     if (group_id is None) == (item_id is None):
         raise HTTPException(400, "Provide exactly one of group_id or item_id")
 
@@ -355,7 +332,6 @@ def best_deals(limit: int = Query(20, ge=1, le=100)):
             )
         )
 
-    # items with no computable signal at all sort last, not first
     deals.sort(key=lambda d: d.composite_score if d.composite_score is not None else float("-inf"), reverse=True)
     return deals[:limit]
 
@@ -418,9 +394,6 @@ def categories():
     return [Category(search_term=term, item_count=count) for term, count in rows]
 
 
-# Serves the built React app so one Render service covers both API and frontend.
-# All API routes are under /api/*, registered above this point -- Starlette matches
-# routes in registration order, so those always win before anything below is tried.
 FRONTEND_DIST = Path(__file__).parent / "frontend" / "dist"
 
 if FRONTEND_DIST.exists():
@@ -428,9 +401,6 @@ if FRONTEND_DIST.exists():
 
     @app.get("/{full_path:path}")
     def spa(full_path: str):
-        """Serves a real file (favicon.svg, etc.) if one exists at that path, otherwise
-        falls back to index.html so react-router's client-side routing (e.g. /search,
-        /item/group/42) can take over -- those paths don't correspond to real files."""
         candidate = FRONTEND_DIST / full_path
         if full_path and candidate.is_file():
             return FileResponse(candidate)
