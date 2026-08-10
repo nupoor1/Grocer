@@ -1,6 +1,6 @@
 # Grocer: Canadian Grocery Price Intelligence
 
-**[Live Demo](https://grocer-vqme.onrender.com)**
+**[Live Demo](https://grocer-vqme.onrender.com)** (hosted on Render's free tier; the first load may take ~30 seconds while the server wakes up)
 
 Grocery flyers tell you what's on sale, but don't tell you whether the sale price is
 actually good. Grocer tracks live pricing across Canadian retailers, keeps a full price
