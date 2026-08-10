@@ -29,7 +29,7 @@ stored as `source='flyer'`). The 2 arrays cover almost entirely different retail
 `ecom_items[]` surfaces Walmart and national drugstore/office/hardware retailers (Shoppers
 Drug Mart, London Drugs, Well.ca, Healthy Planet, RONA, Staples, Bureau en gros, Best Buy). `items[]` includes Metro, Sobeys,
 Food Basics, Real Canadian Superstore, Loblaws, No Frills, FreshCo, Fortinos, Longos, Farm
-Boy, Your Independent Grocer, and a long tail of regional grocers. Adding flyer ingestion
+Boy, Your Independent Grocer, and a long list of regional grocers. Adding flyer ingestion
 took total merchant coverage from 9 to 59. See [Flyer pricing](#flyer-pricing) below.
 
 **Statistics Canada, Table 18-10-0245-01** - *Monthly average retail prices for selected
@@ -72,16 +72,16 @@ defeat bot protection at all.
 | Deal text | - | `sale_story`, e.g. `"SAVE 29%"`, `"Earn PC Optimum 1,000 pts"` |
 | Validity window | - | `valid_from` / `valid_to` (ISO datetime, when the flyer price applies) |
 
-**No persistent product ID for flyer items.** `ingest.py` uses `id` as the sku surrogate,
-which means the same physical product gets a *new* item row every time its flyer cycles
+**No persistent product ID for flyer items.** `ingest.py` uses `id` as the sku replacement,
+which means the same physical product gets a new item row every time its flyer cycles
 (typically weekly) rather than continuing an existing one. Flyer-sourced items don't
 accumulate the multi-week price history that ecom items do. The "own price history" deal
 signal is much weaker for them. This is a property of the data Flipp exposes, not a bug.
 
 **"Current price" means something different per source.** An ecom observation is current if
-it's the most recent one on record. Prices there update in place, so recency is the right
-test. A flyer observation is only current if today falls inside `[valid_from, valid_to]`;
-recency alone isn't enough, since a stale flyer row would otherwise keep surfacing as "the
+it's the most recent one on record. Prices update in place, so recency is the correct
+test. A flyer observation is only current if today falls inside `[valid_from, valid_to]`.
+Recency alone isn't enough, since a stale flyer row would otherwise keep surfacing as "the
 price" indefinitely if `ingest.py` weren't re-run after it expired. `main.py`'s `latest` CTE
 went from this:
 
@@ -108,17 +108,17 @@ WITH latest AS (
 ```
 
 ecom rows are untouched; flyer rows outside their validity window are excluded before the
-`DISTINCT ON` picks the most recent survivor. If an item's only observations are expired
-flyer rows, it now correctly drops out of `/search`, `/deals`, and `/product` entirely rather
+`DISTINCT ON` picks the most recent one. If an item's only observations are expired
+flyer rows, it correctly drops out of `/search`, `/deals`, and `/product` entirely rather
 than showing a stale price. This was verified by inserting a same-item observation with an expired
 window and confirming the still-valid row wins regardless of which was inserted more
-recently, and that an item with *no* currently-valid observation returns zero rows. The
+recently, and that an item with no currently-valid observation returns zero rows. The
 `/history` endpoint is unaffected on purpose. It's meant to show the full time series,
 expired flyers included, so it's not "latest price" logic. `source` and `sale_story` are now
 exposed on every offer/deal/history point, so the frontend can label a flyer deal
 distinctly from an online price and show its validity dates.
 
-One more thing the flyer data surfaces that ecom never did is that some flyer entries are
+Something else the flyer data surfaces that ecom didn't is that some flyer entries are
 loyalty-points or percentage-off promos with no dollar price at all (`"SAVE 10%"`, `"Get PC
 Optimum 10,000 pts"`, both `current_price` and `original_price` null). Those aren't usable
 for price comparison so `ingest.py` skips them at ingestion rather than storing an
@@ -135,7 +135,7 @@ London Drugs → "Villaggio Bread - Italian Style in White Size 510g"
 Walmart      → "Villaggio® Artesano White Sliced Bread"
 ```
 
-Without reconciling these, cross-store comparison is impossible since there is no shared key
+Without accounting for these, cross-store comparison is impossible since there is no shared key
 to join on.
 
 **Two-stage approach:**
@@ -145,7 +145,7 @@ to join on.
    the expensive stage runs. Comparing every item against every other is O(n²); embedding all
    of those pairs would be wasteful, so this stage cuts the candidate set first.
 2. **Sentence-transformer embeddings** (`all-MiniLM-L6-v2`) + cosine similarity, clusters
-   the survivors semantically.
+   the remaining semantically.
 
 **Why embeddings rather than string matching alone.** Two listings for the same product can
 share almost no tokens (different brand-name conventions, different retailer templates),
@@ -155,9 +155,9 @@ misses; the explicit quantity gate in stage 1 backstops the size-confusion case 
 since embeddings alone don't reliably encode magnitude.
 
 **Flyer names broke the rapidfuzz stage, not the embedding stage or the quantity parser.**
-Flyer names are frequently ALL CAPS (`"NEILSON TRUTASTE MICROFILTERED MILK, 4 L"`) where ecom
+Flyer names are frequently all caps (e.g. `"NEILSON TRUTASTE MICROFILTERED MILK, 4 L"`) where ecom
 names are mixed case. `rapidfuzz.fuzz.token_sort_ratio` is case-sensitive. The identical
-string in two different cases scores ~42, not 100, so cross-source pairs for the same
+string in two different cases scores ~42, so cross-source pairs for the same
 product were silently failing the stage-1 prefilter (threshold 40) before ever reaching
 embeddings. The quantity parser was unaffected (its regex is already case-insensitive; sizes
 and units are case-invariant by nature). Fix was to lowercase names going into the rapidfuzz
@@ -170,11 +170,11 @@ Those would have been silently dropped before.
 **Where it fails.** I manually reviewed all 78 cross-merchant candidate groups from the
 ecom-only pipeline (204 candidate item-pairings, preserved at
 `candidate_groups.reviewed.pre-flyer.csv`): 80% of individual item-matches were correct on
-the first pass, and 74% of groups (58/78) needed no correction at all. Size confusion was
-*not* a meaningful failure mode. The quantity gate catches that before it reaches the
+the first pass, and 74% of groups (58/78) needed no correction at all. Size confusion was not 
+a meaningful failure mode. The quantity gate catches it before it reaches the
 embedding stage. The real errors clustered into three patterns:
 
-- **Flavor variants folded into a base product**. Ezekiel 4:9 bread's Cinnamon Raisin, Flax,
+- **Flavour variants folded into a base product**. Ezekiel 4:9 bread's Cinnamon Raisin, Flax,
   and Sesame lines all got merged into the same group as the plain Whole Grain loaf.
 - **Formulation variants of the same brand/size merged**. Bob's Red Mill "All Purpose Baking
   Flour" and "1 to 1 Baking Flour" (same weight, same brand) clustered together despite being
@@ -184,10 +184,9 @@ embedding stage. The real errors clustered into three patterns:
   landed in the same cluster.
 
 These were corrected manually (`fix_groups.py`) rather than by retuning the similarity
-threshold, since tightening it enough to split flavor variants started splitting genuine
+threshold, since tightening it enough to split flavour variants started splitting genuine
 duplicates too. The threshold is a precision/recall dial. Loosen it and variants merge,
-tighten it and duplicates fracture. 0.75 cosine similarity was the best tradeoff found by
-eye, not by a held-out validation set.
+tighten it and duplicates fracture. 0.75 cosine similarity was the best tradeoff found manually.
 
 ---
 
@@ -210,11 +209,11 @@ is computed for sort ordering only, with the components still exposed in the API
 ## Design decisions
 
 **Append-only price observations.** The obvious schema puts a `current_price` column on the
-items table and updates it each run. That's simpler, but the moment
-you overwrite, price history is gone, and history is what makes "is this a good deal"
+items table and updates it each run. It's simpler, but the moment
+it's overwritten, price history is gone, and history is what makes the "is this a good deal?"
 answerable. Every ingestion run inserts timestamped rows instead of mutating existing ones.
 
-*Tradeoff:* the table grows continuously, and "what is the current price" becomes a window
+*Tradeoff:* the table grows continuously, and "what is the current price?" becomes a window
 function rather than a plain `SELECT`. Query complexity was accepted in exchange for
 retaining history.
 
