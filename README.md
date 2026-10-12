@@ -30,7 +30,7 @@ stored as `source='flyer'`). The 2 arrays cover almost entirely different retail
 Drug Mart, London Drugs, Well.ca, Healthy Planet, RONA, Staples, Bureau en gros, Best Buy). `items[]` includes Metro, Sobeys,
 Food Basics, Real Canadian Superstore, Loblaws, No Frills, FreshCo, Fortinos, Longos, Farm
 Boy, Your Independent Grocer, and a long list of regional grocers. Adding flyer ingestion
-took total merchant coverage from 9 to 59. See [Flyer pricing](#flyer-pricing) below.
+took total merchant coverage from 9 to 81. See [Flyer pricing](#flyer-pricing) below.
 
 **Statistics Canada, Table 18-10-0245-01** - *Monthly average retail prices for selected
 products.* Built from retailer point-of-sale transaction data, published monthly by
